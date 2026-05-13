@@ -395,5 +395,34 @@
     </footer>
 
     <script src="scripts/app.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var shows  = document.querySelector('.shows-section');
+        var photos = document.querySelectorAll('main .photo-section');
+        var photo2 = photos[1];
+        if (!shows || !photo2) return;
+
+        // Insert a spacer so the page keeps its scroll length after photo2 leaves the flow
+        var spacer = document.createElement('div');
+        spacer.style.height = photo2.offsetHeight + 'px';
+        photo2.parentNode.insertBefore(spacer, photo2.nextSibling);
+        window.addEventListener('resize', function () {
+            spacer.style.height = photo2.offsetHeight + 'px';
+        });
+
+        // Park photo2 fixed at the same spot — it never moves
+        photo2.style.position   = 'fixed';
+        photo2.style.top        = '86px';
+        photo2.style.left       = '0';
+        photo2.style.right      = '0';
+        photo2.style.visibility = 'hidden';
+
+        // Reveal once shows-section has fully scrolled past the header
+        new IntersectionObserver(function (entries) {
+            var bottom = entries[0].boundingClientRect.bottom;
+            photo2.style.visibility = bottom <= 86 ? 'visible' : 'hidden';
+        }, { threshold: 0 }).observe(shows);
+    });
+    </script>
 </body>
 </html>
