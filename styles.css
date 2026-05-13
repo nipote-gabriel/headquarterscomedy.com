@@ -786,7 +786,6 @@ iframe[data-test-id="beehiiv-embed"] {
 .platform-links {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
     gap: var(--spacing-3);
 }
 

@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://subscribe-forms.beehiiv.com">
+    <link rel="preconnect" href="https://subscribe-forms.beehiiv.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -103,7 +105,7 @@
                             loop
                             playsinline
                             style="object-fit: cover;">
-                            <source src="video-intro.mp4" type="video/mp4">
+                            <source src="video assets/hero video.mov" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                         <button id="mute-toggle" class="mute-toggle-btn" aria-label="Toggle Mute">
@@ -150,9 +152,7 @@
                             Join our mailing list for live show updates and our weekly newsletter, In Competence We Trust.
                         </p>
                         <div class="email-signup">
-                            <div class="newsletter-embed-container">
-                                <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="706c65d7-5d79-4d82-8b9e-1068d15b6c2e"></script>
-                            </div>
+                            <div class="newsletter-embed-container" id="beehiiv-embed-target" data-beehiiv-form="706c65d7-5d79-4d82-8b9e-1068d15b6c2e"></div>
                         </div>
                     </div>
 

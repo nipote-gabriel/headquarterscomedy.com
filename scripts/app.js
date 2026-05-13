@@ -29,6 +29,7 @@ class HQCSite {
             this.setupInfohubScrolling();
             this.setupSponsorCarousel();
             this.setupVideoMuteToggle();
+            this.setupBeehiivEmbed();
 
         } catch (error) {
             console.error('Error initializing site:', error);
@@ -224,6 +225,36 @@ class HQCSite {
             container.style.display = 'none';
         } else {
             container.innerHTML = this.config.subscribe_embed;
+        }
+    }
+
+    setupBeehiivEmbed() {
+        const target = document.getElementById('beehiiv-embed-target');
+        if (!target) return;
+
+        const formId = target.dataset.beehiivForm;
+        if (!formId) return;
+
+        const load = () => {
+            if (target.dataset.loaded) return;
+            target.dataset.loaded = 'true';
+            const script = document.createElement('script');
+            script.src = 'https://subscribe-forms.beehiiv.com/v3/loader.js';
+            script.async = true;
+            script.setAttribute('data-beehiiv-form', formId);
+            target.appendChild(script);
+        };
+
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    load();
+                    observer.disconnect();
+                }
+            }, { rootMargin: '200px' });
+            observer.observe(target);
+        } else {
+            load();
         }
     }
 

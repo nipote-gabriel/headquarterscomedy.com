@@ -22,169 +22,239 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .shows-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: var(--spacing-8);
-            margin-bottom: var(--spacing-16);
-        }
-
-        .show-card {
-            background: var(--background-secondary);
-            border-radius: var(--border-radius-lg);
-            border: 1px solid var(--border-color);
-            overflow: hidden;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .show-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .show-card-header {
-            background: linear-gradient(135deg, var(--accent-color), #1e5275);
-            padding: var(--spacing-8) var(--spacing-6);
+        /* Hero */
+        .shows-hero {
+            padding: var(--spacing-24) 0 var(--spacing-16);
             text-align: center;
         }
 
-        .show-date {
+        .shows-hero-inner {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .shows-eyebrow {
             font-size: var(--font-size-sm);
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            color: rgba(255,255,255,0.7);
-            margin-bottom: var(--spacing-2);
-        }
-
-        .show-title {
-            font-size: var(--font-size-2xl);
-            font-weight: 700;
-            color: #fff;
-            margin: 0;
-        }
-
-        .show-card-body {
-            padding: var(--spacing-6);
-        }
-
-        .show-meta {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-2);
-            margin-bottom: var(--spacing-6);
-        }
-
-        .show-meta-item {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-3);
-            color: var(--text-secondary);
-            font-size: var(--font-size-sm);
-        }
-
-        .show-meta-item svg {
-            width: 16px;
-            height: 16px;
-            flex-shrink: 0;
+            letter-spacing: 3px;
             color: var(--accent-color);
+            margin-bottom: var(--spacing-4);
         }
 
-        .show-description {
+        .shows-hero h1 {
+            font-size: var(--font-size-5xl);
+            font-weight: 700;
+            margin-bottom: var(--spacing-6);
+            color: var(--secondary-color);
+        }
+
+        .shows-hero p {
+            font-size: var(--font-size-xl);
             color: var(--text-secondary);
             line-height: 1.7;
-            margin-bottom: var(--spacing-6);
         }
 
-        .show-lineup {
-            margin-bottom: var(--spacing-6);
+        /* Full-bleed photo sections */
+        .photo-bg-section {
+            position: relative;
+            height: 70vh;
+            min-height: 480px;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: flex-end;
         }
 
-        .show-lineup h4 {
+        .photo-bg-section::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.1) 100%);
+        }
+
+        .photo-bg-caption {
+            position: relative;
+            z-index: 1;
+            padding: var(--spacing-12) 0;
+            color: #fff;
+        }
+
+        .photo-bg-caption .eyebrow {
             font-size: var(--font-size-sm);
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--accent-color);
+            letter-spacing: 3px;
+            color: rgba(255,255,255,0.55);
             margin-bottom: var(--spacing-3);
         }
 
-        .lineup-list {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--spacing-2);
+        .photo-bg-caption h2 {
+            font-size: var(--font-size-4xl);
+            font-weight: 700;
+            color: #fff;
+            margin: 0;
+            line-height: 1.1;
         }
 
-        .lineup-list li {
-            background: var(--background-color);
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius);
-            padding: var(--spacing-1) var(--spacing-3);
+        /* Shows listing section */
+        .shows-section {
+            padding: var(--spacing-16) 0;
+        }
+
+        .shows-section-title {
             font-size: var(--font-size-sm);
-            color: var(--text-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent-color);
+            margin-bottom: var(--spacing-8);
         }
 
-        .tickets-btn {
-            display: block;
-            width: 100%;
-            padding: var(--spacing-4);
+        /* Show cards */
+        .show-card {
+            display: grid;
+            grid-template-columns: 80px 1fr auto;
+            gap: 28px;
+            align-items: center;
+            background: var(--background-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 36px;
+            margin-bottom: 20px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .show-card:hover {
+            border-color: var(--accent-color);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .show-date-block {
+            text-align: center;
+        }
+
+        .show-date-month {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+            margin-bottom: 4px;
+        }
+
+        .show-date-day {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .show-date-year {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .show-info h3 {
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+            margin-bottom: var(--spacing-2);
+            color: var(--secondary-color);
+        }
+
+        .show-venue {
+            color: var(--text-secondary);
+            font-size: var(--font-size-sm);
+            margin-bottom: var(--spacing-3);
+        }
+
+        .show-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .show-tag {
+            background: rgba(43, 107, 153, 0.12);
+            border: 1px solid rgba(43, 107, 153, 0.25);
+            color: var(--accent-color);
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 3px 10px;
+            border-radius: 4px;
+        }
+
+        .show-action .tickets-btn {
+            display: inline-block;
+            padding: var(--spacing-3) var(--spacing-6);
             background: var(--accent-color);
             color: #fff;
-            text-align: center;
             font-weight: 700;
-            font-size: var(--font-size-base);
+            font-size: var(--font-size-sm);
             border-radius: var(--border-radius);
             text-decoration: none;
+            white-space: nowrap;
             transition: all 0.2s ease;
         }
 
-        .tickets-btn:hover {
+        .show-action .tickets-btn:hover {
             background: #235780;
             color: #fff;
             transform: translateY(-2px);
         }
 
-        .tickets-btn.sold-out {
-            background: var(--border-color);
-            color: var(--text-secondary);
-            cursor: not-allowed;
-        }
-
-        .tickets-btn.sold-out:hover {
-            transform: none;
-            background: var(--border-color);
-        }
-
-        .no-shows-msg {
+        /* Newsletter notify section */
+        .notify-section {
+            padding: var(--spacing-20) 0;
             text-align: center;
-            padding: var(--spacing-20) var(--spacing-8);
-            color: var(--text-secondary);
+            background: linear-gradient(135deg, var(--background-secondary) 0%, rgba(43,107,153,0.08) 100%);
+            border-top: 1px solid var(--border-color);
         }
 
-        .no-shows-msg h3 {
-            color: var(--secondary-color);
+        .notify-inner {
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        .notify-inner h2 {
+            font-size: var(--font-size-3xl);
             margin-bottom: var(--spacing-4);
         }
 
-        .newsletter-cta {
-            background: linear-gradient(135deg, var(--background-secondary) 0%, rgba(43, 107, 153, 0.1) 100%);
-            border: 2px solid var(--accent-color);
-            border-radius: var(--border-radius-lg);
-            padding: var(--spacing-12);
-            text-align: center;
-        }
-
-        .newsletter-cta h2 {
-            margin-bottom: var(--spacing-4);
-        }
-
-        .newsletter-cta p {
+        .notify-inner p {
             color: var(--text-secondary);
-            margin-bottom: var(--spacing-6);
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: var(--font-size-lg);
+            line-height: 1.7;
+            margin-bottom: var(--spacing-8);
+        }
+
+        @media (max-width: 768px) {
+            .show-card {
+                grid-template-columns: 70px 1fr;
+                gap: 16px;
+                padding: 24px;
+            }
+
+            .show-action {
+                grid-column: 1 / -1;
+            }
+
+            .photo-bg-section {
+                background-attachment: scroll;
+                height: 50vh;
+            }
+
+            .shows-hero h1 {
+                font-size: var(--font-size-3xl);
+            }
+
+            .photo-bg-caption h2 {
+                font-size: var(--font-size-2xl);
+            }
         }
     </style>
 </head>
@@ -231,58 +301,78 @@
     </div>
 
     <main>
-        <!-- Page Header -->
-        <section class="page-header">
+
+        <!-- Hero -->
+        <section class="shows-hero">
             <div class="container">
-                <h1>Live Shows</h1>
-                <p>Come see it in person. That's the whole point.</p>
+                <div class="shows-hero-inner">
+                    <p class="shows-eyebrow">Headquarters Comedy Presents</p>
+                    <h1>Live Shows</h1>
+                    <p>Stand-up comedy and live events in New York City. Come see it in person — that's the whole point.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photo Background 1 -->
+        <section class="photo-bg-section" style="background-image: url('graphic assets/Live Shows Photos/live show.jpg');">
+            <div class="container">
+                <div class="photo-bg-caption">
+                    <p class="eyebrow">The HQ Show</p>
+                    <h2>Live comedy in New York City.</h2>
+                </div>
             </div>
         </section>
 
         <!-- Upcoming Shows -->
-        <section style="padding: var(--spacing-16) 0;">
+        <section class="shows-section">
             <div class="container">
-                <div class="section-header">
-                    <h2>Upcoming Shows</h2>
-                </div>
+                <p class="shows-section-title">Upcoming Shows</p>
 
-                <!-- Add shows here as they're announced. Example card below. -->
-                <div class="shows-grid" id="shows-grid">
-
-                    <!-- Example show card — duplicate and fill in for each show -->
-                    <div class="show-card">
-                        <div class="show-card-header">
-                            <div class="show-date">Coming Soon</div>
-                            <h2 class="show-title">New Show TBA</h2>
-                        </div>
-                        <div class="show-card-body">
-                            <div class="show-meta">
-                                <div class="show-meta-item">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
-                                    Date TBA
-                                </div>
-                                <div class="show-meta-item">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                                    New York City
-                                </div>
-                            </div>
-                            <p class="show-description">
-                                Details coming soon. Subscribe to the newsletter to be the first to know.
-                            </p>
-                            <a href="https://headquarterscomedy.beehiiv.com/" target="_blank" class="tickets-btn">Get Notified</a>
+                <!-- Duplicate this card for each new show -->
+                <div class="show-card">
+                    <div class="show-date-block">
+                        <div class="show-date-month">TBD</div>
+                        <div class="show-date-day">—</div>
+                        <div class="show-date-year">2025</div>
+                    </div>
+                    <div class="show-info">
+                        <h3>The HQ Show — NYC</h3>
+                        <p class="show-venue"><strong>New York City</strong> &middot; Venue TBA</p>
+                        <div class="show-tags">
+                            <span class="show-tag">Live Comedy</span>
+                            <span class="show-tag">Stand-Up</span>
+                            <span class="show-tag">New York</span>
                         </div>
                     </div>
-
+                    <div class="show-action">
+                        <a href="https://headquarterscomedy.beehiiv.com/" target="_blank" class="tickets-btn">Get Notified</a>
+                    </div>
                 </div>
 
-                <!-- Newsletter signup CTA -->
-                <div class="newsletter-cta">
-                    <h2>Never Miss a Show</h2>
-                    <p>Subscribe to the newsletter and we'll tell you about every show before tickets sell out.</p>
+            </div>
+        </section>
+
+        <!-- Photo Background 2 -->
+        <section class="photo-bg-section" style="background-image: url('graphic assets/Live Shows Photos/live show 2.jpg');">
+            <div class="container">
+                <div class="photo-bg-caption">
+                    <p class="eyebrow">Never Miss a Show</p>
+                    <h2>Subscribe and be the first to know.</h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter CTA -->
+        <section class="notify-section">
+            <div class="container">
+                <div class="notify-inner">
+                    <h2>Stay in the Loop</h2>
+                    <p>Subscribe to the newsletter and you'll hear about every show before tickets sell out.</p>
                     <a href="https://headquarterscomedy.beehiiv.com/" target="_blank" class="btn btn-primary">Subscribe to the Newsletter</a>
                 </div>
             </div>
         </section>
+
     </main>
 
     <!-- Footer -->
@@ -293,7 +383,7 @@
                     <h3>Headquarters Comedy</h3>
                     <p>Comedy, chaos, and the occasional bad idea.</p>
                 </div>
-                                <div class="footer-links">
+                <div class="footer-links">
                     <div class="link-group">
                         <h4>Content</h4>
                         <ul>
@@ -317,7 +407,6 @@
                             <li><a href="https://gabenipote.com" target="_blank">gabenipote.com</a></li>
                         </ul>
                     </div>
-                </div>
                 </div>
             </div>
             <div class="footer-bottom">
