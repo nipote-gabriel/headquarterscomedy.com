@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Brands - Headquarters Comedy</title>
+    <meta name="description" content="Headquarters Comedy produces live comedy shows and events for brands and companies.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://headquarterscomedy.com/brands">
+    <meta property="og:title" content="For Brands - Headquarters Comedy">
+    <meta property="og:description" content="Live comedy shows and events for brands and companies.">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://headquarterscomedy.com/brands">
+    <meta property="twitter:title" content="For Brands - Headquarters Comedy">
+    <meta property="twitter:description" content="Live comedy shows and events for brands and companies.">
+
+    <link rel="icon" type="image/png" href="graphic assets/Headquarters Comedy/Headquarters Comedy.Icon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-8);
+            margin-bottom: var(--spacing-16);
+        }
+
+        .service-card {
+            background: var(--background-secondary);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--border-color);
+            padding: var(--spacing-8);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-color);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-4);
+        }
+
+        .service-card h3 {
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--spacing-3);
+            color: var(--secondary-color);
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--background-secondary) 0%, rgba(43, 107, 153, 0.1) 100%);
+            border: 2px solid var(--accent-color);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-16);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: var(--font-size-3xl);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .cta-section p {
+            color: var(--text-secondary);
+            font-size: var(--font-size-lg);
+            max-width: 600px;
+            margin: 0 auto var(--spacing-8) auto;
+            line-height: 1.7;
+        }
+
+        .email-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-3);
+            padding: var(--spacing-4) var(--spacing-8);
+            background: var(--accent-color);
+            color: #fff;
+            font-size: var(--font-size-lg);
+            font-weight: 700;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 20px rgba(43, 107, 153, 0.4);
+        }
+
+        .email-btn:hover {
+            background: #235780;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(43, 107, 153, 0.5);
+        }
+
+        .email-btn svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .process-section {
+            margin-bottom: var(--spacing-16);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-8);
+            margin-top: var(--spacing-8);
+        }
+
+        .process-step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            color: #fff;
+            font-size: var(--font-size-2xl);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-4) auto;
+        }
+
+        .process-step h4 {
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-2);
+        }
+
+        .process-step p {
+            color: var(--text-secondary);
+            font-size: var(--font-size-sm);
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="/" class="brand-link">
+                    <img src="graphic assets/Headquarters Comedy/Headquarters Comedy.Icon.png" alt="HQ" class="brand-icon">
+                    <h1 class="brand-title">Headquarters Comedy</h1>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="live-shows.html" class="nav-link">Live Shows</a></li>
+                <li><a href="https://headquarterscomedy.beehiiv.com/" target="_blank" class="nav-link">Newsletter</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="brands.html" class="nav-link active">Brands</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay">
+        <div class="mobile-menu-panel">
+            <div class="mobile-menu-header">
+                <h3 class="mobile-menu-title">Menu</h3>
+                <button class="mobile-menu-close" aria-label="Close menu">&times;</button>
+            </div>
+            <ul class="mobile-nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="live-shows.html" class="nav-link">Live Shows</a></li>
+                <li><a href="https://headquarterscomedy.beehiiv.com/" target="_blank" class="nav-link">Newsletter</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="brands.html" class="nav-link active">Brands</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Comedy for Brands</h1>
+                <p>Live shows and events that people actually want to attend.</p>
+            </div>
+        </section>
+
+        <section style="padding: var(--spacing-16) 0;">
+            <div class="container">
+
+                <!-- Intro -->
+                <div style="max-width: 760px; margin: 0 auto var(--spacing-16) auto; text-align: center;">
+                    <p style="font-size: var(--font-size-xl); color: var(--text-color); line-height: 1.7;">
+                        Headquarters Comedy produces live comedy shows for companies and brands. Whether it's a company offsite, a client event, a product launch, or a team night out — we make it funny, polished, and genuinely fun to be at.
+                    </p>
+                </div>
+
+                <!-- Services -->
+                <div class="section-header">
+                    <h2>What We Do</h2>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🎤</div>
+                        <h3>Hosted Comedy Shows</h3>
+                        <p>A fully produced live comedy show hosted by Gabe, featuring a curated lineup of professional comedians. We handle everything — venue coordination, lineup booking, hosting, and production.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🏢</div>
+                        <h3>Corporate Events</h3>
+                        <p>Comedy for company offsites, holiday parties, team-building events, and client entertainment. Clean, professional, and actually funny — not the kind of thing people groan about in the Slack channel the next day.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🚀</div>
+                        <h3>Launch Events</h3>
+                        <p>Make your product launch, campaign reveal, or brand moment memorable. We produce events that give people a real reason to show up, stay, and talk about it afterward.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🎯</div>
+                        <h3>Custom Programming</h3>
+                        <p>Have something specific in mind? We'll build it. Panel discussions, roasts, themed shows, hybrid formats — if you can describe it, we can make it happen.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">📍</div>
+                        <h3>Venue Sourcing</h3>
+                        <p>We know the city's best comedy-ready spaces and can help identify the right venue for your audience size, vibe, and budget. Or we'll come to yours.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🤝</div>
+                        <h3>Sponsorships</h3>
+                        <p>Sponsor one of our public shows and get your brand in front of a smart, engaged audience that actually shows up to things. Tasteful, effective, not embarrassing.</p>
+                    </div>
+                </div>
+
+                <!-- How It Works -->
+                <div class="process-section">
+                    <h2>How It Works</h2>
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <h4>Tell Us What You Need</h4>
+                            <p>Send us an email with your event goals, audience, date range, and budget. The more detail the better.</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <h4>We Put Together a Proposal</h4>
+                            <p>We'll come back with a format recommendation, lineup concept, and pricing. Usually within a few days.</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <h4>We Handle the Rest</h4>
+                            <p>Once we're aligned, we take it from there. You show up, enjoy the show, take the credit.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <div class="cta-section">
+                    <h2>Let's Make Something Great</h2>
+                    <p>Ready to put on a show your team or clients will actually remember? Drop us a line and we'll figure out the rest.</p>
+                    <a href="mailto:gabe@headquarterscomedy.com" class="email-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                        gabe@headquarterscomedy.com
+                    </a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Headquarters Comedy</h3>
+                    <p>Comedy, chaos, and the occasional bad idea.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Content</h4>
+                        <ul>
+                            <li><a href="#" target="_blank" id="footer-youtube">YouTube</a></li>
+                            <li><a href="#" id="footer-spotify">Spotify</a></li>
+                            <li><a href="#" id="footer-apple">Apple Podcasts</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h4>Newsletter</h4>
+                        <ul>
+                            <li><a href="https://headquarterscomedy.beehiiv.com/" target="_blank">Visit Site</a></li>
+                            <li><a href="https://headquarterscomedy.beehiiv.com/" target="_blank">Subscribe</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="#" target="_blank" id="footer-x">X</a></li>
+                            <li><a href="#" target="_blank">Instagram</a></li>
+                            <li><a href="#" target="_blank">TikTok</a></li>
+                            <li><a href="https://gabenipote.com" target="_blank">gabenipote.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Headquarters Comedy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/app.js"></script>
+</body>
+</html>

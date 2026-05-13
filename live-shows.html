@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Shows - Headquarters Comedy</title>
+    <meta name="description" content="Live comedy shows from Headquarters Comedy in New York City.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://headquarterscomedy.com/live-shows">
+    <meta property="og:title" content="Live Shows - Headquarters Comedy">
+    <meta property="og:description" content="Live comedy shows from Headquarters Comedy in New York City">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://headquarterscomedy.com/live-shows">
+    <meta property="twitter:title" content="Live Shows - Headquarters Comedy">
+    <meta property="twitter:description" content="Live comedy shows from Headquarters Comedy in New York City">
+
+    <link rel="icon" type="image/png" href="graphic assets/Headquarters Comedy/Headquarters Comedy.Icon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .shows-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: var(--spacing-8);
+            margin-bottom: var(--spacing-16);
+        }
+
+        .show-card {
+            background: var(--background-secondary);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .show-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .show-card-header {
+            background: linear-gradient(135deg, var(--accent-color), #1e5275);
+            padding: var(--spacing-8) var(--spacing-6);
+            text-align: center;
+        }
+
+        .show-date {
+            font-size: var(--font-size-sm);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: var(--spacing-2);
+        }
+
+        .show-title {
+            font-size: var(--font-size-2xl);
+            font-weight: 700;
+            color: #fff;
+            margin: 0;
+        }
+
+        .show-card-body {
+            padding: var(--spacing-6);
+        }
+
+        .show-meta {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-2);
+            margin-bottom: var(--spacing-6);
+        }
+
+        .show-meta-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-3);
+            color: var(--text-secondary);
+            font-size: var(--font-size-sm);
+        }
+
+        .show-meta-item svg {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            color: var(--accent-color);
+        }
+
+        .show-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: var(--spacing-6);
+        }
+
+        .show-lineup {
+            margin-bottom: var(--spacing-6);
+        }
+
+        .show-lineup h4 {
+            font-size: var(--font-size-sm);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            margin-bottom: var(--spacing-3);
+        }
+
+        .lineup-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-2);
+        }
+
+        .lineup-list li {
+            background: var(--background-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-1) var(--spacing-3);
+            font-size: var(--font-size-sm);
+            color: var(--text-color);
+        }
+
+        .tickets-btn {
+            display: block;
+            width: 100%;
+            padding: var(--spacing-4);
+            background: var(--accent-color);
+            color: #fff;
+            text-align: center;
+            font-weight: 700;
+            font-size: var(--font-size-base);
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .tickets-btn:hover {
+            background: #235780;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .tickets-btn.sold-out {
+            background: var(--border-color);
+            color: var(--text-secondary);
+            cursor: not-allowed;
+        }
+
+        .tickets-btn.sold-out:hover {
+            transform: none;
+            background: var(--border-color);
+        }
+
+        .no-shows-msg {
+            text-align: center;
+            padding: var(--spacing-20) var(--spacing-8);
+            color: var(--text-secondary);
+        }
+
+        .no-shows-msg h3 {
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .newsletter-cta {
+            background: linear-gradient(135deg, var(--background-secondary) 0%, rgba(43, 107, 153, 0.1) 100%);
+            border: 2px solid var(--accent-color);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-12);
+            text-align: center;
+        }
+
+        .newsletter-cta h2 {
+            margin-bottom: var(--spacing-4);
+        }
+
+        .newsletter-cta p {
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-6);
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="/" class="brand-link">
+                    <img src="graphic assets/Headquarters Comedy/Headquarters Comedy.Icon.png" alt="HQ" class="brand-icon">
+                    <h1 class="brand-title">Headquarters Comedy</h1>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="live-shows.html" class="nav-link active">Live Shows</a></li>
+                <li><a href="https://headquarterscomedy.beehiiv.com/" target="_blank" class="nav-link">Newsletter</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="brands.html" class="nav-link">Brands</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay">
+        <div class="mobile-menu-panel">
+            <div class="mobile-menu-header">
+                <h3 class="mobile-menu-title">Menu</h3>
+                <button class="mobile-menu-close" aria-label="Close menu">&times;</button>
+            </div>
+            <ul class="mobile-nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="live-shows.html" class="nav-link active">Live Shows</a></li>
+                <li><a href="https://headquarterscomedy.beehiiv.com/" target="_blank" class="nav-link">Newsletter</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="brands.html" class="nav-link">Brands</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Live Shows</h1>
+                <p>Come see it in person. That's the whole point.</p>
+            </div>
+        </section>
+
+        <!-- Upcoming Shows -->
+        <section style="padding: var(--spacing-16) 0;">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Upcoming Shows</h2>
+                </div>
+
+                <!-- Add shows here as they're announced. Example card below. -->
+                <div class="shows-grid" id="shows-grid">
+
+                    <!-- Example show card — duplicate and fill in for each show -->
+                    <div class="show-card">
+                        <div class="show-card-header">
+                            <div class="show-date">Coming Soon</div>
+                            <h2 class="show-title">New Show TBA</h2>
+                        </div>
+                        <div class="show-card-body">
+                            <div class="show-meta">
+                                <div class="show-meta-item">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+                                    Date TBA
+                                </div>
+                                <div class="show-meta-item">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                                    New York City
+                                </div>
+                            </div>
+                            <p class="show-description">
+                                Details coming soon. Subscribe to the newsletter to be the first to know.
+                            </p>
+                            <a href="https://headquarterscomedy.beehiiv.com/" target="_blank" class="tickets-btn">Get Notified</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Newsletter signup CTA -->
+                <div class="newsletter-cta">
+                    <h2>Never Miss a Show</h2>
+                    <p>Subscribe to the newsletter and we'll tell you about every show before tickets sell out.</p>
+                    <a href="https://headquarterscomedy.beehiiv.com/" target="_blank" class="btn btn-primary">Subscribe to the Newsletter</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Headquarters Comedy</h3>
+                    <p>Comedy, chaos, and the occasional bad idea.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Content</h4>
+                        <ul>
+                            <li><a href="#" target="_blank" id="footer-youtube">YouTube</a></li>
+                            <li><a href="#" id="footer-spotify">Spotify</a></li>
+                            <li><a href="#" id="footer-apple">Apple Podcasts</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h4>Newsletter</h4>
+                        <ul>
+                            <li><a href="https://headquarterscomedy.beehiiv.com/" target="_blank">Visit Site</a></li>
+                            <li><a href="https://headquarterscomedy.beehiiv.com/" target="_blank">Subscribe</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="#" target="_blank" id="footer-x">X</a></li>
+                            <li><a href="#" target="_blank">Instagram</a></li>
+                            <li><a href="#" target="_blank">TikTok</a></li>
+                            <li><a href="https://gabenipote.com" target="_blank">gabenipote.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Headquarters Comedy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/app.js"></script>
+</body>
+</html>
