@@ -35,6 +35,12 @@
             overflow: hidden;
         }
 
+        /* Pull Photo 1 up by the header height so it's already at its sticky
+           position on page load — prevents any scroll before sticking */
+        main > .photo-section:first-child {
+            margin-top: -86px;
+        }
+
         .photo-section img {
             width: 100%;
             height: 100%;
