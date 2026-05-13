@@ -1,0 +1,15 @@
+{
+  "episodes": [
+    {
+      "id": 1,
+      "number": 1,
+      "title": "Pilot",
+      "description": "We kick things off. It goes better than expected.",
+      "date": "2025-01-01",
+      "duration": "45 min",
+      "guest": null,
+      "featured": true,
+      "youtube_id": null
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Headquarters Comedy</title>
+    <link rel="icon" type="image/png" href="graphic assets/hq-icon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .error-page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 80px);
+            text-align: center;
+            padding: 2rem;
+        }
+        .error-code {
+            font-size: 8rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+        .error-message {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+        .error-sub {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="/" class="brand-link">
+                    <img src="graphic assets/hq-icon.png" alt="HQ" class="brand-icon">
+                    <h1 class="brand-title">Headquarters Comedy</h1>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="error-page">
+            <div class="error-code">404</div>
+            <p class="error-message">Page not found.</p>
+            <p class="error-sub">This bit didn't land. Let's try something else.</p>
+            <a href="/" class="btn btn-primary">Back to Home</a>
+        </div>
+    </main>
+
+    <script src="scripts/app.js"></script>
+</body>
+</html>

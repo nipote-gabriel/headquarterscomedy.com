@@ -1,0 +1,13 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Welcome to Headquarters Comedy",
+      "excerpt": "We're just getting started. Stay tuned.",
+      "date": "2025-01-01",
+      "category": "News",
+      "published": false,
+      "url": null
+    }
+  ]
+}

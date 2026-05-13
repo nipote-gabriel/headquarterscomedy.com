@@ -1,0 +1,18 @@
+{
+  "site_name": "Headquarters Comedy",
+  "tagline": "Comedy, chaos, and the occasional bad idea.",
+  "accent_color": "#2B6B99",
+  "on_air": false,
+  "live_youtube_id": "dQw4w9WgXcQ",
+  "subscribe_embed": "<!-- Paste your newsletter embed here -->",
+  "social": {
+    "x": "#",
+    "youtube": "#",
+    "instagram": "#",
+    "newsletter": "#",
+    "spotify": "#",
+    "apple": "#",
+    "tiktok": "#",
+    "linkedin": "#"
+  }
+}
