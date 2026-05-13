@@ -233,8 +233,10 @@ class HQCSite {
         const footerLinks = {
             'footer-x': this.config.social.x,
             'footer-youtube': this.config.social.youtube,
-            'footer-spotify': this.config.social.spotify,
-            'footer-apple': this.config.social.apple
+            'footer-instagram': this.config.social.instagram,
+            'footer-tiktok': this.config.social.tiktok,
+            'footer-linkedin': this.config.social.linkedin,
+            'footer-newsletter': this.config.social.newsletter
         };
 
         Object.entries(footerLinks).forEach(([id, url]) => {

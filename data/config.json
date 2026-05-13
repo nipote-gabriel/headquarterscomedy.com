@@ -6,13 +6,11 @@
   "live_youtube_id": "dQw4w9WgXcQ",
   "subscribe_embed": "<!-- Paste your newsletter embed here -->",
   "social": {
-    "x": "#",
-    "youtube": "#",
-    "instagram": "#",
-    "newsletter": "#",
-    "spotify": "#",
-    "apple": "#",
-    "tiktok": "#",
-    "linkedin": "#"
+    "x": "https://x.com/gabe_makes_joke",
+    "youtube": "https://www.youtube.com/@gabe_makes_jokes/shorts",
+    "instagram": "https://www.instagram.com/gabe_makes_jokes/",
+    "newsletter": "https://headquarterscomedy.beehiiv.com/",
+    "linkedin": "https://www.linkedin.com/company/headquarters-comedy/",
+    "tiktok": "https://www.tiktok.com/@gabe_makes_jokes"
   }
 }
