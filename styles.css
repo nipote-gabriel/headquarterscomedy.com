@@ -364,7 +364,8 @@ a:hover {
 
 .hero-video-section {
     padding: 0;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 85px);
+    overflow: hidden;
 }
 
 .hero-video-layout {
