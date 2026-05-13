@@ -30,8 +30,8 @@
             position: sticky;
             top: 0;
             z-index: 0;
-            height: 80vh;
-            min-height: 400px;
+            height: 70vh;
+            min-height: 360px;
             overflow: hidden;
         }
 
@@ -53,6 +53,9 @@
         .newsletter-section {
             position: relative;
             z-index: 1;
+        }
+
+        .shows-section {
             background-color: var(--background-color);
         }
 
@@ -194,7 +197,10 @@
         /* ── Newsletter section ─────────────────────────── */
         .newsletter-section {
             padding: 80px 0;
-            border-top: 1px solid var(--border-color);
+            border-radius: 0;
+            border: none;
+            margin-bottom: 0;
+            background-color: var(--background-secondary) !important;
         }
 
         .newsletter-inner {
