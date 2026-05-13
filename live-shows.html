@@ -25,19 +25,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
 
-        /* Balance page header padding for vertical centering */
-        .page-header {
-            padding-top: var(--spacing-12);
-            padding-bottom: var(--spacing-12);
-        }
-
         /* ── Photo sections ─────────────────────────────── */
         .photo-section {
             position: sticky;
             top: 0;
             z-index: 0;
-            height: calc(80vh - 9rem);
-            min-height: 376px;
+            height: 80vh;
+            min-height: 400px;
             overflow: hidden;
         }
 
@@ -51,11 +45,10 @@
         .photo-section-overlay {
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.15);
+            background: rgba(0, 0, 0, 0.35);
         }
 
         /* Content sections scroll over the sticky photos */
-        .page-header,
         .shows-section,
         .newsletter-section {
             position: relative;
@@ -63,27 +56,29 @@
             background-color: var(--background-color);
         }
 
+        /* Caption overlaid on photo */
         .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
             padding: 52px 0;
             color: #fff;
+            z-index: 2;
         }
 
-        .photo-caption .eyebrow {
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: rgba(255, 255, 255, 0.5);
-            margin-bottom: 12px;
-        }
-
-        .photo-caption h2 {
-            font-size: clamp(1.8rem, 4vw, 3rem);
+        .photo-caption h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 700;
             color: #fff;
-            margin: 0;
+            margin: 0 0 12px;
             line-height: 1.1;
-            max-width: 700px;
+        }
+
+        .photo-caption p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
         }
 
         /* ── Shows section ──────────────────────────────── */
@@ -291,18 +286,16 @@
 
     <main>
 
-        <!-- Page Header -->
-        <section class="page-header">
-            <div class="container">
-                <h1>Live Shows</h1>
-                <p>Come see Headquarters Comedy in real life. That's the whole point.</p>
-            </div>
-        </section>
-
-        <!-- Photo 1 -->
+        <!-- Photo 1 — first in DOM so it's already at top:0, never scrolls before sticking -->
         <div class="photo-section">
             <img src="graphic assets/Live Shows Photos/live show.jpg" alt="HQ Show live comedy" style="object-position: center 90%;">
             <div class="photo-section-overlay"></div>
+            <div class="photo-caption">
+                <div class="container">
+                    <h1>Live Shows</h1>
+                    <p>Come see Headquarters Comedy in real life. That's the whole point.</p>
+                </div>
+            </div>
         </div>
 
         <!-- Upcoming Shows -->
