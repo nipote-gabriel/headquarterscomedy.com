@@ -27,32 +27,17 @@
 
         /* ── Photo sections ─────────────────────────────── */
         .photo-section {
-            position: sticky;
-            top: 86px; /* match header height exactly — photo starts here so it never scrolls before sticking */
-            z-index: 0;
+            position: relative;
             height: 70vh;
             min-height: 360px;
-            overflow: hidden;
-        }
-
-        .photo-section img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
+            background-size: cover;
+            background-attachment: fixed;
         }
 
         .photo-section-overlay {
             position: absolute;
             inset: 0;
             background: rgba(0, 0, 0, 0.35);
-        }
-
-        /* Content sections scroll over the sticky photos */
-        .shows-section,
-        .newsletter-section {
-            position: relative;
-            z-index: 1;
         }
 
         .shows-section {
@@ -231,6 +216,14 @@
         }
 
         /* ── Responsive ─────────────────────────────────── */
+        @media (max-width: 768px) {
+            .photo-section {
+                background-attachment: scroll;
+                height: 52vh;
+                min-height: 320px;
+            }
+        }
+
         @media (max-width: 700px) {
             .show-card {
                 grid-template-columns: 1fr;
@@ -251,8 +244,6 @@
             .show-date-day { font-size: 1.4rem; }
 
             .show-action { text-align: left; }
-
-            .photo-section { height: 52vh; min-height: 320px; }
         }
 
     </style>
@@ -302,9 +293,8 @@
 
     <main>
 
-        <!-- Photo 1 — first in DOM so it's already at top:0, never scrolls before sticking -->
-        <div class="photo-section">
-            <img src="graphic assets/Live Shows Photos/live show.jpg" alt="HQ Show live comedy" style="object-position: center 90%;">
+        <!-- Photo 1 -->
+        <div class="photo-section" style="background-image: url('graphic%20assets/Live%20Shows%20Photos/live%20show.jpg'); background-position: center 90%;">
             <div class="photo-section-overlay"></div>
             <div class="photo-caption">
                 <div class="container">
@@ -342,8 +332,7 @@
         </section>
 
         <!-- Photo 2 -->
-        <div class="photo-section">
-            <img src="graphic assets/Live Shows Photos/live show 2.jpg" alt="HQ Show audience">
+        <div class="photo-section" style="background-image: url('graphic%20assets/Live%20Shows%20Photos/live%20show%202.jpg'); background-position: center center;">
             <div class="photo-section-overlay"></div>
         </div>
 
