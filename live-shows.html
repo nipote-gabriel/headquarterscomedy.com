@@ -36,11 +36,12 @@
         }
 
         .photo-section-img {
-            position: sticky;
+            position: fixed;
             top: 86px;
+            left: 0;
+            right: 0;
             z-index: 0;
             overflow: hidden;
-            background-attachment: scroll;
         }
 
         .photo-section-img img {
@@ -48,6 +49,11 @@
             height: 100%;
             object-fit: cover;
             display: block;
+        }
+
+        .photo-section-spacer {
+            height: 70vh;
+            min-height: 360px;
         }
 
         .photo-section-overlay {
@@ -218,6 +224,11 @@
             z-index: 1;
         }
 
+        footer.footer {
+            position: relative;
+            z-index: 1;
+        }
+
         .newsletter-inner {
             max-width: 540px;
         }
@@ -328,6 +339,8 @@
                 </div>
             </div>
         </div>
+
+        <div class="photo-section-spacer"></div>
 
         <!-- Next Show -->
         <section class="shows-section">
