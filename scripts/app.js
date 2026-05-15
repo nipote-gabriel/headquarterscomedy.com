@@ -784,6 +784,17 @@ function setupLandingScreen() {
         return;
     }
 
+    // Only load Beehiiv embed when landing screen is actually shown
+    const landingBeehiivTarget = document.getElementById('landing-beehiiv-target');
+    if (landingBeehiivTarget && !landingBeehiivTarget.dataset.loaded) {
+        landingBeehiivTarget.dataset.loaded = 'true';
+        const script = document.createElement('script');
+        script.src = 'https://subscribe-forms.beehiiv.com/v3/loader.js';
+        script.async = true;
+        script.setAttribute('data-beehiiv-form', landingBeehiivTarget.dataset.beehiivForm);
+        landingBeehiivTarget.appendChild(script);
+    }
+
     function hideLandingScreen() {
         landingScreen.classList.add('hidden');
         localStorage.setItem('hasSeenLandingScreen', 'true');
