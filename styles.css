@@ -452,6 +452,89 @@ a:hover {
     }
 }
 
+/* Play/Pause Button */
+.play-pause-btn {
+    position: absolute;
+    bottom: 80px;
+    left: 20px;
+    width: 48px;
+    height: 48px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 20;
+    color: white;
+}
+
+.play-pause-btn:hover {
+    background: rgba(43, 107, 153, 0.9);
+    border-color: var(--accent-color);
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(43, 107, 153, 0.4);
+}
+
+.play-pause-btn:active {
+    transform: scale(0.95);
+}
+
+.play-pause-btn svg {
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.2s ease;
+}
+
+@media (max-width: 768px) {
+    .play-pause-btn {
+        width: 40px;
+        height: 40px;
+        bottom: 60px;
+        left: 15px;
+    }
+
+    .play-pause-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Video Progress Bar (Playhead) */
+.video-progress-bar {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    z-index: 20;
+    transition: height 0.15s ease, background 0.15s ease;
+}
+
+.video-progress-bar:hover {
+    height: 7px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.video-progress-fill {
+    height: 100%;
+    background: var(--accent-color);
+    width: 0%;
+    pointer-events: none;
+    transition: width 0.1s linear;
+}
+
+@media (max-width: 768px) {
+    .video-progress-bar {
+        bottom: 45px;
+    }
+}
+
 /* Left Column - Video Player */
 .video-column {
     min-width: 0;

@@ -715,6 +715,49 @@ class HQCSite {
 
         muteIcon.style.display = 'none';
         unmuteIcon.style.display = 'block';
+
+        // Play/Pause toggle
+        const playPauseToggle = document.getElementById('play-pause-toggle');
+        const playIcon = playPauseToggle?.querySelector('.play-icon');
+        const pauseIcon = playPauseToggle?.querySelector('.pause-icon');
+
+        if (playPauseToggle && playIcon && pauseIcon) {
+            playPauseToggle.addEventListener('click', () => {
+                if (video.paused) {
+                    video.play().catch(() => {});
+                } else {
+                    video.pause();
+                }
+            });
+
+            video.addEventListener('play', () => {
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'block';
+            });
+
+            video.addEventListener('pause', () => {
+                playIcon.style.display = 'block';
+                pauseIcon.style.display = 'none';
+            });
+        }
+
+        // Playhead / progress bar
+        const progressBar = document.getElementById('video-progress-bar');
+        const progressFill = document.getElementById('video-progress-fill');
+
+        if (progressBar && progressFill) {
+            video.addEventListener('timeupdate', () => {
+                if (video.duration) {
+                    progressFill.style.width = ((video.currentTime / video.duration) * 100) + '%';
+                }
+            });
+
+            progressBar.addEventListener('click', (e) => {
+                if (!video.duration) return;
+                const rect = progressBar.getBoundingClientRect();
+                video.currentTime = ((e.clientX - rect.left) / rect.width) * video.duration;
+            });
+        }
     }
 }
 
@@ -795,31 +838,46 @@ function setupLandingScreen() {
         landingBeehiivTarget.appendChild(script);
     }
 
+    let hideCalled = false;
     function hideLandingScreen() {
+        if (hideCalled) return;
+        hideCalled = true;
         landingScreen.classList.add('hidden');
         localStorage.setItem('hasSeenLandingScreen', 'true');
         Analytics.trackEvent('Landing Screen', 'Dismissed');
 
-        const heroVideo = document.getElementById('hero-video');
-        if (heroVideo) {
-            heroVideo.play().catch(error => {
-                console.log('Video autoplay prevented:', error);
-            });
-        }
+        landingScreen.addEventListener('transitionend', () => {
+            const heroVideo = document.getElementById('hero-video');
+            if (heroVideo) {
+                heroVideo.play().catch(error => {
+                    console.log('Video autoplay prevented:', error);
+                });
+            }
+        }, { once: true });
     }
 
     if (skipBtn) {
         skipBtn.addEventListener('click', hideLandingScreen);
     }
 
-    const beehiivIframe = landingScreen.querySelector('.beehiiv-embed');
-    if (beehiivIframe) {
-        window.addEventListener('message', (event) => {
-            if (event.data && typeof event.data === 'string' && event.data.includes('success')) {
-                setTimeout(hideLandingScreen, 1500);
-            }
-        });
-    }
+    // Listen for Beehiiv subscription success postMessage
+    window.addEventListener('message', (event) => {
+        if (landingScreen.classList.contains('hidden')) return;
+        const data = event.data;
+        const isSuccess =
+            (typeof data === 'string' && (data.includes('success') || data.includes('subscribe'))) ||
+            (data !== null && typeof data === 'object' && (
+                (typeof data.type === 'string' && (
+                    data.type.includes('success') ||
+                    data.type.includes('subscribe')
+                )) ||
+                data.status === 'success' ||
+                data.subscribed === true
+            ));
+        if (isSuccess) {
+            setTimeout(hideLandingScreen, 1500);
+        }
+    });
 }
 
 // Initialize
