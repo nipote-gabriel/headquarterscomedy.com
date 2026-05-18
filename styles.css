@@ -829,7 +829,7 @@ iframe[data-test-id="beehiiv-embed"] {
 }
 
 .newsletter-section-compact .subscribe-btn:hover {
-    background: #235780;
+    background: #059669;
     transform: translateY(-1px);
 }
 
@@ -964,7 +964,7 @@ iframe[data-test-id="beehiiv-embed"] {
 }
 
 .subscribe-btn:hover {
-    background: #235780;
+    background: #059669;
     transform: translateY(-1px);
 }
 
@@ -1026,7 +1026,7 @@ iframe[data-test-id="beehiiv-embed"] {
 }
 
 .view-all-link:hover {
-    color: #235780;
+    color: #059669;
 }
 
 /* Live Indicator - Repositioned */
@@ -1286,7 +1286,7 @@ iframe[data-test-id="beehiiv-embed"] {
 }
 
 .btn-primary:hover {
-    background: #235780;
+    background: #059669;
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
     color: var(--primary-color);
