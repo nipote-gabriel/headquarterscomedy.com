@@ -174,6 +174,144 @@
     </style>
 </head>
 <body>
+
+    <!-- Password Gate -->
+    <div id="password-gate">
+        <div id="password-gate-box">
+            <img src="graphic assets/Headquarters Comedy/Headquarters Comedy.Icon.png" alt="HQ Comedy" id="gate-logo">
+            <h2 id="gate-heading">Headquarters Comedy</h2>
+            <p id="gate-subheading">Please enter your password below:</p>
+            <div id="gate-input-row">
+                <input type="password" id="gate-input" placeholder="Password" autocomplete="off">
+                <button id="gate-btn" onclick="checkPassword()">Enter</button>
+            </div>
+            <p id="gate-error"></p>
+            <p id="gate-note">If you are interested in becoming a partner, please reach out to <a href="mailto:gabe@headquarterscomedy.com">gabe@headquarterscomedy.com</a></p>
+        </div>
+    </div>
+
+    <style>
+        #password-gate {
+            position: fixed;
+            inset: 0;
+            background: var(--background-color);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        #password-gate-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1rem;
+            max-width: 420px;
+            width: 100%;
+        }
+
+        #gate-logo {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            margin-bottom: 0.25rem;
+        }
+
+        #gate-heading {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin: 0;
+        }
+
+        #gate-subheading {
+            color: var(--text-secondary);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        #gate-input-row {
+            display: flex;
+            gap: 0.5rem;
+            width: 100%;
+        }
+
+        #gate-input {
+            flex: 1;
+            padding: 0.65rem 1rem;
+            background: var(--background-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            color: var(--text-color);
+            font-size: 1rem;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        #gate-input:focus {
+            border-color: var(--accent-color);
+        }
+
+        #gate-btn {
+            padding: 0.65rem 1.4rem;
+            background: var(--accent-color);
+            color: #000;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            white-space: nowrap;
+        }
+
+        #gate-btn:hover {
+            background: #15803D;
+            color: #fff;
+        }
+
+        #gate-error {
+            color: var(--error-color);
+            font-size: 0.875rem;
+            margin: 0;
+            min-height: 1.2em;
+        }
+
+        #gate-note {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        #gate-note a {
+            color: var(--accent-color);
+        }
+    </style>
+
+    <script>
+        document.getElementById('gate-input').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') checkPassword();
+        });
+
+        function checkPassword() {
+            const val = document.getElementById('gate-input').value;
+            const err = document.getElementById('gate-error');
+            if (val === 'dangerfield') {
+                document.getElementById('password-gate').style.display = 'none';
+                err.textContent = '';
+            } else {
+                err.textContent = "Sorry, that's not the right password. Please try again.";
+                document.getElementById('gate-input').value = '';
+                document.getElementById('gate-input').focus();
+            }
+        }
+    </script>
+
     <!-- Header -->
     <header class="header">
         <nav class="nav">
