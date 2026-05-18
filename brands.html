@@ -182,7 +182,18 @@
             <h2 id="gate-heading">Headquarters Comedy</h2>
             <p id="gate-subheading">Please enter your password below:</p>
             <div id="gate-input-row">
-                <input type="password" id="gate-input" placeholder="Password" autocomplete="off">
+                <div id="gate-input-wrap">
+                    <input type="password" id="gate-input" placeholder="Password" autocomplete="off">
+                    <button id="gate-toggle" type="button" onclick="togglePassword()" aria-label="Show password">
+                        <svg id="icon-show" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                        </svg>
+                        <svg id="icon-hide" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="display:none">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.477 0-8.268-2.943-9.542-7a9.97 9.97 0 012.29-3.755M9.88 9.88a3 3 0 104.243 4.243M3 3l18 18"/>
+                        </svg>
+                    </button>
+                </div>
                 <button id="gate-btn" onclick="checkPassword()">Enter</button>
             </div>
             <p id="gate-error"></p>
@@ -238,9 +249,33 @@
             width: 100%;
         }
 
+        #gate-input-wrap {
+            position: relative;
+            flex: 1;
+            display: flex;
+        }
+
+        #gate-toggle {
+            position: absolute;
+            right: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+        }
+
+        #gate-toggle:hover { color: var(--text-color); }
+        #gate-toggle svg { width: 18px; height: 18px; }
+
         #gate-input {
             flex: 1;
-            padding: 0.65rem 1rem;
+            width: 100%;
+            padding: 0.65rem 2.5rem 0.65rem 1rem;
             background: var(--background-secondary);
             border: 1px solid var(--border-color);
             border-radius: var(--border-radius);
@@ -297,6 +332,14 @@
         document.getElementById('gate-input').addEventListener('keydown', function(e) {
             if (e.key === 'Enter') checkPassword();
         });
+
+        function togglePassword() {
+            const input = document.getElementById('gate-input');
+            const showing = input.type === 'text';
+            input.type = showing ? 'password' : 'text';
+            document.getElementById('icon-show').style.display = showing ? '' : 'none';
+            document.getElementById('icon-hide').style.display = showing ? 'none' : '';
+        }
 
         function checkPassword() {
             const val = document.getElementById('gate-input').value;
