@@ -1460,7 +1460,7 @@ iframe[data-test-id="beehiiv-embed"] {
     top: 0;
     bottom: 0;
     width: 120px;
-    background: linear-gradient(135deg, var(--accent-color), #1e5275);
+    background: linear-gradient(135deg, var(--accent-color), #065f46);
     color: #000;
     font-weight: 900;
     font-size: 11px;
@@ -1580,7 +1580,7 @@ iframe[data-test-id="beehiiv-embed"] {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent-color), #1e5275);
+    background: linear-gradient(135deg, var(--accent-color), #065f46);
     padding: 8px;
     box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
     animation: hq-spin 8s linear infinite;
@@ -1770,7 +1770,7 @@ iframe[data-test-id="beehiiv-embed"] {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, var(--accent-color), #1e5275);
+    background: linear-gradient(90deg, var(--accent-color), #065f46);
     transform: scaleX(0);
     transition: transform 0.4s ease;
 }
@@ -2006,7 +2006,7 @@ section {
 .view-all:hover { background: rgba(16, 185, 129, 0.1); }
 
 .website-button {
-    background: linear-gradient(135deg, var(--accent-color), #1e5275);
+    background: linear-gradient(135deg, var(--accent-color), #065f46);
     color: #fff;
     font-weight: 700;
     font-size: var(--font-size-sm);
@@ -2025,7 +2025,7 @@ section {
 }
 
 .website-button:hover {
-    background: linear-gradient(135deg, #1e5275, var(--accent-color));
+    background: linear-gradient(135deg, #065f46, var(--accent-color));
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
     color: #fff;
