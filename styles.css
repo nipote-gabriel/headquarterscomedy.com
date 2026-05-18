@@ -2,7 +2,7 @@
 :root {
     --primary-color: #000;
     --secondary-color: #fff;
-    --accent-color: #F5C518;
+    --accent-color: #2B6B99;
     --text-color: #eee;
     --text-secondary: #aaa;
     --background-color: #0b0b0b;
@@ -157,7 +157,7 @@ a:hover {
 
 .nav-link:hover {
     color: var(--accent-color);
-    background: rgba(245, 197, 24, 0.1);
+    background: rgba(43, 107, 153, 0.1);
 }
 
 .nav-link.active {
@@ -422,10 +422,10 @@ a:hover {
 }
 
 .mute-toggle-btn:hover {
-    background: rgba(245, 197, 24, 0.9);
+    background: rgba(43, 107, 153, 0.9);
     border-color: var(--accent-color);
     transform: scale(1.1);
-    box-shadow: 0 4px 15px rgba(245, 197, 24, 0.4);
+    box-shadow: 0 4px 15px rgba(43, 107, 153, 0.4);
 }
 
 .mute-toggle-btn:active {
@@ -473,10 +473,10 @@ a:hover {
 }
 
 .play-pause-btn:hover {
-    background: rgba(245, 197, 24, 0.9);
+    background: rgba(43, 107, 153, 0.9);
     border-color: var(--accent-color);
     transform: scale(1.1);
-    box-shadow: 0 4px 15px rgba(245, 197, 24, 0.4);
+    box-shadow: 0 4px 15px rgba(43, 107, 153, 0.4);
 }
 
 .play-pause-btn:active {
@@ -1449,8 +1449,8 @@ iframe[data-test-id="beehiiv-embed"] {
     white-space: nowrap;
     position: relative;
     border-top: 3px solid var(--accent-color);
-    border-bottom: 2px solid rgba(245, 197, 24, 0.3);
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.5), inset 0 2px 4px rgba(245, 197, 24, 0.1);
+    border-bottom: 2px solid rgba(43, 107, 153, 0.3);
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.5), inset 0 2px 4px rgba(43, 107, 153, 0.1);
 }
 
 .stock-ticker::before {
@@ -1503,11 +1503,11 @@ iframe[data-test-id="beehiiv-embed"] {
 }
 
 .ticker-item.sponsor-ad {
-    background: linear-gradient(90deg, rgba(245, 197, 24, 0.2), rgba(245, 197, 24, 0.1));
+    background: linear-gradient(90deg, rgba(43, 107, 153, 0.2), rgba(43, 107, 153, 0.1));
     color: var(--accent-color);
     font-weight: 700;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(245, 197, 24, 0.3);
+    border: 1px solid rgba(43, 107, 153, 0.3);
 }
 
 /* Mobile Ticker Optimizations */
@@ -1582,14 +1582,14 @@ iframe[data-test-id="beehiiv-embed"] {
     border-radius: 50%;
     background: linear-gradient(135deg, var(--accent-color), #1e5275);
     padding: 8px;
-    box-shadow: 0 4px 15px rgba(245, 197, 24, 0.4);
+    box-shadow: 0 4px 15px rgba(43, 107, 153, 0.4);
     animation: hq-spin 8s linear infinite;
     transition: all 0.3s ease;
 }
 
 .hq-ticker-icon:hover {
     animation: hq-spin-fast 2s linear infinite;
-    box-shadow: 0 6px 20px rgba(245, 197, 24, 0.6);
+    box-shadow: 0 6px 20px rgba(43, 107, 153, 0.6);
 }
 
 @keyframes hq-spin {
@@ -1686,7 +1686,7 @@ iframe[data-test-id="beehiiv-embed"] {
     padding: var(--spacing-3);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
-    background: rgba(245, 197, 24, 0.05);
+    background: rgba(43, 107, 153, 0.05);
     font-weight: bold;
     margin-bottom: var(--spacing-4);
 }
@@ -1700,7 +1700,7 @@ iframe[data-test-id="beehiiv-embed"] {
 .portfolio-summary {
     margin-bottom: var(--spacing-4);
     padding: var(--spacing-3);
-    background: rgba(245, 197, 24, 0.05);
+    background: rgba(43, 107, 153, 0.05);
     border-radius: var(--border-radius);
     border-left: 3px solid var(--accent-color);
 }
@@ -1747,7 +1747,7 @@ iframe[data-test-id="beehiiv-embed"] {
 }
 
 .coverage-philosophy .philosophy-item {
-    background: linear-gradient(135deg, var(--background-secondary) 0%, rgba(245, 197, 24, 0.05) 100%);
+    background: linear-gradient(135deg, var(--background-secondary) 0%, rgba(43, 107, 153, 0.05) 100%);
     padding: var(--spacing-8);
     border-radius: var(--border-radius-lg);
     border: 2px solid var(--border-color);
@@ -1777,9 +1777,9 @@ iframe[data-test-id="beehiiv-embed"] {
 
 .coverage-philosophy .philosophy-item:hover {
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 12px 30px rgba(245, 197, 24, 0.3);
+    box-shadow: 0 12px 30px rgba(43, 107, 153, 0.3);
     border-color: var(--accent-color);
-    background: linear-gradient(135deg, var(--background-secondary) 0%, rgba(245, 197, 24, 0.1) 100%);
+    background: linear-gradient(135deg, var(--background-secondary) 0%, rgba(43, 107, 153, 0.1) 100%);
 }
 
 .coverage-philosophy .philosophy-item:hover::before {
@@ -1795,7 +1795,7 @@ iframe[data-test-id="beehiiv-embed"] {
 
 .coverage-philosophy .philosophy-item:hover .philosophy-icon {
     transform: scale(1.15) rotateY(10deg);
-    filter: drop-shadow(0 6px 12px rgba(245, 197, 24, 0.4));
+    filter: drop-shadow(0 6px 12px rgba(43, 107, 153, 0.4));
 }
 
 .coverage-philosophy .philosophy-item h3 {
@@ -1879,12 +1879,12 @@ iframe[data-test-id="beehiiv-embed"] {
 
 /* Sponsors Section */
 .sponsors-section {
-    background: linear-gradient(135deg, var(--background-secondary) 0%, rgba(245, 197, 24, 0.05) 100%);
+    background: linear-gradient(135deg, var(--background-secondary) 0%, rgba(43, 107, 153, 0.05) 100%);
     padding: var(--spacing-8);
     border-radius: var(--border-radius-lg);
     border: 2px solid var(--accent-color);
     margin-bottom: var(--spacing-6);
-    box-shadow: 0 8px 25px rgba(245, 197, 24, 0.15);
+    box-shadow: 0 8px 25px rgba(43, 107, 153, 0.15);
 }
 
 .sponsors-section h3 {
@@ -1936,9 +1936,9 @@ iframe[data-test-id="beehiiv-embed"] {
 }
 
 .sponsor-slide:hover {
-    background: rgba(245, 197, 24, 0.1);
+    background: rgba(43, 107, 153, 0.1);
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(245, 197, 24, 0.2);
+    box-shadow: 0 8px 20px rgba(43, 107, 153, 0.2);
 }
 
 .sponsor-slide:hover img {
@@ -2003,7 +2003,7 @@ section {
     transition: background 0.2s ease;
 }
 
-.view-all:hover { background: rgba(245, 197, 24, 0.1); }
+.view-all:hover { background: rgba(43, 107, 153, 0.1); }
 
 .website-button {
     background: linear-gradient(135deg, var(--accent-color), #1e5275);
@@ -2014,7 +2014,7 @@ section {
     border-radius: var(--border-radius);
     text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(245, 197, 24, 0.3);
+    box-shadow: 0 4px 12px rgba(43, 107, 153, 0.3);
     border: 2px solid transparent;
     display: inline-flex;
     align-items: center;
@@ -2027,7 +2027,7 @@ section {
 .website-button:hover {
     background: linear-gradient(135deg, #1e5275, var(--accent-color));
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(245, 197, 24, 0.4);
+    box-shadow: 0 6px 16px rgba(43, 107, 153, 0.4);
     color: #fff;
 }
 
