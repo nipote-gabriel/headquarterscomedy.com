@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  @page {
+    size: 11in 8.5in;
+    margin: 0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0b0b0b;
+    color: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .slide {
+    width: 11in;
+    height: 8.5in;
+    page-break-after: always;
+    page-break-inside: avoid;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── COLORS ── */
+  :root {
+    --red: #dc2626;
+    --red-dark: #991b1b;
+    --red-dim: rgba(220, 38, 38, 0.15);
+    --red-border: rgba(220, 38, 38, 0.3);
+    --bg: #0b0b0b;
+    --bg2: #141414;
+    --bg3: #1c1c1c;
+    --text: #f0f0f0;
+    --muted: #888;
+  }
+
+  /* ══════════════════════════════════════════
+     SLIDE 1 — COVER
+  ══════════════════════════════════════════ */
+  .slide-cover {
+    background: #0b0b0b;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .cover-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 55% at 50% 50%, rgba(22,163,74,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 30% 40% at 10% 90%, rgba(22,163,74,0.06) 0%, transparent 60%);
+  }
+
+  .cover-noise {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.4;
+  }
+
+  .cover-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5in;
+  }
+
+  .cover-logo {
+    width: 1.1in;
+    height: 1.1in;
+    object-fit: contain;
+    opacity: 0.95;
+  }
+
+  .cover-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.12in;
+  }
+
+  .cover-name {
+    font-size: 52pt;
+    font-weight: 900;
+    letter-spacing: -1.5pt;
+    color: #fff;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .cover-sub {
+    font-size: 13pt;
+    font-weight: 400;
+    letter-spacing: 5pt;
+    color: var(--red);
+    text-transform: uppercase;
+  }
+
+  .cover-divider {
+    width: 0.6in;
+    height: 2pt;
+    background: var(--red);
+    border-radius: 2pt;
+  }
+
+  .cover-tagline {
+    font-size: 22pt;
+    font-weight: 300;
+    color: #ccc;
+    line-height: 1.3;
+    max-width: 6.5in;
+    letter-spacing: -0.3pt;
+  }
+
+  .cover-tagline strong {
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .cover-footer {
+    position: absolute;
+    bottom: 0.35in;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.55in;
+    z-index: 2;
+  }
+
+  .cover-footer-text {
+    font-size: 9pt;
+    color: var(--muted);
+    letter-spacing: 1.5pt;
+    text-transform: uppercase;
+  }
+
+  .cover-year {
+    font-size: 9pt;
+    color: var(--muted);
+    letter-spacing: 2pt;
+  }
+
+  /* ══════════════════════════════════════════
+     SHARED LAYOUT
+  ══════════════════════════════════════════ */
+  .slide-inner {
+    padding: 0.55in 0.65in;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .slide-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.35in;
+    padding-bottom: 0.18in;
+    border-bottom: 1pt solid rgba(255,255,255,0.08);
+  }
+
+  .slide-logo-small {
+    height: 0.28in;
+    opacity: 0.6;
+    object-fit: contain;
+  }
+
+  .slide-num {
+    font-size: 8pt;
+    color: var(--muted);
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+  }
+
+  .eyebrow {
+    font-size: 8.5pt;
+    font-weight: 600;
+    letter-spacing: 3pt;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 0.12in;
+  }
+
+  .headline {
+    font-size: 32pt;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.8pt;
+    color: #fff;
+    margin-bottom: 0.2in;
+  }
+
+  .headline em {
+    color: var(--red);
+    font-style: normal;
+  }
+
+  .body-text {
+    font-size: 11.5pt;
+    font-weight: 400;
+    color: #bbb;
+    line-height: 1.7;
+    max-width: 5.5in;
+  }
+
+  .body-text strong {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  /* ══════════════════════════════════════════
+     SLIDE 2 — THE PROBLEM
+  ══════════════════════════════════════════ */
+  .slide-problem {
+    background: var(--bg);
+  }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.3in;
+    margin-top: 0.25in;
+    flex: 1;
+  }
+
+  .stat-block {
+    background: var(--bg2);
+    border: 1pt solid rgba(255,255,255,0.07);
+    border-radius: 8pt;
+    padding: 0.28in 0.3in;
+    display: flex;
+    flex-direction: column;
+    gap: 0.08in;
+  }
+
+  .stat-num {
+    font-size: 36pt;
+    font-weight: 900;
+    color: var(--red);
+    line-height: 1;
+    letter-spacing: -1pt;
+  }
+
+  .stat-label {
+    font-size: 10pt;
+    color: #aaa;
+    line-height: 1.5;
+  }
+
+  .stat-label strong {
+    color: #ddd;
+    font-weight: 600;
+  }
+
+  /* ══════════════════════════════════════════
+     SLIDE 3 — WHO WE ARE
+  ══════════════════════════════════════════ */
+  .slide-about {
+    background: var(--bg);
+  }
+
+  .about-layout {
+    display: grid;
+    grid-template-columns: 1fr 0.85fr;
+    gap: 0.4in;
+    flex: 1;
+    align-items: center;
+  }
+
+  .about-photo {
+    width: 100%;
+    height: 4.5in;
+    object-fit: cover;
+    border-radius: 8pt;
+    filter: brightness(0.85) contrast(1.05);
+  }
+
+  .about-photo-wrap {
+    position: relative;
+  }
+
+  .about-photo-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 8pt;
+    border: 1pt solid rgba(22,163,74,0.25);
+    pointer-events: none;
+  }
+
+  .pill-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.14in;
+    margin-top: 0.22in;
+  }
+
+  .pill {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.14in;
+  }
+
+  .pill-dot {
+    width: 7pt;
+    height: 7pt;
+    min-width: 7pt;
+    border-radius: 50%;
+    background: var(--red);
+    margin-top: 4pt;
+  }
+
+  .pill-text {
+    font-size: 11pt;
+    color: #bbb;
+    line-height: 1.5;
+  }
+
+  .pill-text strong {
+    color: #f0f0f0;
+    font-weight: 600;
+  }
+
+  /* ══════════════════════════════════════════
+     SLIDE 4 — THE AUDIENCE
+  ══════════════════════════════════════════ */
+  .slide-audience {
+    background: var(--bg);
+  }
+
+  .audience-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.22in;
+    margin-top: 0.28in;
+    flex: 1;
+  }
+
+  .audience-card {
+    background: var(--bg2);
+    border: 1pt solid rgba(255,255,255,0.07);
+    border-radius: 8pt;
+    padding: 0.28in 0.28in;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1in;
+  }
+
+  .audience-card-icon {
+    font-size: 22pt;
+    margin-bottom: 0.05in;
+  }
+
+  .audience-card-title {
+    font-size: 13pt;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .audience-card-desc {
+    font-size: 10pt;
+    color: #999;
+    line-height: 1.6;
+  }
+
+  .audience-photo-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.18in;
+    margin-top: 0.2in;
+    height: 2in;
+  }
+
+  .audience-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 6pt;
+    filter: brightness(0.7) contrast(1.1) saturate(0.8);
+  }
+
+  /* ══════════════════════════════════════════
+     SLIDE 5 — PACKAGE 1
+  ══════════════════════════════════════════ */
+  .slide-pkg1 {
+    background: var(--bg);
+  }
+
+  .pkg-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7pt;
+    background: rgba(22,163,74,0.12);
+    border: 1pt solid rgba(22,163,74,0.3);
+    border-radius: 20pt;
+    padding: 5pt 14pt;
+    margin-bottom: 0.2in;
+  }
+
+  .pkg-badge-dot {
+    width: 6pt;
+    height: 6pt;
+    border-radius: 50%;
+    background: var(--red);
+  }
+
+  .pkg-badge-text {
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 2.5pt;
+    text-transform: uppercase;
+    color: var(--red);
+  }
+
+  .pkg-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.35in;
+    flex: 1;
+    align-items: start;
+    margin-top: 0.1in;
+  }
+
+  .pkg-features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.14in;
+  }
+
+  .feature-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.14in;
+    padding: 0.14in 0.16in;
+    background: var(--bg2);
+    border-radius: 6pt;
+    border: 1pt solid rgba(255,255,255,0.05);
+  }
+
+  .feature-icon {
+    font-size: 14pt;
+    min-width: 0.25in;
+    margin-top: 1pt;
+  }
+
+  .feature-content {}
+
+  .feature-title {
+    font-size: 10.5pt;
+    font-weight: 700;
+    color: #f0f0f0;
+    margin-bottom: 2pt;
+  }
+
+  .feature-desc {
+    font-size: 9.5pt;
+    color: #888;
+    line-height: 1.5;
+  }
+
+  .pkg-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2in;
+  }
+
+  .pkg-cta-box {
+    background: linear-gradient(135deg, var(--bg3), rgba(22,163,74,0.08));
+    border: 1pt solid rgba(22,163,74,0.25);
+    border-radius: 10pt;
+    padding: 0.3in;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1in;
+  }
+
+  .pkg-price-label {
+    font-size: 8.5pt;
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 600;
+  }
+
+  .pkg-price {
+    font-size: 34pt;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: -1pt;
+    line-height: 1;
+  }
+
+  .pkg-price span {
+    font-size: 14pt;
+    font-weight: 400;
+    color: #888;
+    letter-spacing: 0;
+  }
+
+  .pkg-price-note {
+    font-size: 9pt;
+    color: #777;
+    margin-top: 0.05in;
+    line-height: 1.5;
+  }
+
+  .pkg-highlight {
+    background: var(--bg2);
+    border-radius: 8pt;
+    padding: 0.2in;
+    font-size: 10.5pt;
+    color: #aaa;
+    line-height: 1.6;
+    border-left: 3pt solid var(--red);
+  }
+
+  .pkg-highlight strong {
+    color: #fff;
+    display: block;
+    font-size: 11pt;
+    margin-bottom: 5pt;
+  }
+
+  /* ══════════════════════════════════════════
+     SLIDE 6 — PACKAGE 2 (VIRAL)
+  ══════════════════════════════════════════ */
+  .slide-pkg2 {
+    background: var(--bg);
+  }
+
+  .pkg2-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7pt;
+    background: rgba(255,255,255,0.05);
+    border: 1pt solid rgba(255,255,255,0.12);
+    border-radius: 20pt;
+    padding: 5pt 14pt;
+    margin-bottom: 0.2in;
+  }
+
+  .pkg2-badge-text {
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 2.5pt;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  .pkg2-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.35in;
+    flex: 1;
+    align-items: start;
+    margin-top: 0.1in;
+  }
+
+  .pkg2-cta-box {
+    background: linear-gradient(135deg, #1a1a1a, #222);
+    border: 1pt solid rgba(255,255,255,0.1);
+    border-radius: 10pt;
+    padding: 0.3in;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1in;
+  }
+
+  .pkg2-price-label {
+    font-size: 8.5pt;
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .pkg2-price {
+    font-size: 34pt;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: -1pt;
+    line-height: 1;
+  }
+
+  .pkg2-price span {
+    font-size: 14pt;
+    font-weight: 400;
+    color: #888;
+    letter-spacing: 0;
+  }
+
+  .pkg2-highlight {
+    background: #1a1a1a;
+    border-radius: 8pt;
+    padding: 0.2in;
+    font-size: 10.5pt;
+    color: #aaa;
+    line-height: 1.6;
+    border-left: 3pt solid #fff;
+  }
+
+  .pkg2-highlight strong {
+    color: #fff;
+    display: block;
+    font-size: 11pt;
+    margin-bottom: 5pt;
+  }
+
+  /* ══════════════════════════════════════════
+     SLIDE 7 — WHY IT WORKS
+  ══════════════════════════════════════════ */
+  .slide-why {
+    background: var(--bg);
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.22in;
+    margin-top: 0.28in;
+    flex: 1;
+  }
+
+  .why-card {
+    background: var(--bg2);
+    border: 1pt solid rgba(255,255,255,0.06);
+    border-radius: 8pt;
+    padding: 0.3in;
+    display: flex;
+    flex-direction: column;
+    gap: 0.12in;
+  }
+
+  .why-card-num {
+    font-size: 28pt;
+    font-weight: 900;
+    color: var(--red);
+    line-height: 1;
+    opacity: 0.7;
+  }
+
+  .why-card-title {
+    font-size: 13.5pt;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+  }
+
+  .why-card-body {
+    font-size: 10pt;
+    color: #999;
+    line-height: 1.65;
+    flex: 1;
+  }
+
+  .why-bottom-bar {
+    margin-top: 0.2in;
+    background: linear-gradient(90deg, rgba(22,163,74,0.1), transparent);
+    border: 1pt solid var(--red-border);
+    border-radius: 7pt;
+    padding: 0.18in 0.25in;
+    font-size: 11pt;
+    color: #ccc;
+    line-height: 1.5;
+  }
+
+  .why-bottom-bar strong {
+    color: #fff;
+    font-weight: 700;
+  }
+
+  /* ══════════════════════════════════════════
+     SLIDE 8 — CTA / CONTACT
+  ══════════════════════════════════════════ */
+  .slide-cta {
+    background: var(--bg);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .cta-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 55% 50% at 50% 60%, rgba(22,163,74,0.1) 0%, transparent 70%);
+  }
+
+  .cta-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3in;
+  }
+
+  .cta-eyebrow {
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 4pt;
+    text-transform: uppercase;
+    color: var(--red);
+  }
+
+  .cta-headline {
+    font-size: 42pt;
+    font-weight: 900;
+    letter-spacing: -1.5pt;
+    line-height: 1.05;
+    color: #fff;
+    max-width: 7.5in;
+  }
+
+  .cta-headline em {
+    color: var(--red);
+    font-style: normal;
+  }
+
+  .cta-sub {
+    font-size: 13pt;
+    color: #999;
+    max-width: 5.5in;
+    line-height: 1.6;
+  }
+
+  .cta-email {
+    font-size: 18pt;
+    font-weight: 700;
+    color: #fff;
+    background: rgba(22,163,74,0.12);
+    border: 1pt solid rgba(22,163,74,0.3);
+    padding: 0.15in 0.4in;
+    border-radius: 6pt;
+    letter-spacing: -0.2pt;
+  }
+
+  .cta-footer {
+    display: flex;
+    gap: 0.5in;
+    align-items: center;
+  }
+
+  .cta-footer-item {
+    font-size: 9.5pt;
+    color: #666;
+    letter-spacing: 0.5pt;
+  }
+
+  .cta-footer-item strong {
+    color: #999;
+    font-weight: 600;
+  }
+
+  .cta-logo {
+    position: absolute;
+    bottom: 0.35in;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.12in;
+  }
+
+  .cta-logo img {
+    height: 0.3in;
+    opacity: 0.4;
+  }
+
+  .cta-logo-text {
+    font-size: 8.5pt;
+    color: #444;
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ SLIDE 1: COVER ══ -->
+<div class="slide slide-cover">
+  <div class="cover-bg"></div>
+  <div class="cover-noise"></div>
+  <div class="cover-content">
+    <img class="cover-logo"
+         src="file:///Users/gabrielnipote/Desktop/Headquarters%20Comedy/headquarterscomedy.com/graphic%20assets/Headquarters%20Comedy/Headquarters%20Comedy.Icon.png"
+         alt="HQ Comedy">
+    <div class="cover-brand">
+      <div class="cover-name">Headquarters Comedy</div>
+      <div class="cover-sub">Sponsorship Opportunities</div>
+    </div>
+    <div class="cover-divider"></div>
+    <div class="cover-tagline">
+      <strong>The fastest way to make your brand unforgettable</strong><br>
+      is to make your audience laugh out loud.
+    </div>
+  </div>
+  <div class="cover-footer">
+    <div class="cover-footer-text">Confidential — For Recipient Only</div>
+    <div class="cover-year">2026</div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 2: THE PROBLEM ══ -->
+<div class="slide slide-problem">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <img class="slide-logo-small"
+           src="file:///Users/gabrielnipote/Desktop/Headquarters%20Comedy/headquarterscomedy.com/graphic%20assets/Headquarters%20Comedy/Headquarters%20Comedy.Icon.png"
+           alt="HQ">
+      <div class="slide-num">01 / The Opportunity</div>
+    </div>
+    <div class="eyebrow">The Problem with Traditional Advertising</div>
+    <div class="headline">Your ads are being ignored.<br><em>Comedy isn't.</em></div>
+    <div class="body-text">
+      People skip ads the moment they can. But they screenshot funny content and send it to six friends.
+      The brands winning attention right now aren't the ones with the biggest media budgets —
+      they're the ones <strong>brave enough to be in on the joke.</strong>
+    </div>
+    <div class="problem-grid">
+      <div class="stat-block">
+        <div class="stat-num">87%</div>
+        <div class="stat-label"><strong>of viewers skip pre-roll ads</strong> within the first 5 seconds on digital platforms.</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">3×</div>
+        <div class="stat-label"><strong>Higher brand recall</strong> when a message is delivered through humor vs. traditional formats.</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">72%</div>
+        <div class="stat-label"><strong>of consumers say they'd share</strong> branded content if it was funny — more than any other type.</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">$0</div>
+        <div class="stat-label"><strong>Paid media spend required</strong> when your audience shares your content organically — which they will.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 3: WHO WE ARE ══ -->
+<div class="slide slide-about">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <img class="slide-logo-small"
+           src="file:///Users/gabrielnipote/Desktop/Headquarters%20Comedy/headquarterscomedy.com/graphic%20assets/Headquarters%20Comedy/Headquarters%20Comedy.Icon.png"
+           alt="HQ">
+      <div class="slide-num">02 / Who We Are</div>
+    </div>
+    <div class="about-layout">
+      <div>
+        <div class="eyebrow">Headquarters Comedy</div>
+        <div class="headline">NYC's sharpest<br>pop-up <em>standup scene.</em></div>
+        <div class="body-text">
+          We produce intimate, high-energy standup shows across New York City —
+          featuring some of the most talented and fast-rising comics working today.
+          Our shows are <strong>irreverent, smart, and riotous,</strong> and our audiences
+          come back every time.
+        </div>
+        <div class="pill-list">
+          <div class="pill">
+            <div class="pill-dot"></div>
+            <div class="pill-text"><strong>Live shows</strong> produced across NYC venues — intimate, sold-out, highly engaged</div>
+          </div>
+          <div class="pill">
+            <div class="pill-dot"></div>
+            <div class="pill-text"><strong>Rising comics</strong> with social followings ready to create native content for your brand</div>
+          </div>
+          <div class="pill">
+            <div class="pill-dot"></div>
+            <div class="pill-text"><strong>Full production pipeline</strong> from writing to filming to social distribution</div>
+          </div>
+          <div class="pill">
+            <div class="pill-dot"></div>
+            <div class="pill-text"><strong>Newsletter & social audience</strong> of engaged comedy fans across every major platform</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-photo-wrap">
+        <img class="about-photo"
+             src="file:///Users/gabrielnipote/Desktop/Headquarters%20Comedy/headquarterscomedy.com/graphic%20assets/Live%20Shows%20Photos/live%20show.jpg"
+             alt="Live Show">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 4: THE AUDIENCE ══ -->
+<div class="slide slide-audience">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <img class="slide-logo-small"
+           src="file:///Users/gabrielnipote/Desktop/Headquarters%20Comedy/headquarterscomedy.com/graphic%20assets/Headquarters%20Comedy/Headquarters%20Comedy.Icon.png"
+           alt="HQ">
+      <div class="slide-num">03 / The Audience</div>
+    </div>
+    <div class="eyebrow">Who's in the Room</div>
+    <div class="headline">Affluent, urban,<br>and <em>impossible to reach</em> any other way.</div>
+    <div class="audience-grid">
+      <div class="audience-card">
+        <div class="audience-card-icon">🏙</div>
+        <div class="audience-card-title">New York City</div>
+        <div class="audience-card-desc">Our shows draw from the heart of Manhattan and Brooklyn — the most coveted advertising market in the world.</div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-card-icon">💼</div>
+        <div class="audience-card-title">Young Professionals</div>
+        <div class="audience-card-desc">Ages 25–40, college-educated, with disposable income and strong brand loyalty when earned authentically.</div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-card-icon">📱</div>
+        <div class="audience-card-title">Highly Social</div>
+        <div class="audience-card-desc">These are the tastemakers who drive word-of-mouth. If they love something, their networks hear about it.</div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-card-icon">🎟</div>
+        <div class="audience-card-title">Paying Attendees</div>
+        <div class="audience-card-desc">They chose to be here. No algorithm forced them. High intent, undivided attention, and zero competing screens.</div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-card-icon">🔁</div>
+        <div class="audience-card-title">Repeat Fans</div>
+        <div class="audience-card-desc">Our crowd keeps coming back. A brand that's part of the show becomes part of the memory — every time.</div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-card-icon">🌐</div>
+        <div class="audience-card-title">Online Reach</div>
+        <div class="audience-card-desc">Beyond the room: our newsletter, social accounts, and video content extend your brand reach well past show night.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 5: PACKAGE 1 ══ -->
+<div class="slide slide-pkg1">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <img class="slide-logo-small"
+           src="file:///Users/gabrielnipote/Desktop/Headquarters%20Comedy/headquarterscomedy.com/graphic%20assets/Headquarters%20Comedy/Headquarters%20Comedy.Icon.png"
+           alt="HQ">
+      <div class="slide-num">04 / Packages</div>
+    </div>
+    <div class="pkg-badge">
+      <div class="pkg-badge-dot"></div>
+      <div class="pkg-badge-text">Package 01 — Brand Sponsor</div>
+    </div>
+    <div class="headline" style="margin-bottom: 0.05in;">Get Your Brand<br><em>In The Room.</em></div>
+    <div class="pkg-layout">
+      <div class="pkg-features">
+        <div class="feature-row">
+          <div class="feature-icon">🎤</div>
+          <div class="feature-content">
+            <div class="feature-title">Host Shoutout &amp; Live Mention</div>
+            <div class="feature-desc">Your brand is introduced by name from the stage at the top and close of every show.</div>
+          </div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-icon">🏷</div>
+          <div class="feature-content">
+            <div class="feature-title">Prominent Logo Placement</div>
+            <div class="feature-desc">On all event materials — digital show pages, email newsletters, and in-venue signage.</div>
+          </div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-icon">📸</div>
+          <div class="feature-content">
+            <div class="feature-title">Event Photography &amp; Content</div>
+            <div class="feature-desc">Professional photos from the night, cleared for your social and marketing use.</div>
+          </div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-icon">🎟</div>
+          <div class="feature-content">
+            <div class="feature-title">Complimentary Ticket Bundle</div>
+            <div class="feature-desc">Bring your team, entertain clients, or gift tickets to your community.</div>
+          </div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-icon">📧</div>
+          <div class="feature-content">
+            <div class="feature-title">Newsletter Feature</div>
+            <div class="feature-desc">Dedicated mention to our subscriber list — comedy fans who actually open emails.</div>
+          </div>
+        </div>
+      </div>
+      <div class="pkg-right">
+        <div class="pkg-cta-box">
+          <div class="pkg-price-label">Starting At</div>
+          <div class="pkg-price">$2,500 <span>/ show</span></div>
+          <div class="pkg-price-note">Multi-show packages available at a discount. Pricing scales with venue size and audience reach.</div>
+        </div>
+        <div class="pkg-highlight">
+          <strong>Perfect for:</strong>
+          Consumer brands, local businesses, and companies looking to build authentic community presence without a massive production budget.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 6: PACKAGE 2 ══ -->
+<div class="slide slide-pkg2">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <img class="slide-logo-small"
+           src="file:///Users/gabrielnipote/Desktop/Headquarters%20Comedy/headquarterscomedy.com/graphic%20assets/Headquarters%20Comedy/Headquarters%20Comedy.Icon.png"
+           alt="HQ">
+      <div class="slide-num">04 / Packages</div>
+    </div>
+    <div class="pkg2-badge">
+      <div class="pkg-badge-dot" style="background:#fff;"></div>
+      <div class="pkg2-badge-text">Package 02 — The Viral Play</div>
+    </div>
+    <div class="headline" style="margin-bottom: 0.05in;">Make Your Brand<br>the <em>Actual Bit.</em></div>
+    <div class="pkg2-layout">
+      <div class="pkg-features">
+        <div class="feature-row">
+          <div class="feature-icon">✍️</div>
+          <div class="feature-content">
+            <div class="feature-title">Custom Comedy Writing</div>
+            <div class="feature-desc">Professional comedians write original bits about your product — genuinely funny, not cringe-y ad-read energy.</div>
+          </div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-icon">🎬</div>
+          <div class="feature-content">
+            <div class="feature-title">Professionally Filmed Content</div>
+            <div class="feature-desc">Every bit is captured on camera with a real audience reaction. Shot and edited for TikTok, Reels, and YouTube Shorts.</div>
+          </div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-icon">🔥</div>
+          <div class="feature-content">
+            <div class="feature-title">Organic Social Distribution</div>
+            <div class="feature-desc">Posted across the comedian's channels and HQ Comedy's platforms. Content designed to spread — not just sit there.</div>
+          </div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-icon">✅</div>
+          <div class="feature-content">
+            <div class="feature-title">Brand Review &amp; Approval</div>
+            <div class="feature-desc">You see the material before the show. We collaborate with you to make sure the angle works for your brand.</div>
+          </div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-icon">📦</div>
+          <div class="feature-content">
+            <div class="feature-title">Everything in Package 01</div>
+            <div class="feature-desc">Live mention, logo placement, photography, tickets, and newsletter feature — all included.</div>
+          </div>
+        </div>
+      </div>
+      <div class="pkg-right">
+        <div class="pkg2-cta-box">
+          <div class="pkg2-price-label">Starting At</div>
+          <div class="pkg2-price">$7,500 <span>/ show</span></div>
+          <div class="pkg-price-note" style="color:#777;">Includes content production and distribution rights. Pricing varies with talent, show size, and deliverable count.</div>
+        </div>
+        <div class="pkg2-highlight">
+          <strong>Perfect for:</strong>
+          Brands that want more than impressions — they want a moment people remember and share. Think CPG, tech, hospitality, and DTC brands that have a personality.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 7: WHY IT WORKS ══ -->
+<div class="slide slide-why">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <img class="slide-logo-small"
+           src="file:///Users/gabrielnipote/Desktop/Headquarters%20Comedy/headquarterscomedy.com/graphic%20assets/Headquarters%20Comedy/Headquarters%20Comedy.Icon.png"
+           alt="HQ">
+      <div class="slide-num">05 / Why It Works</div>
+    </div>
+    <div class="eyebrow">The Strategy Behind the Laugh</div>
+    <div class="headline">Comedy isn't a gimmick.<br><em>It's the mechanism.</em></div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-card-num">01</div>
+        <div class="why-card-title">Attention You Can't Buy Anywhere Else</div>
+        <div class="why-card-body">A live comedy audience is locked in. No second screen. No scroll. No skip button. Your brand gets introduced in a moment of joy — and that association sticks.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-card-num">02</div>
+        <div class="why-card-title">Content That Earns Its Own Distribution</div>
+        <div class="why-card-body">A bit that kills at a show and gets filmed becomes a short-form video that people share because it's actually funny — not because you paid to promote it.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-card-num">03</div>
+        <div class="why-card-title">Trust Through Authenticity</div>
+        <div class="why-card-body">When a comedian makes your brand the punchline in the best possible way, it signals confidence. The audience picks up on that. Brands that can laugh at themselves win.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-card-num">04</div>
+        <div class="why-card-title">Built-In Social Proof</div>
+        <div class="why-card-body">Hundreds of people in the room witnessing your brand be part of the night. They'll post about it. Their friends will see it. That's word of mouth at scale.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-card-num">05</div>
+        <div class="why-card-title">A Tastemaker Demo</div>
+        <div class="why-card-body">The people at our shows are culturally influential. They're the early adopters, the recommenders. Reach them now, while the room is intimate and the access is real.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-card-num">06</div>
+        <div class="why-card-title">Scalable as You Grow</div>
+        <div class="why-card-body">Start with one show and see the results. Build toward a multi-show campaign. HQ Comedy is growing — your partnership grows with it.</div>
+      </div>
+    </div>
+    <div class="why-bottom-bar">
+      <strong>"The most effective marketing doesn't feel like marketing."</strong>
+      Comedy sponsorships with Headquarters Comedy are how brands stop interrupting culture — and start becoming part of it.
+    </div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 8: CTA ══ -->
+<div class="slide slide-cta">
+  <div class="cta-bg"></div>
+  <div class="cta-content">
+    <div class="cta-eyebrow">Ready to Be in the Room</div>
+    <div class="cta-headline">Let's make your brand<br><em>the one they remember.</em></div>
+    <div class="cta-sub">
+      Spots are limited per show. Reach out to start a conversation about which package fits your goals — and let's build something funny together.
+    </div>
+    <div class="cta-email">gabe@headquarterscomedy.com</div>
+    <div class="cta-footer">
+      <div class="cta-footer-item"><strong>Website</strong> — headquarterscomedy.com</div>
+      <div class="cta-footer-item"><strong>Instagram</strong> — @gabe_makes_jokes</div>
+      <div class="cta-footer-item"><strong>TikTok</strong> — @gabe_makes_jokes</div>
+    </div>
+  </div>
+  <div class="cta-logo">
+    <img src="file:///Users/gabrielnipote/Desktop/Headquarters%20Comedy/headquarterscomedy.com/graphic%20assets/Headquarters%20Comedy/Headquarters%20Comedy.Icon.png" alt="">
+    <div class="cta-logo-text">Headquarters Comedy — 2026</div>
+  </div>
+</div>
+
+</body>
+</html>
