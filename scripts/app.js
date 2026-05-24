@@ -54,7 +54,7 @@ class HQCSite {
             this.config = {
                 site_name: "Headquarters Comedy",
                 tagline: "Comedy, chaos, and the occasional bad idea.",
-                accent_color: "#16A34A",
+                accent_color: "#dc2626",
                 on_air: false,
                 social: { x: "#", youtube: "#", spotify: "#", apple: "#" }
             };
@@ -407,7 +407,7 @@ class HQCSite {
         const maxPrice = Math.max(...data);
         const range = maxPrice - minPrice || 1;
 
-        ctx.strokeStyle = data[data.length - 1] >= data[0] ? '#00ff88' : '#ff4757';
+        ctx.strokeStyle = data[data.length - 1] >= data[0] ? '#ff6b6b' : '#ff4757';
         ctx.lineWidth = 2;
         ctx.lineCap = 'round';
         ctx.lineJoin = 'round';
