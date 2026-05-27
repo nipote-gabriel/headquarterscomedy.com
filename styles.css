@@ -1433,6 +1433,7 @@ iframe[data-test-id="beehiiv-embed"] {
 
 /* Stock & Advertising Tickers */
 .ticker-container {
+    display: none; /* hidden — remove this line to restore the stock ticker */
     position: absolute;
     bottom: 0;
     left: 0;
