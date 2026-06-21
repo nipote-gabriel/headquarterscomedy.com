@@ -116,13 +116,13 @@
 
         .show-card {
             display: grid;
-            grid-template-columns: 88px 1fr auto;
-            gap: 32px;
-            align-items: center;
+            grid-template-columns: 1fr auto;
+            gap: 0;
+            align-items: stretch;
             background: var(--background-secondary);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 36px 40px;
+            overflow: hidden;
             margin-bottom: 16px;
             transition: border-color 0.2s, box-shadow 0.2s;
             text-decoration: none;
@@ -133,13 +133,21 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
         }
 
+        .show-card-left {
+            display: grid;
+            grid-template-columns: 160px 1fr auto;
+            gap: 32px;
+            align-items: center;
+            padding: 36px 40px;
+        }
+
         .show-date-block {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
             border-right: 1px solid var(--border-color);
-            padding-right: 40px;
+            padding-right: 32px;
         }
 
         .show-date-month {
@@ -148,14 +156,14 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             color: var(--accent-color);
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
         .show-date-day {
-            font-size: 2.2rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: var(--secondary-color);
-            line-height: 1;
+            line-height: 1.15;
             margin-bottom: 4px;
         }
 
@@ -177,6 +185,16 @@
             margin-bottom: 12px;
         }
 
+        .show-venue a {
+            color: var(--text-secondary);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .show-venue a:hover {
+            color: var(--secondary-color);
+        }
+
         .show-tags {
             display: flex;
             gap: 8px;
@@ -195,6 +213,11 @@
             border-radius: 4px;
         }
 
+        .show-action {
+            display: flex;
+            align-items: center;
+        }
+
         .show-action a {
             display: inline-block;
             padding: 12px 28px;
@@ -209,8 +232,23 @@
         }
 
         .show-action a:hover {
-            background: #059669;
+            background: #b91c1c;
             transform: translateY(-2px);
+        }
+
+        .show-card-hero {
+            width: 260px;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .show-card-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
         }
 
         /* ── Newsletter section ─────────────────────────── */
@@ -270,8 +308,18 @@
             }
         }
 
+        @media (max-width: 900px) {
+            .show-card-hero {
+                display: none;
+            }
+        }
+
         @media (max-width: 700px) {
             .show-card {
+                grid-template-columns: 1fr;
+            }
+
+            .show-card-left {
                 grid-template-columns: 1fr;
                 gap: 20px;
                 padding: 28px 24px;
@@ -279,6 +327,7 @@
 
             .show-date-block {
                 display: flex;
+                flex-direction: row;
                 gap: 10px;
                 align-items: baseline;
                 border-right: none;
@@ -359,21 +408,27 @@
                 <p class="section-eyebrow">Next Show &mdash; <em>venue and ticket link goes out week of to those on our mailing list.</em></p>
 
                 <div class="show-card">
-                    <div class="show-date-block">
-                        <div class="show-date-day">JUN</div>
-                        <div class="show-date-year">2026</div>
-                    </div>
-                    <div class="show-info">
-                        <h3>Headquarters Comedy &mdash; Live &mdash; with Special Guest</h3>
-                        <p class="show-venue">Manhattan &middot; New York, NY</p>
-                        <div class="show-tags">
-                            <span class="show-tag">Stand-Up</span>
-                            <span class="show-tag">Live Comedy</span>
-                            <span class="show-tag">New York</span>
+                    <div class="show-card-left">
+                        <div class="show-date-block">
+                            <div class="show-date-month">Thursday</div>
+                            <div class="show-date-day">July 23rd</div>
+                            <div class="show-date-year">9pm &middot; 2026</div>
+                        </div>
+                        <div class="show-info">
+                            <h3>Headquarters Comedy &mdash; Live &mdash; with Special Guest</h3>
+                            <p class="show-venue"><a href="https://www.google.com/maps/dir/?api=1&destination=Soho+Playhouse,+15+Vandam+St,+New+York,+NY+10013" target="_blank">Soho Playhouse</a> &middot; New York, NY</p>
+                            <div class="show-tags">
+                                <span class="show-tag">Stand-Up</span>
+                                <span class="show-tag">Live Comedy</span>
+                                <span class="show-tag">New York</span>
+                            </div>
+                        </div>
+                        <div class="show-action">
+                            <a href="https://ci.ovationtix.com/35583/production/1280296?performanceId=11828510" target="_blank">Get Tickets</a>
                         </div>
                     </div>
-                    <div class="show-action">
-                        <a href="https://headquarterscomedy.beehiiv.com/" target="_blank">Get Notified</a>
+                    <div class="show-card-hero">
+                        <img src="graphic assets/Headquarters Comedy/HQC 7-23-26 Show Photos/Hero Image.PNG" alt="HQ Comedy Live Show July 23rd">
                     </div>
                 </div>
 
