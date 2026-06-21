@@ -93,30 +93,6 @@
             margin: 0;
         }
 
-        /* ── Next show heading ──────────────────────────── */
-        .next-show-heading {
-            background-color: var(--background-color);
-            padding: 60px 0 40px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .section-eyebrow {
-            font-size: 2rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 6px;
-            color: var(--secondary-color);
-            margin-bottom: 10px;
-        }
-
-        .section-eyebrow-sub {
-            font-size: 0.8rem;
-            font-weight: 400;
-            letter-spacing: 0;
-            color: var(--text-secondary);
-        }
-
         /* ── Hero banner ────────────────────────────────── */
         .show-hero-banner {
             width: 100%;
@@ -132,13 +108,11 @@
 
         /* ── Shows section ──────────────────────────────── */
         .shows-section {
-            padding: 60px 0 80px;
+            padding: 60px 0 60px;
         }
 
         .show-card {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 0;
+            display: flex;
             align-items: stretch;
             background: var(--background-secondary);
             border: 1px solid var(--border-color);
@@ -146,12 +120,28 @@
             overflow: hidden;
             margin-bottom: 16px;
             transition: border-color 0.2s, box-shadow 0.2s;
-            text-decoration: none;
         }
 
         .show-card:hover {
             border-color: var(--accent-color);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        .show-next-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 22px;
+            border-right: 1px solid var(--border-color);
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--accent-color);
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .show-card-left {
@@ -160,6 +150,7 @@
             gap: 32px;
             align-items: center;
             padding: 36px 40px;
+            flex: 1;
         }
 
         .show-date-block {
@@ -329,15 +320,9 @@
             }
         }
 
-        @media (max-width: 900px) {
-            .show-card-hero {
-                display: none;
-            }
-        }
-
         @media (max-width: 700px) {
-            .show-card {
-                grid-template-columns: 1fr;
+            .show-next-label {
+                display: none;
             }
 
             .show-card-left {
@@ -347,7 +332,6 @@
             }
 
             .show-date-block {
-                display: flex;
                 flex-direction: row;
                 gap: 10px;
                 align-items: baseline;
@@ -423,24 +407,11 @@
 
         <div class="photo-section-spacer"></div>
 
-        <!-- Next Show Heading -->
-        <div class="next-show-heading">
-            <div class="container">
-                <p class="section-eyebrow">Next Show</p>
-                <p class="section-eyebrow-sub">Venue and ticket link goes out the week of to everyone on our mailing list.</p>
-            </div>
-        </div>
-
-        <!-- Hero Banner -->
-        <div class="show-hero-banner">
-            <img src="graphic assets/Headquarters Comedy/HQC 7-23-26 Show Photos/Hero Image.PNG" alt="HQ Comedy Live Show July 23rd at Soho Playhouse">
-        </div>
-
         <!-- Next Show -->
         <section class="shows-section">
             <div class="container">
-
                 <div class="show-card">
+                    <div class="show-next-label">Next Show</div>
                     <div class="show-card-left">
                         <div class="show-date-block">
                             <div class="show-date-month">Thursday</div>
@@ -460,13 +431,14 @@
                             <a href="https://ci.ovationtix.com/35583/production/1280296?performanceId=11828510" target="_blank">Get Tickets</a>
                         </div>
                     </div>
-                    <div class="show-card-hero">
-                        <img src="graphic assets/Headquarters Comedy/HQC 7-23-26 Show Photos/Header Image.PNG" alt="HQ Comedy Live Show July 23rd">
-                    </div>
                 </div>
-
             </div>
         </section>
+
+        <!-- Hero Banner -->
+        <div class="show-hero-banner">
+            <img src="graphic assets/Headquarters Comedy/HQC 7-23-26 Show Photos/Hero Image.PNG" alt="HQ Comedy Live Show July 23rd at Soho Playhouse">
+        </div>
 
         <!-- Photo 2 -->
         <div class="photo-section" style="background-image: url('graphic%20assets/Live%20Shows%20Photos/live%20show%202.jpg'); background-position: center center;">
