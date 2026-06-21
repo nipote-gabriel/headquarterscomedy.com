@@ -144,10 +144,10 @@
 
         .show-card-left {
             display: grid;
-            grid-template-columns: 160px 1fr auto;
+            grid-template-columns: 160px 1fr;
             gap: 32px;
             align-items: center;
-            padding: 36px 0px 36px 40px;
+            padding: 36px 40px;
             flex: 1;
         }
 
@@ -156,6 +156,7 @@
             flex-direction: column;
             align-items: flex-start;
             justify-content: center;
+            align-self: stretch;
             border-right: 1px solid var(--border-color);
             padding-right: 32px;
         }
@@ -224,8 +225,7 @@
         }
 
         .show-action {
-            display: flex;
-            align-items: center;
+            margin-top: 16px;
         }
 
         .show-action a {
@@ -424,9 +424,9 @@
                                 <span class="show-tag">Live Comedy</span>
                                 <span class="show-tag">New York</span>
                             </div>
-                        </div>
-                        <div class="show-action">
-                            <a href="https://ci.ovationtix.com/35583/production/1280296?performanceId=11828510" target="_blank">Get Tickets</a>
+                            <div class="show-action">
+                                <a href="https://ci.ovationtix.com/35583/production/1280296?performanceId=11828510" target="_blank">Get Tickets</a>
+                            </div>
                         </div>
                     </div>
                 </div>
