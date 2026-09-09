@@ -391,49 +391,175 @@ a:hover {
     background: var(--background-color);
 }
 
-.hero-video-section {
-    padding: 0;
-    height: calc(100vh - 85px);
-    overflow: hidden;
-}
-
-.hero-video-layout {
-    display: grid;
-    grid-template-columns: 1fr 567px;
-    gap: 0;
+/* Full-screen hero, pinned to the viewport while the page scrolls */
+.hero-fullscreen {
+    position: fixed;
+    inset: 0;
     width: 100vw;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-.hero-video-container {
-    position: relative;
-    height: 100%;
-    width: 100%;
-}
-
-.video-embedded-large {
-    position: relative;
-    background: var(--background-secondary);
-    border-radius: 0;
+    height: 100vh;
+    height: 100svh;
     overflow: hidden;
-    width: 100%;
-    height: 100%;
-    border: none;
-    box-shadow: none;
+    z-index: 1;
+    background: #000;
 }
 
-.video-embedded-large iframe {
-    border-radius: 0;
+.hero-bg-video {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
+    object-fit: cover;
+}
+
+.hero-video-scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.6) 100%);
+    pointer-events: none;
+}
+
+/* Reserves one viewport of scroll before the overlay begins covering the hero */
+.hero-scroll-spacer {
+    height: 100vh;
+    height: 100svh;
+}
+
+/* Sponsor ticker pinned along the bottom edge of the hero */
+.hero-sponsor-ticker {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-6);
+    padding: var(--spacing-3) var(--spacing-6);
+    background: rgba(6, 6, 6, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.hero-ticker-label {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    flex-shrink: 0;
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    padding-right: var(--spacing-6);
+    border-right: 1px solid var(--border-color);
+    white-space: nowrap;
+}
+
+.hero-ticker-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.hero-ticker-track.sponsors-track {
+    align-items: center;
+    gap: var(--spacing-10);
+    animation-duration: 32s;
+}
+
+.hero-ticker-track .sponsor-slide {
+    width: auto;
+    height: 34px;
+    padding: var(--spacing-1) var(--spacing-2);
+    margin: 0;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: var(--border-radius);
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+}
+
+.hero-ticker-track .sponsor-slide img {
+    max-height: 26px;
+    max-width: 100px;
+    width: auto;
+    filter: none;
+}
+
+.hero-ticker-track .sponsor-slide:hover {
+    background: rgba(255, 255, 255, 0.92);
+    transform: none;
+    box-shadow: none;
+    opacity: 1;
+}
+
+.hero-ticker-track .sponsor-slide:hover img {
+    filter: none;
+    transform: none;
+}
+
+/* Connect overlay: rises up over the pinned hero as the page scrolls */
+.connect-overlay {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    min-height: 100svh;
+    background: var(--background-color);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-16);
+    padding: var(--spacing-20) var(--spacing-4);
+}
+
+.connect-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-4);
+    max-width: 720px;
+}
+
+.connect-logo {
+    display: flex;
+    justify-content: center;
+}
+
+.connect-logo-img {
+    width: min(560px, 80vw);
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .hero-sponsor-ticker {
+        gap: var(--spacing-4);
+        padding: var(--spacing-2) var(--spacing-4);
+    }
+
+    .hero-ticker-label span {
+        display: none;
+    }
+
+    .hero-ticker-label {
+        padding-right: var(--spacing-4);
+    }
+
+    .connect-overlay {
+        gap: var(--spacing-10);
+        padding: var(--spacing-16) var(--spacing-4);
+    }
+
+    .connect-logo-img {
+        width: min(360px, 85vw);
+    }
 }
 
 /* Mute Toggle Button */
 .mute-toggle-btn {
     position: absolute;
-    bottom: 80px;
+    bottom: 150px;
     right: 20px;
     width: 48px;
     height: 48px;
@@ -471,7 +597,7 @@ a:hover {
     .mute-toggle-btn {
         width: 40px;
         height: 40px;
-        bottom: 60px;
+        bottom: 116px;
         right: 15px;
     }
 
@@ -484,7 +610,7 @@ a:hover {
 /* Play/Pause Button */
 .play-pause-btn {
     position: absolute;
-    bottom: 80px;
+    bottom: 150px;
     left: 20px;
     width: 48px;
     height: 48px;
@@ -522,7 +648,7 @@ a:hover {
     .play-pause-btn {
         width: 40px;
         height: 40px;
-        bottom: 60px;
+        bottom: 116px;
         left: 15px;
     }
 
@@ -535,7 +661,7 @@ a:hover {
 /* Video Progress Bar (Playhead) */
 .video-progress-bar {
     position: absolute;
-    bottom: 60px;
+    bottom: 130px;
     left: 0;
     right: 0;
     height: 5px;
@@ -560,7 +686,7 @@ a:hover {
 
 @media (max-width: 768px) {
     .video-progress-bar {
-        bottom: 45px;
+        bottom: 100px;
     }
 }
 
