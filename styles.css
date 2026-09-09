@@ -540,14 +540,35 @@ a:hover {
     transform: none;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 640px) {
     .connect-icons {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: var(--spacing-3);
     }
 
     .connect-icons .platform-btn {
-        width: 56px;
-        height: 56px;
+        width: 52px;
+        height: 52px;
+    }
+
+    .connect-icons .platform-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 420px) {
+    .connect-icons {
+        gap: var(--spacing-2);
+    }
+
+    .connect-icons .platform-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .connect-icons .platform-btn svg {
+        width: 17px;
+        height: 17px;
     }
 }
 
