@@ -433,8 +433,8 @@ a:hover {
     z-index: 3;
     display: flex;
     align-items: center;
-    gap: var(--spacing-6);
-    padding: var(--spacing-3) var(--spacing-6);
+    gap: var(--spacing-8);
+    padding: var(--spacing-8) var(--spacing-8);
     background: rgba(6, 6, 6, 0.75);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -444,44 +444,44 @@ a:hover {
 .hero-ticker-label {
     display: flex;
     align-items: center;
-    gap: var(--spacing-2);
+    gap: var(--spacing-3);
     flex-shrink: 0;
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size-sm);
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--text-secondary);
-    padding-right: var(--spacing-6);
+    padding-right: var(--spacing-8);
     border-right: 1px solid var(--border-color);
     white-space: nowrap;
 }
 
 .hero-ticker-icon {
-    width: 20px;
-    height: 20px;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
 }
 
 .hero-ticker-track.sponsors-track {
     align-items: center;
-    gap: var(--spacing-10);
-    animation-duration: 32s;
+    gap: var(--spacing-16);
+    animation-duration: 38s;
 }
 
 .hero-ticker-track .sponsor-slide {
     width: auto;
-    height: 34px;
-    padding: var(--spacing-1) var(--spacing-2);
+    height: 110px;
+    padding: var(--spacing-3) var(--spacing-6);
     margin: 0;
     background: rgba(255, 255, 255, 0.92);
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-lg);
     opacity: 0.85;
     transition: opacity 0.2s ease;
 }
 
 .hero-ticker-track .sponsor-slide img {
-    max-height: 26px;
-    max-width: 100px;
+    max-height: 80px;
+    max-width: 280px;
     width: auto;
     filter: none;
 }
@@ -515,11 +515,27 @@ a:hover {
 }
 
 .connect-icons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: var(--spacing-4);
-    max-width: 720px;
+    width: 100%;
+    max-width: 780px;
+}
+
+.connect-icons .platform-btn {
+    width: 100%;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.connect-icons .platform-btn:hover {
+    transform: none;
+}
+
+@media (max-width: 760px) {
+    .connect-icons {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 }
 
 .connect-logo {
@@ -535,7 +551,7 @@ a:hover {
 @media (max-width: 768px) {
     .hero-sponsor-ticker {
         gap: var(--spacing-4);
-        padding: var(--spacing-2) var(--spacing-4);
+        padding: var(--spacing-4);
     }
 
     .hero-ticker-label span {
@@ -544,6 +560,25 @@ a:hover {
 
     .hero-ticker-label {
         padding-right: var(--spacing-4);
+    }
+
+    .hero-ticker-icon {
+        width: 26px;
+        height: 26px;
+    }
+
+    .hero-ticker-track.sponsors-track {
+        gap: var(--spacing-10);
+    }
+
+    .hero-ticker-track .sponsor-slide {
+        height: 72px;
+        padding: var(--spacing-2) var(--spacing-4);
+    }
+
+    .hero-ticker-track .sponsor-slide img {
+        max-height: 48px;
+        max-width: 160px;
     }
 
     .connect-overlay {
@@ -559,7 +594,7 @@ a:hover {
 /* Mute Toggle Button */
 .mute-toggle-btn {
     position: absolute;
-    bottom: 150px;
+    bottom: 210px;
     right: 20px;
     width: 48px;
     height: 48px;
@@ -597,7 +632,7 @@ a:hover {
     .mute-toggle-btn {
         width: 40px;
         height: 40px;
-        bottom: 116px;
+        bottom: 145px;
         right: 15px;
     }
 
@@ -610,7 +645,7 @@ a:hover {
 /* Play/Pause Button */
 .play-pause-btn {
     position: absolute;
-    bottom: 150px;
+    bottom: 210px;
     left: 20px;
     width: 48px;
     height: 48px;
@@ -648,7 +683,7 @@ a:hover {
     .play-pause-btn {
         width: 40px;
         height: 40px;
-        bottom: 116px;
+        bottom: 145px;
         left: 15px;
     }
 
@@ -661,7 +696,7 @@ a:hover {
 /* Video Progress Bar (Playhead) */
 .video-progress-bar {
     position: absolute;
-    bottom: 130px;
+    bottom: 185px;
     left: 0;
     right: 0;
     height: 5px;
@@ -686,7 +721,7 @@ a:hover {
 
 @media (max-width: 768px) {
     .video-progress-bar {
-        bottom: 100px;
+        bottom: 115px;
     }
 }
 
