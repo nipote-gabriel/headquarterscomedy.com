@@ -517,15 +517,23 @@ a:hover {
 .connect-icons {
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
+    justify-items: center;
     gap: var(--spacing-4);
     width: 100%;
-    max-width: 780px;
+    max-width: 560px;
 }
 
 .connect-icons .platform-btn {
-    width: 100%;
+    width: 64px;
+    height: 64px;
+    padding: 0;
     justify-content: center;
-    white-space: nowrap;
+    border-radius: 50%;
+}
+
+.connect-icons .platform-btn svg {
+    width: 24px;
+    height: 24px;
 }
 
 .connect-icons .platform-btn:hover {
@@ -535,6 +543,11 @@ a:hover {
 @media (max-width: 760px) {
     .connect-icons {
         grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .connect-icons .platform-btn {
+        width: 56px;
+        height: 56px;
     }
 }
 
