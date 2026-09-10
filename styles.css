@@ -539,6 +539,11 @@ a:hover {
     white-space: nowrap;
 }
 
+.hero-ticker-label em {
+    font-style: italic;
+    color: var(--accent-color);
+}
+
 .hero-ticker-track.sponsors-track {
     align-items: center;
     gap: var(--spacing-16);
