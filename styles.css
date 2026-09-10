@@ -396,16 +396,21 @@ a:hover {
     background: var(--background-color);
 }
 
-/* Home hero: headline + email capture over a background image */
+/* Home hero: headline + email capture over a background image, pinned
+   to the viewport while the page scrolls (same technique as the video
+   hero on the Watch page — inset:0 with no explicit height so it tracks
+   the live viewport as Chrome's mobile address bar collapses/expands). */
 .home-hero {
-    position: relative;
-    min-height: calc(100vh - var(--nav-height));
-    min-height: calc(100dvh - var(--nav-height));
+    position: fixed;
+    inset: 0;
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     background: #000;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 }
 
 .home-hero-bg {
@@ -702,7 +707,7 @@ a:hover {
 /* Mute Toggle Button */
 .mute-toggle-btn {
     position: absolute;
-    bottom: 233px;
+    bottom: 24px;
     right: 20px;
     width: 48px;
     height: 48px;
@@ -740,7 +745,7 @@ a:hover {
     .mute-toggle-btn {
         width: 40px;
         height: 40px;
-        bottom: 158px;
+        bottom: 16px;
         right: 15px;
     }
 
@@ -753,7 +758,7 @@ a:hover {
 /* Play/Pause Button */
 .play-pause-btn {
     position: absolute;
-    bottom: 233px;
+    bottom: 24px;
     left: 20px;
     width: 48px;
     height: 48px;
@@ -791,7 +796,7 @@ a:hover {
     .play-pause-btn {
         width: 40px;
         height: 40px;
-        bottom: 158px;
+        bottom: 16px;
         left: 15px;
     }
 
@@ -804,7 +809,7 @@ a:hover {
 /* Video Progress Bar (Playhead) */
 .video-progress-bar {
     position: absolute;
-    bottom: 205px;
+    bottom: 0;
     left: 0;
     right: 0;
     height: 5px;
@@ -827,11 +832,6 @@ a:hover {
     transition: width 0.1s linear;
 }
 
-@media (max-width: 768px) {
-    .video-progress-bar {
-        bottom: 136px;
-    }
-}
 
 /* Left Column - Video Player */
 .video-column {
