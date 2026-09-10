@@ -810,20 +810,39 @@ function setupLandingScreen() {
 
     if (!landingScreen) return;
 
-    const hasSeenLandingScreen = localStorage.getItem('hasSeenLandingScreen');
+    const readStorage = (key) => {
+        try {
+            return localStorage.getItem(key);
+        } catch (error) {
+            return null;
+        }
+    };
+
+    const writeStorage = (key, value) => {
+        try {
+            localStorage.setItem(key, value);
+        } catch (error) {
+            // Storage unavailable (private browsing, etc.) — safe to ignore.
+        }
+    };
+
+    const playHeroVideo = () => {
+        const heroVideo = document.getElementById('hero-video');
+        if (heroVideo && heroVideo.paused) {
+            heroVideo.play().catch(error => {
+                console.log('Video autoplay prevented:', error);
+            });
+        }
+    };
+
+    const hasSeenLandingScreen = readStorage('hasSeenLandingScreen');
     const referrer = document.referrer;
     const currentDomain = window.location.hostname;
     const isExternalVisit = !referrer || !referrer.includes(currentDomain);
 
     if (hasSeenLandingScreen && !isExternalVisit) {
         landingScreen.classList.add('hidden');
-
-        const heroVideo = document.getElementById('hero-video');
-        if (heroVideo) {
-            heroVideo.play().catch(error => {
-                console.log('Video autoplay prevented:', error);
-            });
-        }
+        playHeroVideo();
         return;
     }
 
@@ -843,17 +862,13 @@ function setupLandingScreen() {
         if (hideCalled) return;
         hideCalled = true;
         landingScreen.classList.add('hidden');
-        localStorage.setItem('hasSeenLandingScreen', 'true');
+        writeStorage('hasSeenLandingScreen', 'true');
         Analytics.trackEvent('Landing Screen', 'Dismissed');
 
-        landingScreen.addEventListener('transitionend', () => {
-            const heroVideo = document.getElementById('hero-video');
-            if (heroVideo) {
-                heroVideo.play().catch(error => {
-                    console.log('Video autoplay prevented:', error);
-                });
-            }
-        }, { once: true });
+        // transitionend can fail to fire (reduced motion, already-hidden state, etc.)
+        // so a fallback timer guarantees playback still gets attempted.
+        landingScreen.addEventListener('transitionend', playHeroVideo, { once: true });
+        setTimeout(playHeroVideo, 700);
     }
 
     if (skipBtn) {
@@ -882,7 +897,11 @@ function setupLandingScreen() {
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
-    setupLandingScreen();
+    try {
+        setupLandingScreen();
+    } catch (error) {
+        console.error('Error setting up landing screen:', error);
+    }
     window.hqcSite = new HQCSite();
     setupSmoothScroll();
     setupPlatformTracking();
