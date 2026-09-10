@@ -211,7 +211,7 @@ a:hover {
     font-size: 0.875rem;
     font-weight: 600;
     padding: 0.6rem 1.4rem;
-    border-radius: var(--border-radius-lg);
+    border-radius: 4px;
     transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
@@ -456,12 +456,6 @@ a:hover {
     white-space: nowrap;
 }
 
-.hero-ticker-icon {
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-}
-
 .hero-ticker-track.sponsors-track {
     align-items: center;
     gap: var(--spacing-16);
@@ -581,7 +575,7 @@ a:hover {
 
 .connect-logo {
     width: calc(100% + (2 * var(--spacing-4)));
-    margin-top: var(--spacing-12);
+    margin-top: var(--spacing-4);
     margin-left: calc(-1 * var(--spacing-4));
     margin-right: calc(-1 * var(--spacing-4));
     line-height: 0;
@@ -601,11 +595,6 @@ a:hover {
 
     .hero-ticker-label {
         font-size: var(--font-size-xs);
-    }
-
-    .hero-ticker-icon {
-        width: 26px;
-        height: 26px;
     }
 
     .hero-ticker-track.sponsors-track {
@@ -628,7 +617,7 @@ a:hover {
     }
 
     .connect-logo {
-        margin-top: var(--spacing-6);
+        margin-top: var(--spacing-3);
     }
 }
 
