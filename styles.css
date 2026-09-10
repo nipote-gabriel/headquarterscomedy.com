@@ -502,8 +502,6 @@ a:hover {
 .connect-overlay {
     position: relative;
     z-index: 2;
-    min-height: 100vh;
-    min-height: 100svh;
     background: var(--background-color);
     border-top: 1px solid var(--border-color);
     display: flex;
@@ -511,7 +509,7 @@ a:hover {
     align-items: center;
     justify-content: flex-start;
     gap: var(--spacing-4);
-    padding: var(--spacing-12) var(--spacing-4) var(--spacing-20);
+    padding: var(--spacing-12) var(--spacing-4) 0;
 }
 
 .connect-label {
@@ -582,13 +580,16 @@ a:hover {
 }
 
 .connect-logo {
-    display: flex;
-    justify-content: center;
+    width: calc(100% + (2 * var(--spacing-4)));
     margin-top: var(--spacing-12);
+    margin-left: calc(-1 * var(--spacing-4));
+    margin-right: calc(-1 * var(--spacing-4));
+    line-height: 0;
 }
 
 .connect-logo-img {
-    width: min(780px, 90vw);
+    display: block;
+    width: 100%;
     height: auto;
 }
 
@@ -623,15 +624,11 @@ a:hover {
 
     .connect-overlay {
         gap: var(--spacing-4);
-        padding: var(--spacing-8) var(--spacing-4) var(--spacing-16);
+        padding: var(--spacing-8) var(--spacing-4) 0;
     }
 
     .connect-logo {
         margin-top: var(--spacing-6);
-    }
-
-    .connect-logo-img {
-        width: min(420px, 90vw);
     }
 }
 
