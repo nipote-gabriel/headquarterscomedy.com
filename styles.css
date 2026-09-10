@@ -391,9 +391,76 @@ a:hover {
     padding: var(--spacing-3) var(--spacing-2);
 }
 
-/* Main Content - Full Screen Hero Video */
+/* Main Content */
 .main-content {
     background: var(--background-color);
+}
+
+/* Home hero: headline + email capture over a background image */
+.home-hero {
+    position: relative;
+    min-height: calc(100vh - var(--nav-height));
+    min-height: calc(100dvh - var(--nav-height));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #000;
+}
+
+.home-hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url("graphic assets/Headquarters Comedy/skyline-background.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.home-hero-scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(6, 6, 6, 0.55) 0%, rgba(6, 6, 6, 0.72) 55%, rgba(6, 6, 6, 0.92) 100%);
+}
+
+.home-hero-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 640px;
+    padding: var(--spacing-8) var(--spacing-4);
+    text-align: center;
+}
+
+.home-hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-4);
+}
+
+.home-hero-subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--text-color);
+    margin-bottom: var(--spacing-8);
+}
+
+.home-hero-signup {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+@media (max-width: 640px) {
+    .home-hero-title {
+        margin-bottom: var(--spacing-3);
+    }
+
+    .home-hero-subtitle {
+        font-size: var(--font-size-base);
+        margin-bottom: var(--spacing-6);
+    }
 }
 
 /* Full-screen hero, pinned to the viewport while the page scrolls.
