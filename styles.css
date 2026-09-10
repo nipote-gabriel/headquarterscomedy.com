@@ -588,7 +588,7 @@ a:hover {
 }
 
 .connect-logo-img {
-    width: min(560px, 80vw);
+    width: min(780px, 90vw);
     height: auto;
 }
 
@@ -631,7 +631,7 @@ a:hover {
     }
 
     .connect-logo-img {
-        width: min(360px, 85vw);
+        width: min(420px, 90vw);
     }
 }
 
