@@ -211,7 +211,7 @@ a:hover {
     font-size: 0.875rem;
     font-weight: 600;
     padding: 0.6rem 1.4rem;
-    border-radius: var(--radius-pill);
+    border-radius: var(--border-radius-lg);
     transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
@@ -509,7 +509,7 @@ a:hover {
     align-items: center;
     justify-content: flex-start;
     gap: var(--spacing-4);
-    padding: var(--spacing-12) var(--spacing-4) 0;
+    padding: var(--spacing-6) var(--spacing-4) 0;
 }
 
 .connect-label {
@@ -535,7 +535,7 @@ a:hover {
     height: 64px;
     padding: 0;
     justify-content: center;
-    border-radius: 50%;
+    border-radius: var(--border-radius-lg);
 }
 
 .connect-icons .platform-btn svg {
@@ -624,7 +624,7 @@ a:hover {
 
     .connect-overlay {
         gap: var(--spacing-4);
-        padding: var(--spacing-8) var(--spacing-4) 0;
+        padding: var(--spacing-4) var(--spacing-4) 0;
     }
 
     .connect-logo {
@@ -635,7 +635,7 @@ a:hover {
 /* Mute Toggle Button */
 .mute-toggle-btn {
     position: absolute;
-    bottom: 210px;
+    bottom: 245px;
     right: 20px;
     width: 48px;
     height: 48px;
@@ -673,7 +673,7 @@ a:hover {
     .mute-toggle-btn {
         width: 40px;
         height: 40px;
-        bottom: 145px;
+        bottom: 165px;
         right: 15px;
     }
 
@@ -686,7 +686,7 @@ a:hover {
 /* Play/Pause Button */
 .play-pause-btn {
     position: absolute;
-    bottom: 210px;
+    bottom: 245px;
     left: 20px;
     width: 48px;
     height: 48px;
@@ -724,7 +724,7 @@ a:hover {
     .play-pause-btn {
         width: 40px;
         height: 40px;
-        bottom: 145px;
+        bottom: 165px;
         left: 15px;
     }
 
@@ -737,7 +737,7 @@ a:hover {
 /* Video Progress Bar (Playhead) */
 .video-progress-bar {
     position: absolute;
-    bottom: 185px;
+    bottom: 217px;
     left: 0;
     right: 0;
     height: 5px;
@@ -762,7 +762,7 @@ a:hover {
 
 @media (max-width: 768px) {
     .video-progress-bar {
-        bottom: 115px;
+        bottom: 143px;
     }
 }
 
