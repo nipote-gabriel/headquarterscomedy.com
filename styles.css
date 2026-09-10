@@ -396,21 +396,16 @@ a:hover {
     background: var(--background-color);
 }
 
-/* Home hero: headline + email capture over a background image, pinned
-   to the viewport while the page scrolls (same technique as the video
-   hero on the Watch page — inset:0 with no explicit height so it tracks
-   the live viewport as Chrome's mobile address bar collapses/expands). */
+/* Home hero: headline + email capture over a background image */
 .home-hero {
-    position: fixed;
-    inset: 0;
-    z-index: 1;
+    position: relative;
+    min-height: calc(100vh - var(--nav-height));
+    min-height: calc(100dvh - var(--nav-height));
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     background: #000;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
 }
 
 .home-hero-bg {
@@ -3064,12 +3059,6 @@ section {
 .reveal.in-view {
     opacity: 1;
     transform: translateY(0);
-}
-
-.partnerships-content {
-    position: relative;
-    z-index: 2;
-    background: var(--background-color);
 }
 
 .pitch-hero {
