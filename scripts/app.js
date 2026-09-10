@@ -691,13 +691,26 @@ class HQCSite {
 
     setupVideoMuteToggle() {
         const video = document.getElementById('hero-video');
+        if (!video) return;
+
+        // Always start the hero video from the beginning as soon as it can play,
+        // independent of the landing screen or any other UI state.
+        video.muted = true;
+        const startFromBeginning = () => {
+            video.currentTime = 0;
+            video.play().catch(() => {});
+        };
+        if (video.readyState >= 2) {
+            startFromBeginning();
+        } else {
+            video.addEventListener('loadeddata', startFromBeginning, { once: true });
+        }
+
         const muteToggle = document.getElementById('mute-toggle');
         const muteIcon = muteToggle?.querySelector('.mute-icon');
         const unmuteIcon = muteToggle?.querySelector('.unmute-icon');
 
-        if (!video || !muteToggle) return;
-
-        video.muted = true;
+        if (!muteToggle) return;
 
         muteToggle.addEventListener('click', () => {
             video.muted = !video.muted;
@@ -826,15 +839,6 @@ function setupLandingScreen() {
         }
     };
 
-    const playHeroVideo = () => {
-        const heroVideo = document.getElementById('hero-video');
-        if (heroVideo && heroVideo.paused) {
-            heroVideo.play().catch(error => {
-                console.log('Video autoplay prevented:', error);
-            });
-        }
-    };
-
     const hasSeenLandingScreen = readStorage('hasSeenLandingScreen');
     const referrer = document.referrer;
     const currentDomain = window.location.hostname;
@@ -842,7 +846,6 @@ function setupLandingScreen() {
 
     if (hasSeenLandingScreen && !isExternalVisit) {
         landingScreen.classList.add('hidden');
-        playHeroVideo();
         return;
     }
 
@@ -864,11 +867,6 @@ function setupLandingScreen() {
         landingScreen.classList.add('hidden');
         writeStorage('hasSeenLandingScreen', 'true');
         Analytics.trackEvent('Landing Screen', 'Dismissed');
-
-        // transitionend can fail to fire (reduced motion, already-hidden state, etc.)
-        // so a fallback timer guarantees playback still gets attempted.
-        landingScreen.addEventListener('transitionend', playHeroVideo, { once: true });
-        setTimeout(playHeroVideo, 700);
     }
 
     if (skipBtn) {

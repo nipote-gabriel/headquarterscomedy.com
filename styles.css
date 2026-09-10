@@ -396,18 +396,14 @@ a:hover {
     background: var(--background-color);
 }
 
-/* Full-screen hero, pinned to the viewport while the page scrolls */
+/* Full-screen hero */
 .hero-fullscreen {
-    position: fixed;
-    inset: 0;
-    width: 100vw;
+    position: relative;
+    width: 100%;
     height: 100vh;
     height: 100dvh;
     overflow: hidden;
-    z-index: 1;
     background: #000;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
 }
 
 .hero-bg-video {
@@ -423,12 +419,6 @@ a:hover {
     inset: 0;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.6) 100%);
     pointer-events: none;
-}
-
-/* Reserves one viewport of scroll before the overlay begins covering the hero */
-.hero-scroll-spacer {
-    height: 100vh;
-    height: 100dvh;
 }
 
 /* Sponsor ticker pinned along the bottom edge of the hero */
@@ -498,10 +488,8 @@ a:hover {
     transform: none;
 }
 
-/* Connect overlay: rises up over the pinned hero as the page scrolls */
 .connect-overlay {
     position: relative;
-    z-index: 2;
     background: var(--background-color);
     border-top: 1px solid var(--border-color);
     display: flex;
