@@ -3061,6 +3061,12 @@ section {
     transform: translateY(0);
 }
 
+.partnerships-content {
+    position: relative;
+    z-index: 2;
+    background: var(--background-color);
+}
+
 .pitch-hero {
     position: relative;
     padding: var(--spacing-20) 0 var(--spacing-16);
