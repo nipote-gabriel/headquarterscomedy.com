@@ -396,13 +396,15 @@ a:hover {
     background: var(--background-color);
 }
 
-/* Full-screen hero, pinned to the viewport while the page scrolls */
+/* Full-screen hero, pinned to the viewport while the page scrolls.
+   No explicit height: inset:0 alone anchors top+bottom to the live
+   viewport edges, so it tracks the real visible area natively as
+   Chrome's address bar collapses/expands, instead of fighting a
+   dvh/svh value that either lags behind or gets recalculated (and
+   visibly resizes the fixed layer) mid-scroll. */
 .hero-fullscreen {
     position: fixed;
     inset: 0;
-    width: 100vw;
-    height: 100vh;
-    height: 100dvh;
     overflow: hidden;
     z-index: 1;
     background: #000;
@@ -425,10 +427,13 @@ a:hover {
     pointer-events: none;
 }
 
-/* Reserves one viewport of scroll before the overlay begins covering the hero */
+/* Reserves one viewport of scroll before the overlay begins covering the hero.
+   Uses svh (a stable value) rather than dvh so the document's total
+   scrollable height doesn't itself shift while the address bar is
+   animating mid-scroll. */
 .hero-scroll-spacer {
     height: 100vh;
-    height: 100dvh;
+    height: 100svh;
 }
 
 /* Sponsor ticker pinned along the bottom edge of the hero */
