@@ -51,6 +51,7 @@
 html {
     scroll-behavior: smooth;
     overflow-x: clip;
+    overscroll-behavior-y: none;
 }
 
 body {
@@ -62,6 +63,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     overflow-x: clip;
     max-width: 100vw;
+    overscroll-behavior-y: none;
     padding-top: var(--nav-height);
 }
 
@@ -624,7 +626,7 @@ a:hover {
 /* Mute Toggle Button */
 .mute-toggle-btn {
     position: absolute;
-    bottom: 245px;
+    bottom: 233px;
     right: 20px;
     width: 48px;
     height: 48px;
@@ -662,7 +664,7 @@ a:hover {
     .mute-toggle-btn {
         width: 40px;
         height: 40px;
-        bottom: 165px;
+        bottom: 158px;
         right: 15px;
     }
 
@@ -675,7 +677,7 @@ a:hover {
 /* Play/Pause Button */
 .play-pause-btn {
     position: absolute;
-    bottom: 245px;
+    bottom: 233px;
     left: 20px;
     width: 48px;
     height: 48px;
@@ -713,7 +715,7 @@ a:hover {
     .play-pause-btn {
         width: 40px;
         height: 40px;
-        bottom: 165px;
+        bottom: 158px;
         left: 15px;
     }
 
@@ -726,7 +728,7 @@ a:hover {
 /* Video Progress Bar (Playhead) */
 .video-progress-bar {
     position: absolute;
-    bottom: 217px;
+    bottom: 205px;
     left: 0;
     right: 0;
     height: 5px;
@@ -751,7 +753,7 @@ a:hover {
 
 @media (max-width: 768px) {
     .video-progress-bar {
-        bottom: 143px;
+        bottom: 136px;
     }
 }
 
