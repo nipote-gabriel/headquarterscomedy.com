@@ -3204,7 +3204,7 @@ section {
     font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1.15;
-    color: var(--secondary-color);
+    color: var(--accent-color);
 }
 
 @media (max-width: 900px) {
