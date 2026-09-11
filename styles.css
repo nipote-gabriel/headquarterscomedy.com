@@ -2267,7 +2267,7 @@ iframe[data-test-id="beehiiv-embed"] {
 
 @keyframes sponsors-scroll {
     0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-200px * 14)); }
+    100% { transform: translateX(-50%); }
 }
 
 /* Live Indicator */
