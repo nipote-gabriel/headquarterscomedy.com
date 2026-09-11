@@ -2853,6 +2853,10 @@ section {
     margin-bottom: var(--spacing-16);
 }
 
+.split-content .portfolio-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
 .portfolio-item {
     display: block;
     background: var(--background-secondary);
@@ -3183,6 +3187,31 @@ section {
 .pitch-section-inner {
     position: relative;
     z-index: 1;
+}
+
+/* Left label / right content split layout, e.g. About page sections */
+.split-section {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(200px, 300px) 1fr;
+    gap: var(--spacing-12);
+    align-items: start;
+}
+
+.split-label h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: var(--secondary-color);
+}
+
+@media (max-width: 900px) {
+    .split-section {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-5);
+    }
 }
 
 .pitch-eyebrow {
