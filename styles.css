@@ -429,6 +429,7 @@ a:hover {
     max-width: 640px;
     padding: var(--spacing-8) var(--spacing-4);
     text-align: center;
+    transform: translateY(-48px);
 }
 
 .home-hero-title {
@@ -453,6 +454,10 @@ a:hover {
 }
 
 @media (max-width: 640px) {
+    .home-hero-content {
+        transform: translateY(-24px);
+    }
+
     .home-hero-title {
         margin-bottom: var(--spacing-3);
     }
@@ -537,6 +542,10 @@ a:hover {
 .hero-ticker-label em {
     font-style: italic;
     color: var(--accent-color);
+}
+
+.hero-ticker-label.lg {
+    font-size: var(--font-size-2xl);
 }
 
 .hero-ticker-track.sponsors-track {
@@ -678,6 +687,10 @@ a:hover {
 
     .hero-ticker-label {
         font-size: var(--font-size-xs);
+    }
+
+    .hero-ticker-label.lg {
+        font-size: var(--font-size-lg);
     }
 
     .hero-ticker-track.sponsors-track {
