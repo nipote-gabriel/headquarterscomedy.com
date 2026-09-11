@@ -3802,6 +3802,11 @@ section {
     width: 100%;
     justify-content: center;
     margin-top: var(--spacing-2);
+    box-shadow: none;
+}
+
+.contact-form-submit:hover {
+    box-shadow: none;
 }
 
 @media (max-width: 900px) {
