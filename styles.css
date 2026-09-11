@@ -3106,27 +3106,6 @@ section {
 }
 
 /* Reusable intro blurb: eyebrow label + centered body copy */
-.page-intro {
-    position: relative;
-    z-index: 1;
-    padding: var(--spacing-16) 0;
-    text-align: center;
-    background: var(--background-color);
-}
-
-.page-intro .pitch-eyebrow {
-    display: inline-flex;
-}
-
-.page-intro-text {
-    font-size: var(--font-size-xl);
-    color: var(--secondary-color);
-    max-width: 720px;
-    margin: 0 auto;
-    line-height: 1.6;
-    font-weight: 500;
-}
-
 .pitch-btn {
     display: inline-flex;
     align-items: center;
