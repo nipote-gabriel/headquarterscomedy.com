@@ -200,7 +200,7 @@
             </section>
 
             <!-- 01: The Big Change -->
-            <section class="pitch-section reveal">
+            <section class="pitch-section">
                 <span class="pitch-ghost-number">01</span>
                 <div class="container pitch-section-inner">
                     <span class="pitch-eyebrow">The Big Change</span>
@@ -212,7 +212,7 @@
             </section>
 
             <!-- 02: Winners & Losers -->
-            <section class="pitch-section alt reveal">
+            <section class="pitch-section alt">
                 <span class="pitch-ghost-number">02</span>
                 <div class="container pitch-section-inner">
                     <span class="pitch-eyebrow">Winners &amp; Losers</span>
@@ -259,7 +259,7 @@
             </section>
 
             <!-- 03: The Promised Land -->
-            <section class="pitch-section reveal">
+            <section class="pitch-section">
                 <span class="pitch-ghost-number">03</span>
                 <div class="container pitch-section-inner">
                     <span class="pitch-eyebrow">The Promised Land</span>
@@ -300,7 +300,7 @@
             </section>
 
             <!-- 04: The Magical Abilities -->
-            <section class="pitch-section alt reveal">
+            <section class="pitch-section alt">
                 <span class="pitch-ghost-number">04</span>
                 <div class="container pitch-section-inner">
                     <span class="pitch-eyebrow">The Abilities You'll Need</span>
@@ -344,7 +344,7 @@
             </section>
 
             <!-- 05: Proof -->
-            <section class="pitch-section reveal">
+            <section class="pitch-section">
                 <span class="pitch-ghost-number">05</span>
                 <div class="container pitch-section-inner">
                     <span class="pitch-eyebrow">Proof</span>
@@ -434,20 +434,5 @@
     </main>
 
     <script src="scripts/app.js"></script>
-    <script>
-        if ('IntersectionObserver' in window) {
-            const revealObserver = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('in-view');
-                        revealObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
-            document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
-        } else {
-            document.querySelectorAll('.reveal').forEach((el) => el.classList.add('in-view'));
-        }
-    </script>
 </body>
 </html>
