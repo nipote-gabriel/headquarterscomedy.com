@@ -69,73 +69,15 @@
     </div>
 
     <main>
-        <!-- Hero -->
-        <section class="pitch-hero">
-            <div class="container">
-                <span class="pitch-eyebrow">About Headquarters</span>
-                <h1>One comedian.<br>Several companies.<br>Zero shame.</h1>
-                <p>Headquarters Comedy is a real live comedy company in New York City — and, depending on the bit, occasionally a fake media conglomerate. Here's the real story, and the fake ones.</p>
-            </div>
-        </section>
-
-        <!-- About Content -->
+        <!-- HQ Universe -->
         <section class="pitch-section">
             <div class="container pitch-section-inner">
-                <div class="about-layout">
-                    <div class="about-text">
-                        <div class="mission-statement">
-                            <h3>What is Headquarters?</h3>
-                            <p>
-                                Headquarters Comedy produces pop-up standup shows in NYC, featuring some of the most talented up and coming comics in the world. Our shows are known for being irreverent, smart, and riotous. Subscribe to our <a href="https://headquarterscomedy.beehiiv.com/" target="_blank" style="color: var(--accent-color); text-decoration: none;">mailing list</a> to get notified about shows. We also work with brands to help them create memorable events for their employees, and coach executives on how to actually be funny.
-                            </p>
-                        </div>
-
-                        <div class="approach">
-                            <h3>Who runs Headquarters?</h3>
-                            <p>
-                                Headquarters Comedy was started in 2026 by Gabe Nipote, a comedian &amp; entrepreneur based in New York City. Prior to Headquarters, Gabe had a software company called Halla, which was acquired by Instacart in 2025. Now, you can find Gabe as a regular at The Buddha Room, or performing standup at other venues all over New York City, such as Flop House, St. Marks Comedy Club, Gotham, and more.
-                            </p>
-                        </div>
-
-                        <div class="newsletter-info">
-                            <h3>Get in touch</h3>
-                            <p style="margin-bottom: var(--spacing-5);">
-                                For booking, brand partnerships, or general inquiries — reach out directly and we'll get back to you fast.
-                            </p>
-                            <button type="button" id="get-in-touch-btn" class="pitch-btn">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                                </svg>
-                                Get in Touch
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="about-sidebar">
-                        <div class="logo-section">
-                            <img src="graphic assets/Headquarters Comedy/HQ Icon Round.png" alt="Headquarters Comedy" class="about-logo">
-                        </div>
-
-                        <div class="quick-facts">
-                            <h4>Quick Facts</h4>
-                            <ul>
-                                <li><strong>Founded:</strong> 2026</li>
-                                <li><strong>Headquarters:</strong> New York, NY</li>
-                                <li><strong>Mission:</strong> Driving shareholder laughter</li>
-                                <li><strong>Chairman:</strong> Gabe Nipote</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- HQ Universe -->
-        <section class="pitch-section alt">
-            <div class="container pitch-section-inner">
                 <span class="pitch-eyebrow">The HQ Universe</span>
-                <h2 class="pitch-heading">A very serious portfolio of very unserious companies.</h2>
-                <p class="pitch-body">Everything below is a bit — sketches and characters dressed up as a media conglomerate, because pretending to run a Fortune 500 company is funnier than actually running one.</p>
+                <h2 class="pitch-heading">We make funny things.</h2>
+                <p class="pitch-body">Headquarters Comedy is a full-service manufacturer of humor, based in New York City.</p>
+                <p class="pitch-body">We started out producing pop-up standup shows, and learned that humor is a very powerful tool.</p>
+                <p class="pitch-body">In addition to our own live shows and content, Headquarters helps people &amp; brands be funnier and more memorable, whether it's for a speech, a keynote, or just day-to-day.</p>
+                <p class="pitch-body">Some other projects from the HQ Universe below.</p>
 
                 <div class="portfolio-grid" id="hq-universe-grid" style="margin-top: var(--spacing-12);">
                     <!-- WorldCorp International -->
@@ -225,13 +167,22 @@
             </div>
         </section>
 
+        <!-- Backstory -->
+        <section class="pitch-section alt">
+            <div class="container pitch-section-inner">
+                <span class="pitch-eyebrow">Backstory</span>
+                <p class="pitch-body">Headquarters Comedy was started by Gabe Nipote, a comedian &amp; entrepreneur based in New York City.</p>
+                <p class="pitch-body">Prior to Headquarters, Gabe had a software company called Halla, which was acquired by Instacart in 2025. Now, you can find Gabe as a regular at The Buddha Room, or performing standup at other venues all over New York City, such as New York Comedy Club, The Stand, Flop House, and more.</p>
+            </div>
+        </section>
+
         <!-- Final CTA -->
         <section class="pitch-final-cta">
             <div class="container">
                 <h2>Want to work with the real one, or one of the fake ones?</h2>
                 <p>Either way, we can help. Tell us which.</p>
                 <div class="pitch-final-cta-actions">
-                    <button type="button" id="get-in-touch-btn-2" class="pitch-btn">
+                    <button type="button" id="get-in-touch-btn" class="pitch-btn">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                         </svg>
@@ -327,10 +278,5 @@
     </footer>
 
     <script src="scripts/app.js"></script>
-    <script>
-        document.getElementById('get-in-touch-btn-2')?.addEventListener('click', () => {
-            document.getElementById('get-in-touch-btn')?.click();
-        });
-    </script>
 </body>
 </html>

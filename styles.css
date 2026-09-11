@@ -3212,6 +3212,10 @@ section {
     line-height: 1.75;
 }
 
+.pitch-body + .pitch-body {
+    margin-top: var(--spacing-4);
+}
+
 .wl-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
