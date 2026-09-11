@@ -59,79 +59,6 @@
             line-height: 1.7;
         }
 
-        .cta-section {
-            background: linear-gradient(135deg, var(--background-secondary) 0%, rgba(220, 38, 38, 0.1) 100%);
-            border: 2px solid var(--accent-color);
-            border-radius: var(--border-radius-lg);
-            padding: var(--spacing-16);
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            font-size: var(--font-size-3xl);
-            margin-bottom: var(--spacing-4);
-        }
-
-        .cta-section p {
-            color: var(--text-secondary);
-            font-size: var(--font-size-lg);
-            max-width: 600px;
-            margin: 0 auto var(--spacing-8) auto;
-            line-height: 1.7;
-        }
-
-        .email-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--spacing-3);
-            padding: var(--spacing-4) var(--spacing-8);
-            background: var(--accent-color);
-            color: #fff;
-            font-size: var(--font-size-lg);
-            font-weight: 700;
-            border-radius: var(--border-radius);
-            text-decoration: none;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 20px rgba(220, 38, 38, 0.4);
-        }
-
-        .email-btn:hover {
-            background: #15803D;
-            color: #fff;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 28px rgba(220, 38, 38, 0.5);
-        }
-
-        .email-btn svg {
-            width: 22px;
-            height: 22px;
-        }
-
-        @media (max-width: 600px) {
-            .cta-section {
-                padding: 36px 20px;
-            }
-
-            .cta-section h2 {
-                font-size: 1.75rem;
-            }
-
-            .email-btn {
-                display: flex;
-                width: 100%;
-                box-sizing: border-box;
-                justify-content: center;
-                font-size: 0.875rem;
-                padding: 14px 20px;
-            }
-
-            .email-btn svg {
-                flex-shrink: 0;
-                width: 18px;
-                height: 18px;
-            }
-        }
-
         .process-section {
             margin-bottom: var(--spacing-16);
         }
@@ -293,18 +220,19 @@
                     </div>
                 </div>
 
-                <!-- CTA -->
-                <div class="cta-section">
-                    <h2>Let's Have Some Fun</h2>
-                    <p>Ready to put on a show your team or clients will actually remember? Drop us a line and we'll figure out the rest.</p>
-                    <a href="mailto:gabe@headquarterscomedy.com" class="email-btn">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                        </svg>
-                        gabe@headquarterscomedy.com
-                    </a>
-                </div>
+            </div>
+        </section>
 
+        <!-- CTA Band -->
+        <section class="cta-band">
+            <div class="container">
+                <h2>Ready to book a show worth talking about?</h2>
+                <a href="get-in-touch.html" class="cta-band-btn">
+                    Get in Touch
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M5 12h14M13 6l6 6-6 6"/>
+                    </svg>
+                </a>
             </div>
         </section>
     </main>

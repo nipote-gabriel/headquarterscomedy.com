@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get in Touch - Headquarters Comedy</title>
+    <meta name="description" content="Tell us about your event and we'll get back to you within one business day.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://headquarterscomedy.com/get-in-touch">
+    <meta property="og:title" content="Get in Touch - Headquarters Comedy">
+    <meta property="og:description" content="Tell us about your event and we'll get back to you within one business day.">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://headquarterscomedy.com/get-in-touch">
+    <meta property="twitter:title" content="Get in Touch - Headquarters Comedy">
+    <meta property="twitter:description" content="Tell us about your event and we'll get back to you within one business day.">
+
+    <link rel="icon" type="image/png" href="graphic assets/Headquarters Comedy/HQ Icon Round.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="/" class="brand-link">
+                    <img src="graphic assets/Headquarters Comedy/HQ Icon Round.png" alt="HQ" class="brand-icon">
+                    <h1 class="brand-title">Headquarters Comedy</h1>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="live-shows.html" class="nav-link">Tickets</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="shop.html" class="nav-link">Shop</a></li>
+                <li><a href="brands.html" class="nav-link">Book a Show</a></li>
+            </ul>
+            <div class="nav-right">
+                <a href="https://headquarterscomedy.beehiiv.com/" target="_blank" class="nav-link">Newsletter</a>
+                <a href="partnerships.html" class="nav-cta">Partnerships</a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay">
+        <div class="mobile-menu-panel">
+            <div class="mobile-menu-header">
+                <h3 class="mobile-menu-title">Menu</h3>
+                <button class="mobile-menu-close" aria-label="Close menu">&times;</button>
+            </div>
+            <ul class="mobile-nav-links">
+                <li><a href="live-shows.html" class="nav-link">Tickets</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="shop.html" class="nav-link">Shop</a></li>
+                <li><a href="brands.html" class="nav-link">Book a Show</a></li>
+                <li><a href="https://headquarterscomedy.beehiiv.com/" target="_blank" class="nav-link">Newsletter</a></li>
+                <li><a href="partnerships.html" class="nav-cta">Partnerships</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <main>
+        <section class="contact-split">
+            <div class="contact-split-left">
+                <div class="contact-split-content">
+                    <span class="pitch-eyebrow">Get in Touch</span>
+                    <h1>Let's build your show.</h1>
+                    <p>Tell us about your event and we'll get back to you within one business day.</p>
+
+                    <form id="contact-form">
+                        <div class="contact-form-row">
+                            <div class="contact-form-field">
+                                <label for="cf-first-name">First Name*</label>
+                                <input type="text" id="cf-first-name" name="firstName" required>
+                            </div>
+                            <div class="contact-form-field">
+                                <label for="cf-last-name">Last Name*</label>
+                                <input type="text" id="cf-last-name" name="lastName" required>
+                            </div>
+                        </div>
+
+                        <div class="contact-form-field">
+                            <label for="cf-email">Work Email*</label>
+                            <input type="email" id="cf-email" name="email" required>
+                        </div>
+
+                        <div class="contact-form-field">
+                            <label for="cf-company">Company / Brand*</label>
+                            <input type="text" id="cf-company" name="company" required>
+                        </div>
+
+                        <div class="contact-form-row">
+                            <div class="contact-form-field">
+                                <label for="cf-event-type">Event Type*</label>
+                                <select id="cf-event-type" name="eventType" required>
+                                    <option value="" disabled selected>Select one</option>
+                                    <option>Corporate Event</option>
+                                    <option>Launch Event</option>
+                                    <option>Private Show</option>
+                                    <option>Sponsorship</option>
+                                    <option>Something Else</option>
+                                </select>
+                            </div>
+                            <div class="contact-form-field">
+                                <label for="cf-timing">Timing</label>
+                                <select id="cf-timing" name="timing">
+                                    <option value="" disabled selected>When?</option>
+                                    <option>Within a month</option>
+                                    <option>1–3 months</option>
+                                    <option>3+ months</option>
+                                    <option>Just exploring</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="contact-form-field">
+                            <label for="cf-message">Tell us about it</label>
+                            <textarea id="cf-message" name="message" rows="4" placeholder="Audience size, date, vibe you're going for..."></textarea>
+                        </div>
+
+                        <button type="submit" class="pitch-btn contact-form-submit">
+                            Send Inquiry
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M5 12h14M13 6l6 6-6 6"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="contact-split-right">
+                <img src="graphic assets/Headquarters Comedy/skyline-background.jpg" alt="New York City skyline" class="contact-split-image">
+            </div>
+        </section>
+    </main>
+
+    <script src="scripts/app.js"></script>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const fd = new FormData(this);
+            const subject = encodeURIComponent(`Booking inquiry from ${fd.get('company') || fd.get('firstName')}`);
+            const bodyLines = [
+                `Name: ${fd.get('firstName')} ${fd.get('lastName')}`,
+                `Email: ${fd.get('email')}`,
+                `Company: ${fd.get('company')}`,
+                `Event Type: ${fd.get('eventType')}`,
+                `Timing: ${fd.get('timing') || 'N/A'}`,
+                '',
+                'Message:',
+                fd.get('message') || ''
+            ];
+            const body = encodeURIComponent(bodyLines.join('\n'));
+            window.location.href = `mailto:gabe@headquarterscomedy.com?subject=${subject}&body=${body}`;
+        });
+    </script>
+</body>
+</html>
