@@ -400,7 +400,7 @@ a:hover {
 .home-hero {
     position: relative;
     min-height: calc(100vh - var(--nav-height));
-    min-height: calc(100dvh - var(--nav-height));
+    min-height: calc(100svh - var(--nav-height));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3060,16 +3060,6 @@ section {
         var(--background-color);
 }
 
-.pitch-hero-eyebrow {
-    display: inline-block;
-    font-size: var(--font-size-sm);
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent-color);
-    margin-bottom: var(--spacing-6);
-}
-
 .pitch-hero h1 {
     font-size: clamp(2.5rem, 6vw, 4.75rem);
     font-weight: 700;
@@ -3078,10 +3068,6 @@ section {
     color: var(--secondary-color);
     max-width: 900px;
     margin: 0 auto var(--spacing-6);
-}
-
-.pitch-hero-highlight {
-    color: var(--accent-color);
 }
 
 .pitch-hero p {
