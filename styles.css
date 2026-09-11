@@ -1246,6 +1246,8 @@ iframe[data-test-id="beehiiv-embed"] {
     width: 100%;
     max-width: 100%;
     margin: 0;
+    display: flex;
+    justify-content: center;
 }
 
 .email-input {
@@ -2857,6 +2859,14 @@ section {
 
 .portfolio-logo { margin-bottom: var(--spacing-4); }
 
+.portfolio-logo-img {
+    display: block;
+    height: 84px;
+    width: auto;
+    max-width: 100%;
+    border-radius: var(--border-radius);
+}
+
 .logo-placeholder { display: inline-block; }
 .logo-placeholder svg { filter: drop-shadow(var(--shadow)); }
 .logo-placeholder.success svg rect { fill: var(--success-color); }
@@ -3073,6 +3083,10 @@ section {
         var(--background-color);
 }
 
+.pitch-hero .pitch-eyebrow {
+    display: inline-flex;
+}
+
 .pitch-hero h1 {
     font-size: clamp(2.5rem, 6vw, 4.75rem);
     font-weight: 700;
@@ -3089,6 +3103,28 @@ section {
     max-width: 620px;
     margin: 0 auto var(--spacing-10);
     line-height: 1.7;
+}
+
+/* Reusable intro blurb: eyebrow label + centered body copy */
+.page-intro {
+    position: relative;
+    z-index: 1;
+    padding: var(--spacing-16) 0;
+    text-align: center;
+    background: var(--background-color);
+}
+
+.page-intro .pitch-eyebrow {
+    display: inline-flex;
+}
+
+.page-intro-text {
+    font-size: var(--font-size-xl);
+    color: var(--secondary-color);
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-weight: 500;
 }
 
 .pitch-btn {
@@ -3484,4 +3520,134 @@ section {
     .pitch-section { padding: var(--spacing-16) 0; }
     .pitch-final-cta-actions { flex-direction: column; align-items: stretch; }
     .pitch-final-cta-actions .pitch-btn { justify-content: center; }
+}
+
+/* ============================================
+   Contact Modal ("Get in Touch")
+   ============================================ */
+
+.contact-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-4);
+    background: rgba(6, 6, 6, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.contact-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.contact-modal {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    background: var(--background-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-10) var(--spacing-8);
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    transform: translateY(16px);
+    transition: transform 0.25s ease;
+}
+
+.contact-modal-overlay.active .contact-modal {
+    transform: translateY(0);
+}
+
+.contact-modal-close {
+    position: absolute;
+    top: var(--spacing-4);
+    right: var(--spacing-4);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    color: var(--text-secondary);
+    font-size: var(--font-size-xl);
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.contact-modal-close:hover {
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.contact-modal-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto var(--spacing-5);
+    border-radius: 50%;
+    background: rgba(220, 38, 38, 0.12);
+    color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-modal-icon svg {
+    width: 26px;
+    height: 26px;
+}
+
+.contact-modal h3 {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-3);
+}
+
+.contact-modal p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-6);
+}
+
+.contact-modal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+}
+
+.contact-modal-actions .pitch-btn {
+    justify-content: center;
+    width: 100%;
+}
+
+.contact-modal-socials {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-3);
+    margin-top: var(--spacing-6);
+    padding-top: var(--spacing-6);
+    border-top: 1px solid var(--border-color);
+}
+
+.contact-modal-socials .platform-btn {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.contact-modal-socials .platform-btn svg {
+    width: 18px;
+    height: 18px;
 }

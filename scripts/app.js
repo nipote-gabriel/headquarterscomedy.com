@@ -30,6 +30,7 @@ class HQCSite {
             this.setupSponsorCarousel();
             this.setupVideoMuteToggle();
             this.setupBeehiivEmbed();
+            this.setupContactModal();
 
         } catch (error) {
             console.error('Error initializing site:', error);
@@ -256,6 +257,33 @@ class HQCSite {
         } else {
             load();
         }
+    }
+
+    setupContactModal() {
+        const trigger = document.getElementById('get-in-touch-btn');
+        const overlay = document.getElementById('contact-modal-overlay');
+        if (!trigger || !overlay) return;
+
+        const closeBtn = document.getElementById('contact-modal-close');
+
+        const open = () => {
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const close = () => {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        trigger.addEventListener('click', open);
+        closeBtn?.addEventListener('click', close);
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) close();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && overlay.classList.contains('active')) close();
+        });
     }
 
     setupFooterLinks() {
