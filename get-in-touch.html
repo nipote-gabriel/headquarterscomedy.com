@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get in Touch - Headquarters Comedy</title>
-    <meta name="description" content="Tell us about your event and we'll get back to you within one business day.">
+    <meta name="description" content="Tell us what you need, and we'll get back to you within one business day.">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://headquarterscomedy.com/get-in-touch">
     <meta property="og:title" content="Get in Touch - Headquarters Comedy">
-    <meta property="og:description" content="Tell us about your event and we'll get back to you within one business day.">
+    <meta property="og:description" content="Tell us what you need, and we'll get back to you within one business day.">
 
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://headquarterscomedy.com/get-in-touch">
     <meta property="twitter:title" content="Get in Touch - Headquarters Comedy">
-    <meta property="twitter:description" content="Tell us about your event and we'll get back to you within one business day.">
+    <meta property="twitter:description" content="Tell us what you need, and we'll get back to you within one business day.">
 
     <link rel="icon" type="image/png" href="graphic assets/Headquarters Comedy/HQ Icon Round.png">
     <link rel="stylesheet" href="styles.css">
@@ -73,8 +73,8 @@
             <div class="contact-split-left">
                 <div class="contact-split-content">
                     <span class="pitch-eyebrow">Get in Touch</span>
-                    <h1>Let's build your show.</h1>
-                    <p>Tell us about your event and we'll get back to you within one business day.</p>
+                    <h1>Let's talk.</h1>
+                    <p>Tell us what you need, and we'll get back to you within one business day.</p>
 
                     <form id="contact-form">
                         <div class="contact-form-row">
@@ -100,13 +100,15 @@
 
                         <div class="contact-form-row">
                             <div class="contact-form-field">
-                                <label for="cf-event-type">Event Type*</label>
+                                <label for="cf-event-type">What Do You Need?*</label>
                                 <select id="cf-event-type" name="eventType" required>
                                     <option value="" disabled selected>Select one</option>
                                     <option>Corporate Event</option>
                                     <option>Launch Event</option>
                                     <option>Private Show</option>
                                     <option>Sponsorship</option>
+                                    <option>Communications Coaching</option>
+                                    <option>Content &amp; Creative Strategy</option>
                                     <option>Something Else</option>
                                 </select>
                             </div>
@@ -124,7 +126,7 @@
 
                         <div class="contact-form-field">
                             <label for="cf-message">Tell us about it</label>
-                            <textarea id="cf-message" name="message" rows="4" placeholder="Audience size, date, vibe you're going for..."></textarea>
+                            <textarea id="cf-message" name="message" rows="4" placeholder="Whatever's relevant — audience size, goals, timeline, vibe you're going for..."></textarea>
                         </div>
 
                         <button type="submit" class="pitch-btn contact-form-submit">
@@ -147,12 +149,12 @@
         document.getElementById('contact-form').addEventListener('submit', function (e) {
             e.preventDefault();
             const fd = new FormData(this);
-            const subject = encodeURIComponent(`Booking inquiry from ${fd.get('company') || fd.get('firstName')}`);
+            const subject = encodeURIComponent(`Inquiry from ${fd.get('company') || fd.get('firstName')}`);
             const bodyLines = [
                 `Name: ${fd.get('firstName')} ${fd.get('lastName')}`,
                 `Email: ${fd.get('email')}`,
                 `Company: ${fd.get('company')}`,
-                `Event Type: ${fd.get('eventType')}`,
+                `What They Need: ${fd.get('eventType')}`,
                 `Timing: ${fd.get('timing') || 'N/A'}`,
                 '',
                 'Message:',

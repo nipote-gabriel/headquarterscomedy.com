@@ -1245,8 +1245,8 @@ iframe[data-test-id="beehiiv-embed"] {
 
 .newsletter-embed-container {
     width: 100%;
-    max-width: 100%;
-    margin: 0;
+    max-width: 480px;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
 }
