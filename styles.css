@@ -1074,25 +1074,31 @@ a:hover {
     margin-bottom: var(--spacing-3);
 }
 
+/* Note: no width/min-width forcing here — Beehiiv sets its own iframe
+   width via inline style once it loads, and stretching it to fill a
+   wider container than it was designed for just leaves its own
+   (narrower, left-aligned) form looking off-center inside the extra
+   space. max-width still caps it so it can't overflow a narrow screen. */
 .beehiiv-embed,
 iframe.beehiiv-embed,
 iframe[data-test-id="beehiiv-embed"] {
-    width: 100% !important;
     height: 52px !important;
-    margin: 0 !important;
+    margin: 0 auto !important;
     border-radius: 0px !important;
     background-color: transparent !important;
     box-shadow: none !important;
     max-width: 100% !important;
-    min-width: 100% !important;
     display: block !important;
 }
 
-.newsletter-embed-container iframe,
 .email-signup iframe {
     width: 100% !important;
     max-width: 100% !important;
     min-width: 100% !important;
+}
+
+.newsletter-embed-container iframe {
+    max-width: 100% !important;
 }
 
 .newsletter-section-compact .email-signup {
