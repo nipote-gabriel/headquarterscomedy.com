@@ -3080,6 +3080,10 @@ section {
     margin: 0 auto var(--spacing-6);
 }
 
+.pitch-hero-highlight {
+    color: var(--accent-color);
+}
+
 .pitch-hero p {
     font-size: var(--font-size-lg);
     color: var(--text-secondary);
