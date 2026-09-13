@@ -3323,6 +3323,9 @@ section {
 
 .promised-item {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     gap: var(--spacing-4);
     padding: var(--spacing-6) 0;
     border-top: 1px solid var(--border-color);
