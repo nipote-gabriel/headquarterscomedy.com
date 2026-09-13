@@ -29,7 +29,6 @@ class HQCSite {
             this.setupInfohubScrolling();
             this.setupSponsorCarousel();
             this.setupVideoMuteToggle();
-            this.setupBeehiivEmbed();
             this.setupContactModal();
 
         } catch (error) {
@@ -226,36 +225,6 @@ class HQCSite {
             container.style.display = 'none';
         } else {
             container.innerHTML = this.config.subscribe_embed;
-        }
-    }
-
-    setupBeehiivEmbed() {
-        const target = document.getElementById('beehiiv-embed-target');
-        if (!target) return;
-
-        const formId = target.dataset.beehiivForm;
-        if (!formId) return;
-
-        const load = () => {
-            if (target.dataset.loaded) return;
-            target.dataset.loaded = 'true';
-            const script = document.createElement('script');
-            script.src = 'https://subscribe-forms.beehiiv.com/v3/loader.js';
-            script.async = true;
-            script.setAttribute('data-beehiiv-form', formId);
-            target.appendChild(script);
-        };
-
-        if ('IntersectionObserver' in window) {
-            const observer = new IntersectionObserver((entries) => {
-                if (entries[0].isIntersecting) {
-                    load();
-                    observer.disconnect();
-                }
-            }, { rootMargin: '200px' });
-            observer.observe(target);
-        } else {
-            load();
         }
     }
 
@@ -875,17 +844,6 @@ function setupLandingScreen() {
     if (hasSeenLandingScreen && !isExternalVisit) {
         landingScreen.classList.add('hidden');
         return;
-    }
-
-    // Only load Beehiiv embed when landing screen is actually shown
-    const landingBeehiivTarget = document.getElementById('landing-beehiiv-target');
-    if (landingBeehiivTarget && !landingBeehiivTarget.dataset.loaded) {
-        landingBeehiivTarget.dataset.loaded = 'true';
-        const script = document.createElement('script');
-        script.src = 'https://subscribe-forms.beehiiv.com/v3/loader.js';
-        script.async = true;
-        script.setAttribute('data-beehiiv-form', landingBeehiivTarget.dataset.beehiivForm);
-        landingBeehiivTarget.appendChild(script);
     }
 
     let hideCalled = false;
