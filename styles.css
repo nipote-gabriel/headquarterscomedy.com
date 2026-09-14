@@ -1074,11 +1074,10 @@ a:hover {
     margin-bottom: var(--spacing-3);
 }
 
-/* Note: no width/min-width forcing here — Beehiiv sets its own iframe
-   width via inline style once it loads, and stretching it to fill a
-   wider container than it was designed for just leaves its own
-   (narrower, left-aligned) form looking off-center inside the extra
-   space. max-width still caps it so it can't overflow a narrow screen. */
+/* The Beehiiv iframe is authored directly in HTML (not injected by their
+   loader script), so we set its width/centering ourselves via the
+   .newsletter-embed-container wrapper instead of fighting inline
+   styles Beehiiv's JS would otherwise apply after load. */
 .beehiiv-embed,
 iframe.beehiiv-embed,
 iframe[data-test-id="beehiiv-embed"] {
