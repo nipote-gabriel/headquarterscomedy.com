@@ -3886,6 +3886,20 @@ section {
     margin-top: var(--spacing-2);
 }
 
+.contact-form-status {
+    margin-top: var(--spacing-3);
+    color: var(--accent-color);
+    font-size: var(--font-size-sm);
+}
+
+.contact-form-success h2 {
+    margin-bottom: var(--spacing-2);
+}
+
+.contact-form-success p {
+    color: var(--text-secondary);
+}
+
 @media (max-width: 900px) {
     .contact-split {
         grid-template-columns: 1fr;
