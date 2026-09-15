@@ -494,6 +494,20 @@ a:hover {
     object-fit: cover;
 }
 
+/* The source footage is widescreen (16:9) interview/skit content with
+   subjects and on-screen text near the left/right edges. On a narrow
+   portrait phone, object-fit: cover would crop most of that width away
+   (only the center ~25-30% of the frame stays visible). Switching to
+   contain here shows the whole frame letterboxed instead of cutting
+   people/text off; the black bars blend into .hero-fullscreen's black
+   background. */
+@media (max-width: 640px) {
+    .hero-bg-video {
+        object-fit: contain;
+        background: #000;
+    }
+}
+
 .hero-video-scrim {
     position: absolute;
     inset: 0;
