@@ -1088,10 +1088,13 @@ a:hover {
     margin-bottom: var(--spacing-3);
 }
 
-/* The Beehiiv iframe is authored directly in HTML (not injected by their
-   loader script), so we set its width/centering ourselves via the
-   .newsletter-embed-container wrapper instead of fighting inline
-   styles Beehiiv's JS would otherwise apply after load. */
+/* Beehiiv's loader script creates this iframe itself and sets inline
+   styles on it after load — including, sometimes, an inline !important
+   margin/width that a stylesheet rule (even !important) cannot win
+   against, since inline author styles take priority in a tie. These
+   rules handle everything CSS can reach; scripts/app.js additionally
+   force-centers the iframe via direct DOM writes once it appears, to
+   cover the case where Beehiiv's own inline style wins the cascade. */
 .beehiiv-embed,
 iframe.beehiiv-embed,
 iframe[data-test-id="beehiiv-embed"] {

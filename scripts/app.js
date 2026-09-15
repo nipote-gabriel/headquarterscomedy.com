@@ -813,6 +813,28 @@ function setupPlatformTracking() {
     });
 }
 
+// Beehiiv's loader script injects an iframe with its own inline styles,
+// which can include an inline !important margin/width that no stylesheet
+// rule can override (inline author styles win cascade ties even against
+// !important elsewhere). Force-center the iframe via a direct DOM write
+// once it appears — a later same-priority inline write simply overwrites
+// Beehiiv's own, so this wins regardless of what they set.
+function setupBeehiivCentering() {
+    const centerEmbed = (container) => {
+        const iframe = container.querySelector('iframe');
+        if (!iframe) return;
+        iframe.style.setProperty('margin-left', 'auto', 'important');
+        iframe.style.setProperty('margin-right', 'auto', 'important');
+        iframe.style.setProperty('display', 'block', 'important');
+    };
+
+    document.querySelectorAll('.newsletter-embed-container').forEach((container) => {
+        centerEmbed(container);
+        const observer = new MutationObserver(() => centerEmbed(container));
+        observer.observe(container, { childList: true, subtree: true, attributes: true, attributeFilter: ['style'] });
+    });
+}
+
 // Landing Screen
 function setupLandingScreen() {
     const landingScreen = document.getElementById('landing-screen');
@@ -885,6 +907,11 @@ document.addEventListener('DOMContentLoaded', () => {
         setupLandingScreen();
     } catch (error) {
         console.error('Error setting up landing screen:', error);
+    }
+    try {
+        setupBeehiivCentering();
+    } catch (error) {
+        console.error('Error setting up Beehiiv centering:', error);
     }
     window.hqcSite = new HQCSite();
     setupSmoothScroll();
