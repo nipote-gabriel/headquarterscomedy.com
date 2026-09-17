@@ -103,84 +103,121 @@
             align-items: stretch;
             background: var(--background-secondary);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
             margin-bottom: 16px;
-            transition: border-color 0.2s, box-shadow 0.2s;
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset;
+            transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
         }
 
         .show-card:hover {
             border-color: var(--accent-color);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+            transform: translateY(-2px);
         }
 
         .show-next-label {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 28px;
-            border-right: 1px solid var(--border-color);
-            font-size: 1.4rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 6px;
-            color: var(--accent-color);
-            white-space: nowrap;
-            flex-shrink: 0;
+            display: none;
         }
 
         .show-card-left {
             display: grid;
-            grid-template-columns: 160px 1fr auto;
-            gap: 32px;
-            align-items: center;
-            padding: 36px 40px;
+            grid-template-columns: 148px 1fr auto;
+            gap: 0;
+            align-items: stretch;
             flex: 1;
         }
 
         .show-date-block {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
             justify-content: center;
-            align-self: stretch;
-            border-right: 1px solid var(--border-color);
-            padding-right: 32px;
+            gap: 2px;
+            background: linear-gradient(160deg, rgba(220, 38, 38, 0.14), rgba(220, 38, 38, 0.04));
+            border-right: 1px dashed var(--border-color);
+            padding: 28px 16px;
         }
 
         .show-date-month {
-            font-size: 0.65rem;
-            font-weight: 700;
+            font-size: 0.85rem;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             color: var(--accent-color);
-            margin-bottom: 6px;
         }
 
         .show-date-day {
-            font-size: 1.6rem;
-            font-weight: 700;
+            font-size: 3.4rem;
+            font-weight: 800;
             color: var(--secondary-color);
-            line-height: 1.15;
-            margin-bottom: 4px;
+            line-height: 1;
+            letter-spacing: -1px;
         }
 
         .show-date-year {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
+            font-weight: 600;
             color: var(--text-secondary);
+            letter-spacing: 1px;
+        }
+
+        .show-info {
+            padding: 28px 36px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .show-info-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            align-self: flex-start;
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent-color);
+            background: rgba(220, 38, 38, 0.12);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .show-info-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.25);
         }
 
         .show-info h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
+            font-size: 1.5rem;
+            font-weight: 700;
             color: var(--secondary-color);
-            margin-bottom: 6px;
+            line-height: 1.25;
+            margin-bottom: 8px;
         }
 
         .show-venue {
-            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
             color: var(--text-secondary);
-            margin-bottom: 12px;
+            margin-bottom: 14px;
+        }
+
+        .show-venue svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+            color: var(--accent-color);
         }
 
         .show-venue a {
@@ -214,24 +251,37 @@
         .show-action {
             display: flex;
             align-items: center;
+            padding: 0 36px 0 0;
+            border-left: 1px dashed var(--border-color);
+            margin-left: -1px;
         }
 
         .show-action a {
-            display: inline-block;
-            padding: 12px 28px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 30px;
+            margin-left: 36px;
             background: var(--accent-color);
             color: #fff;
             font-weight: 700;
-            font-size: 0.875rem;
+            font-size: 0.9rem;
             border-radius: var(--border-radius);
             text-decoration: none;
             white-space: nowrap;
-            transition: background 0.2s, transform 0.2s;
+            box-shadow: 0 8px 24px rgba(220, 38, 38, 0.3);
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
         }
 
         .show-action a:hover {
             background: #b91c1c;
             transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(220, 38, 38, 0.45);
+        }
+
+        .show-action a svg {
+            width: 14px;
+            height: 14px;
         }
 
         .show-card-hero {
@@ -307,29 +357,40 @@
         }
 
         @media (max-width: 700px) {
-            .show-next-label {
-                display: none;
+            .show-card {
+                flex-direction: column;
             }
 
             .show-card-left {
                 grid-template-columns: 1fr;
-                gap: 20px;
-                padding: 28px 24px;
+                gap: 0;
             }
 
             .show-date-block {
                 flex-direction: row;
+                justify-content: center;
                 gap: 10px;
-                align-items: baseline;
                 border-right: none;
-                border-bottom: 1px solid var(--border-color);
-                padding-right: 0;
-                padding-bottom: 20px;
+                border-bottom: 1px dashed var(--border-color);
+                padding: 20px 24px;
             }
 
-            .show-date-day { font-size: 1.4rem; }
+            .show-date-day { font-size: 2.2rem; }
 
-            .show-action { text-align: left; }
+            .show-info {
+                padding: 24px 24px 20px;
+            }
+
+            .show-action {
+                padding: 0 24px 24px;
+                border-left: none;
+            }
+
+            .show-action a {
+                margin-left: 0;
+                width: 100%;
+                justify-content: center;
+            }
         }
 
     </style>
@@ -399,7 +460,6 @@
         <section class="shows-section">
             <div class="container">
                 <div class="show-card">
-                    <div class="show-next-label">Next Show</div>
                     <div class="show-card-left">
                         <div class="show-date-block">
                             <div class="show-date-month">Oct</div>
@@ -407,8 +467,12 @@
                             <div class="show-date-year">2026</div>
                         </div>
                         <div class="show-info">
+                            <span class="show-info-badge">Next Show</span>
                             <h3>Flop House<br>Williamsburg, Brooklyn</h3>
-                            <p class="show-venue">8:00 PM</p>
+                            <p class="show-venue">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                8:00 PM
+                            </p>
                             <div class="show-tags">
                                 <span class="show-tag">Stand-Up</span>
                                 <span class="show-tag">Live Comedy</span>
@@ -416,7 +480,10 @@
                             </div>
                         </div>
                         <div class="show-action">
-                            <a href="https://flophousecomedy.com/show/c706a923-9be8-4c29-ad92-c18a44f94cb4" target="_blank">Tickets</a>
+                            <a href="https://flophousecomedy.com/show/c706a923-9be8-4c29-ad92-c18a44f94cb4" target="_blank">
+                                Tickets
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                            </a>
                         </div>
                     </div>
                 </div>
