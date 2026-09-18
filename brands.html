@@ -23,43 +23,79 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         .process-section {
+            margin-top: var(--spacing-20);
             margin-bottom: var(--spacing-16);
         }
 
         .process-steps {
+            position: relative;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--spacing-8);
-            margin-top: var(--spacing-8);
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-6);
+            margin-top: var(--spacing-10);
+        }
+
+        /* Connecting line threading behind the cards, visible only in the gaps */
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 66px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--border-color);
         }
 
         .process-step {
-            text-align: center;
+            position: relative;
+            z-index: 1;
+            padding: var(--spacing-8) var(--spacing-6) var(--spacing-6);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--border-color);
+            background: var(--background-secondary);
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .process-step:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-4px);
         }
 
         .step-number {
-            width: 60px;
-            height: 60px;
+            width: 52px;
+            height: 52px;
             border-radius: 50%;
-            background: var(--accent-color);
-            color: #fff;
-            font-size: var(--font-size-2xl);
+            background: rgba(220, 38, 38, 0.12);
+            border: 1.5px solid rgba(220, 38, 38, 0.35);
+            color: var(--accent-color);
+            font-size: var(--font-size-xl);
             font-weight: 700;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto var(--spacing-4) auto;
+            margin-bottom: var(--spacing-5);
         }
 
         .process-step h4 {
             color: var(--secondary-color);
+            font-size: var(--font-size-lg);
             margin-bottom: var(--spacing-2);
         }
 
         .process-step p {
             color: var(--text-secondary);
             font-size: var(--font-size-sm);
-            line-height: 1.6;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 800px) {
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps::before {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -162,7 +198,8 @@
 
                 <!-- How It Works -->
                 <div class="process-section">
-                    <h2>How It Works</h2>
+                    <span class="pitch-eyebrow">The Process</span>
+                    <h2 class="pitch-heading">How it works.</h2>
                     <div class="process-steps">
                         <div class="process-step">
                             <div class="step-number">1</div>
