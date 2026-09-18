@@ -3190,6 +3190,10 @@ section {
     background: var(--background-secondary);
 }
 
+.projects-section {
+    background: var(--background-color);
+}
+
 .pitch-ghost-number {
     position: absolute;
     top: -0.35em;
