@@ -3454,7 +3454,6 @@ section {
     padding: var(--spacing-8);
     border-radius: var(--border-radius-lg);
     border: 1px solid var(--border-color);
-    background: var(--background-secondary);
     transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
