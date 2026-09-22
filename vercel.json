@@ -1,6 +1,14 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/about", "destination": "/#about", "permanent": true },
+    { "source": "/about.html", "destination": "/#about", "permanent": true },
+    { "source": "/live-shows", "destination": "/#tickets", "permanent": true },
+    { "source": "/live-shows.html", "destination": "/#tickets", "permanent": true },
+    { "source": "/brands", "destination": "/#book", "permanent": true },
+    { "source": "/brands.html", "destination": "/#book", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",

@@ -2,181 +2,387 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Headquarters Comedy</title>
-    <meta name="description" content="Headquarters Comedy">
-    <meta name="keywords" content="comedy, stand-up, sketch, improv, funny, entertainment">
+    <meta name="description" content="Headquarters Comedy is an industrial manufacturer of humor, based in New York City. Live shows, original comedy, and shows for teams and brands.">
+    <meta name="keywords" content="comedy, stand-up, live comedy, New York, comedy shows, corporate comedy, entertainment">
+    <meta name="theme-color" content="#0d0a07">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://headquarterscomedy.com/">
     <meta property="og:title" content="Headquarters Comedy">
-    <meta property="og:description" content="Headquarters Comedy">
+    <meta property="og:description" content="An industrial manufacturer of humor, based in New York City.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://headquarterscomedy.com/">
     <meta property="twitter:title" content="Headquarters Comedy">
-    <meta property="twitter:description" content="Headquarters Comedy">
+    <meta property="twitter:description" content="An industrial manufacturer of humor, based in New York City.">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="graphic assets/Headquarters Comedy/HQ Icon Round.png">
     <link rel="apple-touch-icon" href="graphic assets/Headquarters Comedy/HQ Icon Round.png">
 
-    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://subscribe-forms.beehiiv.com">
     <link rel="preconnect" href="https://subscribe-forms.beehiiv.com" crossorigin>
-    <link rel="preload" as="script" href="https://subscribe-forms.beehiiv.com/v3/loader.js" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="site.css">
+    <script>document.documentElement.classList.add('js');</script>
 </head>
-<body>
-    <!-- Landing Screen Overlay -->
-    <div id="landing-screen" class="landing-screen-overlay">
-        <div class="landing-screen-content">
-            <img src="graphic assets/Headquarters Comedy/HQ Icon Round.png" alt="Headquarters Comedy" class="landing-logo">
-            <div class="landing-newsletter-signup">
-                <h2 class="landing-title">Subscribe to Headquarters Comedy</h2>
-                <p class="landing-description">Never miss a show and get funny content delivered straight to your inbox.</p>
-                <div class="email-signup">
-                    <div class="newsletter-embed-container">
-                        <script async fetchpriority="high" src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="706c65d7-5d79-4d82-8b9e-1068d15b6c2e"></script>
-                    </div>
-                </div>
-            </div>
-            <button id="already-subscribed-btn" class="landing-skip-btn">I'm already in the club | skip</button>
-        </div>
-    </div>
+<body class="home">
+    <a class="skip-link" href="#about">Skip to content</a>
 
     <!-- Header -->
-    <header class="header">
-        <nav class="nav">
-            <div class="nav-brand">
-                <a href="/" class="brand-link">
-                    <img src="graphic assets/Headquarters Comedy/HQ Icon Round.png" alt="HQ" class="brand-icon">
-                    <h1 class="brand-title">Headquarters Comedy</h1>
-                </a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="live-shows.html" class="nav-link">Tickets</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="brands.html" class="nav-link">Book a Show</a></li>
+    <header class="site-header" id="site-header">
+        <nav class="site-nav" aria-label="Main">
+            <a href="#top" class="site-brand">
+                <img src="graphic assets/Headquarters Comedy/HQ Icon Round.png" alt="" width="36" height="36">
+                <span>Headquarters Comedy</span>
+            </a>
+            <ul class="site-nav-links">
+                <li><a href="#about" data-section="about">About</a></li>
+                <li><a href="#tickets" data-section="tickets">Tickets</a></li>
+                <li><a href="#book" data-section="book">Book a Show</a></li>
             </ul>
-            <div class="nav-right">
-                <a href="https://headquarterscomedy.beehiiv.com/" target="_blank" class="nav-link">Newsletter</a>
-                <a href="https://www.worldcorpinternational.com" target="_blank" class="nav-cta">For Business</a>
+            <div class="site-nav-right">
+                <a href="#newsletter" class="site-nav-plain">Newsletter</a>
+                <a href="https://www.worldcorpinternational.com" target="_blank" rel="noopener" class="btn btn-small btn-outline">For Business</a>
             </div>
-            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
-                <span></span>
-                <span></span>
-                <span></span>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="menu-overlay">
+                <span class="menu-toggle-label">Menu</span>
+                <span class="menu-toggle-bars" aria-hidden="true"><span></span><span></span></span>
             </button>
         </nav>
     </header>
 
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu-overlay">
-        <div class="mobile-menu-panel">
-            <div class="mobile-menu-header">
-                <h3 class="mobile-menu-title">Menu</h3>
-                <button class="mobile-menu-close" aria-label="Close menu">&times;</button>
-            </div>
-            <ul class="mobile-nav-links">
-                <li><a href="live-shows.html" class="nav-link">Tickets</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="brands.html" class="nav-link">Book a Show</a></li>
-                <li><a href="https://headquarterscomedy.beehiiv.com/" target="_blank" class="nav-link">Newsletter</a></li>
-                <li><a href="https://www.worldcorpinternational.com" target="_blank" class="nav-cta">For Business</a></li>
-            </ul>
+    <!-- Full-screen menu (mobile) -->
+    <div class="menu-overlay" id="menu-overlay" hidden>
+        <ul class="menu-links">
+            <li><a href="#about"><span class="menu-num">01</span>About</a></li>
+            <li><a href="#tickets"><span class="menu-num">02</span>Tickets</a></li>
+            <li><a href="#book"><span class="menu-num">03</span>Book a Show</a></li>
+        </ul>
+        <div class="menu-foot">
+            <a href="#newsletter" class="btn btn-cream">Join the Newsletter</a>
+            <a href="https://www.worldcorpinternational.com" target="_blank" rel="noopener" class="btn btn-outline">For Business</a>
         </div>
     </div>
 
-    <!-- Main Content - Full Screen Video -->
-    <main class="main-content">
-        <!-- Full-Screen Hero (pinned in place while the page scrolls) -->
-        <section class="hero-fullscreen">
-            <video
-                id="hero-video"
-                class="hero-bg-video"
-                muted
-                loop
-                playsinline
-                webkit-playsinline
-                autoplay
-                preload="auto">
-                <source src="video%20assets/hero%20video-mobile.mp4" type="video/mp4" media="(max-width: 640px)">
-                <source src="video%20assets/hero%20video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="hero-video-scrim"></div>
+    <main id="top">
+        <!-- ===================== HERO ===================== -->
+        <section class="hero" aria-label="Headquarters Comedy">
+            <div class="hero-stage">
+                <video
+                    id="hero-video"
+                    class="hero-video"
+                    muted
+                    loop
+                    playsinline
+                    webkit-playsinline
+                    autoplay
+                    preload="auto">
+                    <source src="video%20assets/hero%20video-mobile.mp4" type="video/mp4" media="(max-width: 640px)">
+                    <source src="video%20assets/hero%20video.mp4" type="video/mp4">
+                </video>
+                <div class="hero-scrim" aria-hidden="true"></div>
 
-            <button id="mute-toggle" class="mute-toggle-btn" aria-label="Toggle Mute">
-                <svg class="mute-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
-                </svg>
-                <svg class="unmute-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
-                    <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
-                </svg>
-            </button>
-            <button id="play-pause-toggle" class="play-pause-btn" aria-label="Play/Pause">
-                <svg class="play-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M8 5v14l11-7z"/>
-                </svg>
-                <svg class="pause-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
-                    <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
-                </svg>
-            </button>
-            <div class="video-progress-bar" id="video-progress-bar">
-                <div class="video-progress-fill" id="video-progress-fill"></div>
+                <div class="hero-copy">
+                    <p class="eyebrow"><span class="on-air-dot" aria-hidden="true"></span>Live from New York City</p>
+                    <h1 class="hero-title">Funny, <em>at scale.</em></h1>
+                </div>
+
+                <div class="hero-controls">
+                    <button id="play-pause-toggle" class="icon-btn" aria-label="Pause video">
+                        <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor" hidden><path d="M8 5v14l11-7z"/></svg>
+                        <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                    </button>
+                    <button id="mute-toggle" class="icon-btn" aria-label="Unmute video">
+                        <svg class="sound-on-icon" viewBox="0 0 24 24" fill="currentColor" hidden><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                        <svg class="sound-off-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
+                    </button>
+                    <div class="video-progress" id="video-progress" role="presentation">
+                        <div class="video-progress-fill" id="video-progress-fill"></div>
+                    </div>
+                </div>
+
+                <a href="#about" class="scroll-cue" aria-label="Scroll to About">
+                    <span>Scroll</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 4v16M6 14l6 6 6-6"/></svg>
+                </a>
             </div>
         </section>
 
-        <!-- Reserves one viewport of scroll before the overlay rises over the hero -->
-        <div class="hero-scroll-spacer" aria-hidden="true"></div>
+        <!-- Everything below rises over the pinned hero -->
+        <div class="curtain">
 
-        <!-- Connect Overlay: scrolls up over the pinned hero -->
-        <section class="connect-overlay">
-            <div class="connect-label">Connect and Follow</div>
-            <div class="connect-icons">
-                <a href="https://headquarterscomedy.beehiiv.com/" target="_blank" class="platform-btn newsletter" data-platform="newsletter" aria-label="Newsletter">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                    </svg>
-                </a>
-                <a href="https://www.linkedin.com/company/headquarters-comedy/" target="_blank" class="platform-btn linkedin" data-platform="linkedin" aria-label="LinkedIn">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                    </svg>
-                </a>
-                <a href="https://www.instagram.com/headquarterscomedy/" target="_blank" class="platform-btn instagram" data-platform="instagram" aria-label="Instagram">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                </a>
-                <a href="https://www.tiktok.com/@headquarterscomedy" target="_blank" class="platform-btn tiktok" data-platform="tiktok" aria-label="TikTok">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z"/>
-                    </svg>
-                </a>
-                <a href="https://www.youtube.com/channel/UCed2HPvJnyLooOvQ2tu14Aw" target="_blank" class="platform-btn youtube" data-platform="youtube" aria-label="YouTube">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                    </svg>
-                </a>
-                <a href="https://x.com/hq_comedy" target="_blank" class="platform-btn twitter" data-platform="x" aria-label="X (Twitter)">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.80l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                    </svg>
-                </a>
-            </div>
+            <!-- ===================== ABOUT ===================== -->
+            <section class="section about" id="about" aria-labelledby="about-title">
+                <div class="wrap">
+                    <header class="section-head reveal">
+                        <p class="act"><span>Part One</span><span class="act-rule"></span><span>About</span></p>
+                        <h2 class="display" id="about-title">We make <em>funny things.</em></h2>
+                    </header>
 
-            <div class="connect-logo">
-                <img src="graphic assets/Headquarters Comedy/Headquarters Comedy.Logo.Wide.png" alt="Headquarters Comedy" class="connect-logo-img">
-            </div>
-        </section>
+                    <div class="split reveal">
+                        <h3 class="split-label">HQ Universe</h3>
+                        <div class="split-body">
+                            <p class="lede">Headquarters Comedy is an industrial manufacturer of humor, based in New York City.</p>
+                            <p>In addition to our own live shows and content, Headquarters helps people &amp; brands bring humor and memorability into their speeches, presentations, content, and events.</p>
+                        </div>
+                    </div>
+
+                    <div class="split reveal">
+                        <h3 class="split-label">Projects</h3>
+                        <div class="split-body">
+                            <ul class="projects">
+                                <li>
+                                    <a class="project" href="https://www.worldcorpinternational.com" target="_blank" rel="noopener">
+                                        <span class="project-logo"><img src="graphic assets/Web/worldcorp.webp" alt="" loading="lazy" width="160" height="160"></span>
+                                        <span class="project-text">
+                                            <span class="project-name">WorldCorp International</span>
+                                            <span class="project-desc">WorldCorp International is a full-service global think tank and consultancy serving Fortune 500 companies, mid-market disruptors, and pre-idea startups. We make you funny, interesting, and memorable.</span>
+                                        </span>
+                                        <span class="project-arrow" aria-hidden="true">&#8599;</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="project" href="https://www.panicnewsnetwork.com" target="_blank" rel="noopener">
+                                        <span class="project-logo"><img src="graphic assets/Web/panic-news.webp" alt="" loading="lazy" width="160" height="92"></span>
+                                        <span class="project-text">
+                                            <span class="project-name">Panic News Network</span>
+                                            <span class="project-desc">Breaking news, breaking constantly. We get you the news so fast, we're not sure if it's accurate. All of our headlines are satirical, but somehow it feels like you learn more from reading our news than the real news. Fake news, real insight.</span>
+                                        </span>
+                                        <span class="project-arrow" aria-hidden="true">&#8599;</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="project" href="https://www.instagram.com/thegarylunashow/" target="_blank" rel="noopener">
+                                        <span class="project-logo"><img src="graphic assets/Web/gary-luna.webp" alt="" loading="lazy" width="160" height="94"></span>
+                                        <span class="project-text">
+                                            <span class="project-name">The Gary Luna Show</span>
+                                            <span class="project-desc">An experimental, animated late night talk show featuring cameos from celebrity guests, discussing culture and current events.</span>
+                                        </span>
+                                        <span class="project-arrow" aria-hidden="true">&#8599;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="split reveal">
+                        <h3 class="split-label">Backstory</h3>
+                        <div class="split-body">
+                            <p class="lede">Headquarters Comedy was started by Gabe Nipote, a comedian &amp; entrepreneur based in New York City.</p>
+                            <p>Prior to Headquarters, Gabe had a software company called Halla, which was acquired by Instacart in 2025. Now, you can find Gabe as a regular at The Buddha Room, or performing standup at other venues all over New York City, such as New York Comedy Club, The Stand, Flop House, and more.</p>
+                        </div>
+                    </div>
+
+                    <div class="aside-cta reveal">
+                        <p>Want to work with us?</p>
+                        <a href="get-in-touch.html" class="text-link">Explore Partnerships <span aria-hidden="true">&rarr;</span></a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===================== TICKETS ===================== -->
+            <section class="section tickets" id="tickets" aria-labelledby="tickets-title">
+                <div class="photo-hero">
+                    <picture>
+                        <source srcset="graphic assets/Web/live-show-1.webp" type="image/webp">
+                        <img src="graphic assets/Web/live-show-1.jpg" alt="A Headquarters Comedy host in a suit on stage in a brick-walled room, the front row laughing" loading="lazy" class="parallax" data-speed="0.12">
+                    </picture>
+                    <div class="photo-hero-shade" aria-hidden="true"></div>
+                    <div class="wrap photo-hero-copy reveal">
+                        <p class="act"><span>Part Two</span><span class="act-rule"></span><span>Tickets</span></p>
+                        <h2 class="display" id="tickets-title">Live <em>Shows</em></h2>
+                        <p class="lede">Come see Headquarters Comedy in real life. We produce the funnest pop-up shows in NYC, featuring some of the most talented up and coming comics in the world. Our shows always sell out, so make sure to join our mailing list and grab tickets when they drop.</p>
+                    </div>
+                </div>
+
+                <div class="wrap">
+                    <article class="ticket reveal" aria-label="Next show">
+                        <div class="ticket-main">
+                            <p class="ticket-badge">Next Show</p>
+                            <h3 class="ticket-venue">Flop House<br><span>Williamsburg, Brooklyn</span></h3>
+                            <p class="ticket-time">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                                8:00 PM
+                            </p>
+                            <ul class="ticket-tags">
+                                <li>Stand-Up</li>
+                                <li>Live Comedy</li>
+                                <li>New York</li>
+                            </ul>
+                        </div>
+                        <div class="ticket-stub">
+                            <time class="ticket-date" datetime="2026-10-13">
+                                <span class="ticket-month">Oct</span>
+                                <span class="ticket-day">13</span>
+                                <span class="ticket-year">2026</span>
+                            </time>
+                            <a class="btn btn-ink" href="https://flophousecomedy.com/show/c706a923-9be8-4c29-ad92-c18a44f94cb4" target="_blank" rel="noopener">
+                                Tickets <span aria-hidden="true">&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="photo-band" aria-hidden="true">
+                    <picture>
+                        <source srcset="graphic assets/Web/live-show-2.webp" type="image/webp">
+                        <img src="graphic assets/Web/live-show-2.jpg" alt="" loading="lazy" class="parallax" data-speed="0.1">
+                    </picture>
+                </div>
+
+                <div class="wrap">
+                    <div class="newsletter reveal" id="newsletter">
+                        <p class="eyebrow">The Mailing List</p>
+                        <h2 class="display display-sm">Never miss <em>a show.</em></h2>
+                        <p>Subscribe and be the first to know about our shows before tickets sell out.</p>
+                        <div class="newsletter-embed" id="beehiiv-embed-target"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===================== BOOK A SHOW ===================== -->
+            <section class="section book" id="book" aria-labelledby="book-title">
+                <div class="wrap">
+                    <header class="section-head reveal">
+                        <p class="act"><span>Part Three</span><span class="act-rule"></span><span>Book a Show</span></p>
+                        <h2 class="display" id="book-title">Make your event <em>memorable.</em></h2>
+                    </header>
+
+                    <div class="sub-head reveal">
+                        <p class="eyebrow">What We Offer</p>
+                        <h3 class="display display-sm">Events people want to attend.</h3>
+                    </div>
+
+                    <div class="offers">
+                        <article class="offer reveal">
+                            <svg class="offer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            <h4>Shows for Teams</h4>
+                            <p>Corporate shows suck. We've re-designed them for startups. Perfect for teams up to 100, with good culture. Our shows leave your team more tightly knit and help blow off steam so you can get back to your 9-9-6.</p>
+                        </article>
+                        <article class="offer reveal">
+                            <svg class="offer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+                            <h4>Shows for Brands</h4>
+                            <p>Sponsor one of our public shows and get your brand in front of a smart, engaged audience that actually shows up to things. Tasteful, effective, not embarrassing. We capture valuable content of people engaging with your brand in real life.</p>
+                        </article>
+                        <article class="offer reveal">
+                            <svg class="offer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="8" width="18" height="4"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C9 3 12 8 12 8s3-5 4.5-5a2.5 2.5 0 0 1 0 5"/></svg>
+                            <h4>Private Shows</h4>
+                            <p>Birthday? Launch event? Fundraiser? Anniversary? Whatever you need, we can put it together. We'll source the venue, book the talent, capture content, and leave your audience laughing. We can roast, keep it clean, or do anything in between.</p>
+                        </article>
+                    </div>
+
+                    <div class="sub-head reveal">
+                        <p class="eyebrow">The Process</p>
+                        <h3 class="display display-sm">How it works.</h3>
+                    </div>
+
+                    <ol class="steps">
+                        <li class="step reveal">
+                            <span class="step-num">1</span>
+                            <h4>Tell Us What You Need</h4>
+                            <p>Send us an email with your event goals, audience, date range, and budget. The more detail the better.</p>
+                        </li>
+                        <li class="step reveal">
+                            <span class="step-num">2</span>
+                            <h4>We Put Together a Proposal</h4>
+                            <p>We'll come back with a format recommendation, lineup concept, and pricing. Usually within a few days.</p>
+                        </li>
+                        <li class="step reveal">
+                            <span class="step-num">3</span>
+                            <h4>We Handle the Rest</h4>
+                            <p>Once we're aligned, we take it from there. You show up, enjoy the show, take the credit.</p>
+                        </li>
+                    </ol>
+
+                    <div class="book-cta reveal">
+                        <h3 class="display display-sm">Ready to host a <em>memorable event?</em></h3>
+                        <a href="get-in-touch.html" class="btn btn-cream">Get in Touch <span aria-hidden="true">&rarr;</span></a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===================== FOOTER ===================== -->
+            <footer class="site-footer">
+                <div class="wrap">
+                    <div class="footer-signoff reveal">
+                        <img src="graphic assets/Headquarters Comedy/Headquarters Comedy.Logo.Wide.png" alt="Headquarters Comedy" class="footer-logo" loading="lazy" width="1943" height="582">
+                        <p class="footer-tagline">Funny, <em>at scale.</em></p>
+                    </div>
+
+                    <div class="footer-connect">
+                        <p class="eyebrow">Connect and Follow</p>
+                        <div class="socials">
+                            <a href="https://headquarterscomedy.beehiiv.com/" target="_blank" rel="noopener" aria-label="Newsletter" id="footer-newsletter">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            </a>
+                            <a href="https://www.instagram.com/headquarterscomedy/" target="_blank" rel="noopener" aria-label="Instagram" id="footer-instagram">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                            </a>
+                            <a href="https://www.tiktok.com/@headquarterscomedy" target="_blank" rel="noopener" aria-label="TikTok" id="footer-tiktok">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z"/></svg>
+                            </a>
+                            <a href="https://www.youtube.com/channel/UCed2HPvJnyLooOvQ2tu14Aw" target="_blank" rel="noopener" aria-label="YouTube" id="footer-youtube">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                            </a>
+                            <a href="https://x.com/hq_comedy" target="_blank" rel="noopener" aria-label="X (Twitter)" id="footer-x">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                            </a>
+                            <a href="https://www.linkedin.com/company/headquarters-comedy/" target="_blank" rel="noopener" aria-label="LinkedIn" id="footer-linkedin">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-grid">
+                        <div class="link-group">
+                            <h4>Headquarters</h4>
+                            <ul>
+                                <li><a href="#about">About</a></li>
+                                <li><a href="#tickets">Tickets</a></li>
+                                <li><a href="#book">Book a Show</a></li>
+                            </ul>
+                        </div>
+                        <div class="link-group">
+                            <h4>Content</h4>
+                            <ul>
+                                <li><a href="https://www.youtube.com/channel/UCed2HPvJnyLooOvQ2tu14Aw" target="_blank" rel="noopener">YouTube</a></li>
+                                <li><a href="https://www.instagram.com/headquarterscomedy/" target="_blank" rel="noopener">Instagram</a></li>
+                                <li><a href="https://www.tiktok.com/@headquarterscomedy" target="_blank" rel="noopener">TikTok</a></li>
+                            </ul>
+                        </div>
+                        <div class="link-group">
+                            <h4>Connect</h4>
+                            <ul>
+                                <li><a href="https://headquarterscomedy.beehiiv.com/" target="_blank" rel="noopener">Newsletter</a></li>
+                                <li><a href="https://www.linkedin.com/company/headquarters-comedy/" target="_blank" rel="noopener">LinkedIn</a></li>
+                                <li><a href="https://x.com/hq_comedy" target="_blank" rel="noopener">X</a></li>
+                            </ul>
+                        </div>
+                        <div class="link-group">
+                            <h4>Business</h4>
+                            <ul>
+                                <li><a href="get-in-touch.html">Get in Touch</a></li>
+                                <li><a href="https://www.worldcorpinternational.com" target="_blank" rel="noopener">WorldCorp International</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="footer-bottom">
+                        <p>&copy; 2026 Headquarters Comedy. All rights reserved.</p>
+                        <a href="#top" class="text-link">Back to top <span aria-hidden="true">&uarr;</span></a>
+                    </div>
+                </div>
+            </footer>
+        </div>
     </main>
 
-    <script src="scripts/app.js"></script>
+    <div class="grain" aria-hidden="true"></div>
+    <script src="scripts/home.js"></script>
 </body>
 </html>

@@ -2,12 +2,12 @@
 :root {
     --primary-color: #000;
     --secondary-color: #fff;
-    --accent-color: #dc2626;
-    --text-color: #e4e4e4;
-    --text-secondary: #8a8a8a;
-    --background-color: #060606;
-    --background-secondary: #131313;
-    --border-color: #232323;
+    --accent-color: #c2472f;
+    --text-color: #f2e8d5;
+    --text-secondary: #a89a82;
+    --background-color: #0d0a07;
+    --background-secondary: #15100b;
+    --border-color: #2d2016;
     --success-color: #22c55e;
     --warning-color: #f59e0b;
     --error-color: #ef4444;
@@ -754,10 +754,10 @@ a:hover {
 }
 
 .mute-toggle-btn:hover {
-    background: rgba(220, 38, 38, 0.9);
+    background: rgba(194, 71, 47, 0.9);
     border-color: var(--accent-color);
     transform: scale(1.1);
-    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
+    box-shadow: 0 4px 15px rgba(194, 71, 47, 0.4);
 }
 
 .mute-toggle-btn:active {
@@ -805,10 +805,10 @@ a:hover {
 }
 
 .play-pause-btn:hover {
-    background: rgba(220, 38, 38, 0.9);
+    background: rgba(194, 71, 47, 0.9);
     border-color: var(--accent-color);
     transform: scale(1.1);
-    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
+    box-shadow: 0 4px 15px rgba(194, 71, 47, 0.4);
 }
 
 .play-pause-btn:active {
@@ -1784,8 +1784,8 @@ iframe[data-test-id="beehiiv-embed"] {
     white-space: nowrap;
     position: relative;
     border-top: 3px solid var(--accent-color);
-    border-bottom: 2px solid rgba(220, 38, 38, 0.3);
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.5), inset 0 2px 4px rgba(220, 38, 38, 0.1);
+    border-bottom: 2px solid rgba(194, 71, 47, 0.3);
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.5), inset 0 2px 4px rgba(194, 71, 47, 0.1);
 }
 
 .stock-ticker::before {
@@ -1838,11 +1838,11 @@ iframe[data-test-id="beehiiv-embed"] {
 }
 
 .ticker-item.sponsor-ad {
-    background: linear-gradient(90deg, rgba(220, 38, 38, 0.2), rgba(220, 38, 38, 0.1));
+    background: linear-gradient(90deg, rgba(194, 71, 47, 0.2), rgba(194, 71, 47, 0.1));
     color: var(--accent-color);
     font-weight: 700;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(220, 38, 38, 0.3);
+    border: 1px solid rgba(194, 71, 47, 0.3);
 }
 
 /* Mobile Ticker Optimizations */
@@ -1917,14 +1917,14 @@ iframe[data-test-id="beehiiv-embed"] {
     border-radius: 50%;
     background: linear-gradient(135deg, var(--accent-color), #991b1b);
     padding: 8px;
-    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
+    box-shadow: 0 4px 15px rgba(194, 71, 47, 0.4);
     animation: hq-spin 8s linear infinite;
     transition: all 0.3s ease;
 }
 
 .hq-ticker-icon:hover {
     animation: hq-spin-fast 2s linear infinite;
-    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.6);
+    box-shadow: 0 6px 20px rgba(194, 71, 47, 0.6);
 }
 
 @keyframes hq-spin {
@@ -2021,7 +2021,7 @@ iframe[data-test-id="beehiiv-embed"] {
     padding: var(--spacing-3);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
-    background: rgba(220, 38, 38, 0.05);
+    background: rgba(194, 71, 47, 0.05);
     font-weight: bold;
     margin-bottom: var(--spacing-4);
 }
@@ -2035,7 +2035,7 @@ iframe[data-test-id="beehiiv-embed"] {
 .portfolio-summary {
     margin-bottom: var(--spacing-4);
     padding: var(--spacing-3);
-    background: rgba(220, 38, 38, 0.05);
+    background: rgba(194, 71, 47, 0.05);
     border-radius: var(--border-radius);
     border-left: 3px solid var(--accent-color);
 }
@@ -2082,7 +2082,7 @@ iframe[data-test-id="beehiiv-embed"] {
 }
 
 .coverage-philosophy .philosophy-item {
-    background: linear-gradient(135deg, var(--background-secondary) 0%, rgba(220, 38, 38, 0.05) 100%);
+    background: linear-gradient(135deg, var(--background-secondary) 0%, rgba(194, 71, 47, 0.05) 100%);
     padding: var(--spacing-8);
     border-radius: var(--border-radius-lg);
     border: 2px solid var(--border-color);
@@ -2112,9 +2112,9 @@ iframe[data-test-id="beehiiv-embed"] {
 
 .coverage-philosophy .philosophy-item:hover {
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 12px 30px rgba(220, 38, 38, 0.3);
+    box-shadow: 0 12px 30px rgba(194, 71, 47, 0.3);
     border-color: var(--accent-color);
-    background: linear-gradient(135deg, var(--background-secondary) 0%, rgba(220, 38, 38, 0.1) 100%);
+    background: linear-gradient(135deg, var(--background-secondary) 0%, rgba(194, 71, 47, 0.1) 100%);
 }
 
 .coverage-philosophy .philosophy-item:hover::before {
@@ -2130,7 +2130,7 @@ iframe[data-test-id="beehiiv-embed"] {
 
 .coverage-philosophy .philosophy-item:hover .philosophy-icon {
     transform: scale(1.15) rotateY(10deg);
-    filter: drop-shadow(0 6px 12px rgba(220, 38, 38, 0.4));
+    filter: drop-shadow(0 6px 12px rgba(194, 71, 47, 0.4));
 }
 
 .coverage-philosophy .philosophy-item h3 {
@@ -2214,12 +2214,12 @@ iframe[data-test-id="beehiiv-embed"] {
 
 /* Sponsors Section */
 .sponsors-section {
-    background: linear-gradient(135deg, var(--background-secondary) 0%, rgba(220, 38, 38, 0.05) 100%);
+    background: linear-gradient(135deg, var(--background-secondary) 0%, rgba(194, 71, 47, 0.05) 100%);
     padding: var(--spacing-8);
     border-radius: var(--border-radius-lg);
     border: 2px solid var(--accent-color);
     margin-bottom: var(--spacing-6);
-    box-shadow: 0 8px 25px rgba(220, 38, 38, 0.15);
+    box-shadow: 0 8px 25px rgba(194, 71, 47, 0.15);
 }
 
 .sponsors-section h3 {
@@ -2271,9 +2271,9 @@ iframe[data-test-id="beehiiv-embed"] {
 }
 
 .sponsor-slide:hover {
-    background: rgba(220, 38, 38, 0.1);
+    background: rgba(194, 71, 47, 0.1);
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(220, 38, 38, 0.2);
+    box-shadow: 0 8px 20px rgba(194, 71, 47, 0.2);
 }
 
 .sponsor-slide:hover img {
@@ -2338,7 +2338,7 @@ section {
     transition: background 0.2s ease;
 }
 
-.view-all:hover { background: rgba(220, 38, 38, 0.1); }
+.view-all:hover { background: rgba(194, 71, 47, 0.1); }
 
 .website-button {
     background: linear-gradient(135deg, var(--accent-color), #991b1b);
@@ -2349,7 +2349,7 @@ section {
     border-radius: var(--border-radius);
     text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+    box-shadow: 0 4px 12px rgba(194, 71, 47, 0.3);
     border: 2px solid transparent;
     display: inline-flex;
     align-items: center;
@@ -2362,7 +2362,7 @@ section {
 .website-button:hover {
     background: linear-gradient(135deg, #991b1b, var(--accent-color));
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(220, 38, 38, 0.4);
+    box-shadow: 0 6px 16px rgba(194, 71, 47, 0.4);
     color: #fff;
 }
 
@@ -3113,7 +3113,7 @@ section {
     text-align: center;
     overflow: hidden;
     background:
-        radial-gradient(ellipse 60% 50% at 50% 0%, rgba(220, 38, 38, 0.18) 0%, rgba(220, 38, 38, 0) 70%),
+        radial-gradient(ellipse 60% 50% at 50% 0%, rgba(194, 71, 47, 0.18) 0%, rgba(194, 71, 47, 0) 70%),
         var(--background-color);
 }
 
@@ -3156,13 +3156,13 @@ section {
     cursor: pointer;
     appearance: none;
     transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    box-shadow: 0 4px 20px rgba(220, 38, 38, 0.35);
+    box-shadow: 0 4px 20px rgba(194, 71, 47, 0.35);
 }
 
 .pitch-btn:hover {
     background: #b91c1c;
     transform: translateY(-2px);
-    box-shadow: 0 8px 28px rgba(220, 38, 38, 0.45);
+    box-shadow: 0 8px 28px rgba(194, 71, 47, 0.45);
 }
 
 .pitch-btn.ghost {
@@ -3354,7 +3354,7 @@ section {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: rgba(220, 38, 38, 0.12);
+    background: rgba(194, 71, 47, 0.12);
     color: var(--accent-color);
     display: flex;
     align-items: center;
@@ -3399,7 +3399,7 @@ section {
     width: 56px;
     height: 56px;
     border-radius: var(--border-radius);
-    background: rgba(220, 38, 38, 0.12);
+    background: rgba(194, 71, 47, 0.12);
     color: var(--accent-color);
     display: flex;
     align-items: center;
@@ -3470,7 +3470,7 @@ section {
     width: 56px;
     height: 56px;
     border-radius: var(--border-radius);
-    background: rgba(220, 38, 38, 0.12);
+    background: rgba(194, 71, 47, 0.12);
     color: var(--accent-color);
     display: flex;
     align-items: center;
@@ -3546,7 +3546,7 @@ section {
     text-align: center;
     padding: var(--spacing-20) 0;
     background:
-        radial-gradient(ellipse 60% 80% at 50% 100%, rgba(220, 38, 38, 0.16) 0%, rgba(220, 38, 38, 0) 70%),
+        radial-gradient(ellipse 60% 80% at 50% 100%, rgba(194, 71, 47, 0.16) 0%, rgba(194, 71, 47, 0) 70%),
         var(--background-color);
     border-top: 1px solid var(--border-color);
 }
@@ -3669,7 +3669,7 @@ section {
     height: 56px;
     margin: 0 auto var(--spacing-5);
     border-radius: 50%;
-    background: rgba(220, 38, 38, 0.12);
+    background: rgba(194, 71, 47, 0.12);
     color: var(--accent-color);
     display: flex;
     align-items: center;
