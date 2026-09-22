@@ -22,9 +22,10 @@ footer.footer {
     z-index: 2;
 }
 
-/* Book a Show follows the newsletter band; restore its top rule */
-#book {
-    border-top: 1px solid var(--border-color);
+/* The wrappers are only anchors; don't let the global section padding
+   put black bands between About, Tickets and Book a Show */
+.home-section {
+    padding: 0;
 }
 
 /* Connect and Follow sits above the footer now, not over the hero */
