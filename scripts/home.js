@@ -3,6 +3,7 @@
  * - Highlights the nav link for the section in view
  * - Closes the mobile menu after tapping a section link
  * - Pauses the hero video once the page has scrolled over it
+ * - Shrinks the hero video into a rounded card as you scroll
  */
 (function () {
     'use strict';
@@ -57,8 +58,30 @@
         observer.observe(spacer);
     }
 
+    // Shrink the pinned hero into a rounded card over the first screen of
+    // scroll, while the About section rises over it.
+    function setupHeroShrink() {
+        const hero = document.querySelector('.hero-fullscreen');
+        if (!hero || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        let ticking = false;
+        const update = () => {
+            ticking = false;
+            const progress = Math.min(Math.max(window.scrollY / (window.innerHeight * 0.8), 0), 1);
+            hero.style.setProperty('--hero-shrink', progress.toFixed(3));
+        };
+
+        window.addEventListener('scroll', () => {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(update);
+        }, { passive: true });
+        window.addEventListener('resize', update);
+        update();
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
-        [setupActiveNav, setupMobileMenuLinks, setupHeroPause].forEach((fn) => {
+        [setupActiveNav, setupMobileMenuLinks, setupHeroPause, setupHeroShrink].forEach((fn) => {
             try { fn(); } catch (error) { console.error(error); }
         });
     });

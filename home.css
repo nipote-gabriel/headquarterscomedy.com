@@ -28,6 +28,49 @@ footer.footer {
     padding: 0;
 }
 
+/* Hero video shrinks into a rounded card as the page scrolls over it.
+   home.js drives --hero-shrink from 0 (full screen) to 1 (card). */
+.hero-fullscreen {
+    transform: translateZ(0) scale(calc(1 - var(--hero-shrink, 0) * 0.16));
+    border-radius: calc(var(--hero-shrink, 0) * 28px);
+    will-change: transform;
+}
+
+/* Next Show card with the mailing-list signup on top */
+.show-card.show-card-with-signup {
+    flex-direction: column;
+}
+
+.show-card.show-card-with-signup:hover {
+    transform: none;
+}
+
+.show-card-signup {
+    padding: 36px 36px 32px;
+    border-bottom: 1px dashed var(--border-color);
+    text-align: center;
+}
+
+.show-card-signup h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.show-card-signup p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 0 auto 24px;
+    max-width: 540px;
+}
+
+@media (max-width: 700px) {
+    .show-card-signup {
+        padding: 28px 24px 24px;
+    }
+}
+
 /* Connect and Follow sits above the footer now, not over the hero */
 .home-sections .connect-overlay {
     border-top: 1px solid var(--border-color);
@@ -304,37 +347,9 @@ footer.footer {
     display: block;
 }
 
-/* ── Newsletter section ─────────────────────────── */
-.newsletter-section {
-    padding: 80px 0;
-    border-radius: 0;
-    border: none;
-    margin-bottom: 0;
-    background-color: var(--background-secondary) !important;
-    position: relative;
-    z-index: 1;
-}
-
 footer.footer {
     position: relative;
     z-index: 1;
-}
-
-.newsletter-inner {
-    max-width: 540px;
-}
-
-.newsletter-inner h2 {
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
-    font-weight: 700;
-    margin-bottom: 12px;
-}
-
-.newsletter-inner p {
-    color: var(--text-secondary);
-    font-size: 1rem;
-    line-height: 1.7;
-    margin-bottom: 28px;
 }
 
 /* ── Responsive ─────────────────────────────────── */
