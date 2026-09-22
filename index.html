@@ -137,7 +137,7 @@
                             </div>
                             <div class="split-content">
                                 <p class="pitch-body">Headquarters Comedy is an industrial manufacturer of humor, based in New York City.</p>
-                                <p class="pitch-body">In addition to our own live shows and content, Headquarters helps people &amp; brands bring humor and memorability into their speeches, presentations, content, and events.</p>
+                                <p class="pitch-body">In addition to our own live shows and projects, Headquarters helps brands &amp; people bring humor and memorability into their content, events, speeches, and presentations.</p>
                             </div>
                         </div>
                     </section>
@@ -250,7 +250,40 @@
                     <!-- Next Show -->
                     <section class="shows-section">
                         <div class="container">
-                            <div class="show-card">
+                            <div class="show-card show-card-with-signup" id="newsletter">
+                                <!-- Newsletter Signup -->
+                                <div class="show-card-signup">
+                                    <h2>Never miss a show.</h2>
+                                    <p>Subscribe and be the first to know about our shows before tickets sell out.</p>
+                                    <div class="newsletter-embed-container" id="beehiiv-embed-target"></div>
+                                    <script>
+                                        (function () {
+                                            var target = document.getElementById('beehiiv-embed-target');
+                                            if (!target) return;
+                                            function load() {
+                                                if (target.dataset.loaded) return;
+                                                target.dataset.loaded = 'true';
+                                                var script = document.createElement('script');
+                                                script.async = true;
+                                                script.fetchPriority = 'high';
+                                                script.src = 'https://subscribe-forms.beehiiv.com/v3/loader.js';
+                                                script.setAttribute('data-beehiiv-form', '706c65d7-5d79-4d82-8b9e-1068d15b6c2e');
+                                                target.appendChild(script);
+                                            }
+                                            if ('IntersectionObserver' in window) {
+                                                var observer = new IntersectionObserver(function (entries) {
+                                                    if (entries[0].isIntersecting) {
+                                                        load();
+                                                        observer.disconnect();
+                                                    }
+                                                }, { rootMargin: '600px' });
+                                                observer.observe(target);
+                                            } else {
+                                                load();
+                                            }
+                                        })();
+                                    </script>
+                                </div>
                                 <div class="show-card-left">
                                     <div class="show-date-block">
                                         <div class="show-date-month">Oct</div>
@@ -286,43 +319,6 @@
                         <div class="photo-section-overlay"></div>
                     </div>
 
-                    <!-- Newsletter Signup -->
-                    <section class="newsletter-section" id="newsletter">
-                        <div class="container">
-                            <div class="newsletter-inner">
-                                <h2>Never miss a show.</h2>
-                                <p>Subscribe and be the first to know about our shows before tickets sell out.</p>
-                                <div class="newsletter-embed-container" id="beehiiv-embed-target"></div>
-                                <script>
-                                    (function () {
-                                        var target = document.getElementById('beehiiv-embed-target');
-                                        if (!target) return;
-                                        function load() {
-                                            if (target.dataset.loaded) return;
-                                            target.dataset.loaded = 'true';
-                                            var script = document.createElement('script');
-                                            script.async = true;
-                                            script.fetchPriority = 'high';
-                                            script.src = 'https://subscribe-forms.beehiiv.com/v3/loader.js';
-                                            script.setAttribute('data-beehiiv-form', '706c65d7-5d79-4d82-8b9e-1068d15b6c2e');
-                                            target.appendChild(script);
-                                        }
-                                        if ('IntersectionObserver' in window) {
-                                            var observer = new IntersectionObserver(function (entries) {
-                                                if (entries[0].isIntersecting) {
-                                                    load();
-                                                    observer.disconnect();
-                                                }
-                                            }, { rootMargin: '600px' });
-                                            observer.observe(target);
-                                        } else {
-                                            load();
-                                        }
-                                    })();
-                                </script>
-                            </div>
-                        </div>
-                    </section>
 
 
             </section>
