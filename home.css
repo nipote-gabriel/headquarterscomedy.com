@@ -1,0 +1,475 @@
+/* Home: About, Tickets and Book a Show merged into one scrolling page.
+   Component styles below are carried over verbatim from the old
+   live-shows.html and brands.html inline <style> blocks. */
+
+/* Content that rises over the pinned hero video */
+.home-sections {
+    position: relative;
+    z-index: 2;
+    background: var(--background-color);
+    border-top: 1px solid var(--border-color);
+}
+
+/* Land section jumps just below the fixed nav */
+.home-section,
+#newsletter {
+    scroll-margin-top: var(--nav-height);
+}
+
+.home-sections + .footer,
+footer.footer {
+    position: relative;
+    z-index: 2;
+}
+
+/* Book a Show follows the newsletter band; restore its top rule */
+#book {
+    border-top: 1px solid var(--border-color);
+}
+
+/* Connect and Follow sits above the footer now, not over the hero */
+.home-sections .connect-overlay {
+    border-top: 1px solid var(--border-color);
+    padding-top: var(--spacing-12);
+}
+
+/* ── From live-shows.html ── */
+/* ── Photo sections ─────────────────────────────── */
+.photo-section {
+    position: relative;
+    height: 70vh;
+    min-height: 360px;
+    background-size: cover;
+    background-attachment: fixed;
+    z-index: 1;
+}
+
+.photo-section-img {
+    position: relative;
+    overflow: hidden;
+}
+
+.photo-section-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.photo-section-spacer {
+    display: none;
+}
+
+.photo-section-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.shows-section {
+    background-color: var(--background-color);
+    position: relative;
+    z-index: 1;
+}
+
+/* Caption overlaid on photo */
+.photo-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 52px 0;
+    color: #fff;
+    z-index: 2;
+}
+
+.photo-caption h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 12px;
+    line-height: 1.1;
+}
+
+.photo-caption p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+/* ── Shows section ──────────────────────────────── */
+.shows-section {
+    padding: 60px 0 60px;
+}
+
+.show-card {
+    display: flex;
+    align-items: stretch;
+    background: var(--background-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.show-card:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+    transform: translateY(-2px);
+}
+
+.show-next-label {
+    display: none;
+}
+
+.show-card-left {
+    display: grid;
+    grid-template-columns: 148px 1fr auto;
+    gap: 0;
+    align-items: stretch;
+    flex: 1;
+}
+
+.show-date-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    background: linear-gradient(160deg, rgba(220, 38, 38, 0.14), rgba(220, 38, 38, 0.04));
+    border-right: 1px dashed var(--border-color);
+    padding: 28px 16px;
+}
+
+.show-date-month {
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--accent-color);
+}
+
+.show-date-day {
+    font-size: 3.4rem;
+    font-weight: 800;
+    color: var(--secondary-color);
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.show-date-year {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    letter-spacing: 1px;
+}
+
+.show-info {
+    padding: 28px 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.show-info-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    align-self: flex-start;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent-color);
+    background: rgba(220, 38, 38, 0.12);
+    border: 1px solid rgba(220, 38, 38, 0.3);
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+}
+
+.show-info-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.25);
+}
+
+.show-info h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    line-height: 1.25;
+    margin-bottom: 8px;
+}
+
+.show-venue {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 14px;
+}
+
+.show-venue svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    color: var(--accent-color);
+}
+
+.show-venue a {
+    color: var(--text-secondary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.show-venue a:hover {
+    color: var(--secondary-color);
+}
+
+.show-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.show-tag {
+    font-size: 0.62rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-color);
+    background: rgba(220, 38, 38, 0.1);
+    border: 1px solid rgba(220, 38, 38, 0.22);
+    padding: 3px 10px;
+    border-radius: 4px;
+}
+
+.show-action {
+    display: flex;
+    align-items: center;
+    padding: 0 36px 0 0;
+    border-left: 1px dashed var(--border-color);
+    margin-left: -1px;
+}
+
+.show-action a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 30px;
+    margin-left: 36px;
+    background: var(--accent-color);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: 0 8px 24px rgba(220, 38, 38, 0.3);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.show-action a:hover {
+    background: #b91c1c;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(220, 38, 38, 0.45);
+}
+
+.show-action a svg {
+    width: 14px;
+    height: 14px;
+}
+
+.show-card-hero {
+    width: 260px;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.show-card-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+
+/* ── Newsletter section ─────────────────────────── */
+.newsletter-section {
+    padding: 80px 0;
+    border-radius: 0;
+    border: none;
+    margin-bottom: 0;
+    background-color: var(--background-secondary) !important;
+    position: relative;
+    z-index: 1;
+}
+
+footer.footer {
+    position: relative;
+    z-index: 1;
+}
+
+.newsletter-inner {
+    max-width: 540px;
+}
+
+.newsletter-inner h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.newsletter-inner p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+
+/* ── Responsive ─────────────────────────────────── */
+@media (max-width: 768px) {
+    .photo-section {
+        background-attachment: scroll;
+    }
+
+    .photo-section-img,
+    .photo-section {
+        height: 52vh;
+        min-height: 320px;
+    }
+
+    .photo-section-img {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+    }
+
+    .photo-section-spacer {
+        display: none;
+    }
+}
+
+@media (max-width: 700px) {
+    .show-card {
+        flex-direction: column;
+    }
+
+    .show-card-left {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .show-date-block {
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+        border-right: none;
+        border-bottom: 1px dashed var(--border-color);
+        padding: 20px 24px;
+    }
+
+    .show-date-day { font-size: 2.2rem; }
+
+    .show-info {
+        padding: 24px 24px 20px;
+    }
+
+    .show-action {
+        padding: 0 24px 24px;
+        border-left: none;
+    }
+
+    .show-action a {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ── From brands.html ── */
+.process-section {
+    margin-top: var(--spacing-20);
+    margin-bottom: var(--spacing-16);
+}
+
+.process-steps {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-6);
+    margin-top: var(--spacing-10);
+}
+
+/* Connecting line threading behind the cards, visible only in the gaps */
+.process-steps::before {
+    content: '';
+    position: absolute;
+    top: 66px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--border-color);
+}
+
+.process-step {
+    position: relative;
+    z-index: 1;
+    padding: var(--spacing-8) var(--spacing-6) var(--spacing-6);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--border-color);
+    background: var(--background-color);
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.process-step:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-4px);
+}
+
+.step-number {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(220, 38, 38, 0.12);
+    border: 1.5px solid rgba(220, 38, 38, 0.35);
+    color: var(--accent-color);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-5);
+}
+
+.process-step h4 {
+    color: var(--secondary-color);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-2);
+}
+
+.process-step p {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.7;
+}
+
+@media (max-width: 800px) {
+    .process-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .process-steps::before {
+        display: none;
+    }
+}

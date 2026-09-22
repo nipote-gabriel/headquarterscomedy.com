@@ -54,7 +54,7 @@ class HQCSite {
             this.config = {
                 site_name: "Headquarters Comedy",
                 tagline: "Comedy, chaos, and the occasional bad idea.",
-                accent_color: "#c2472f",
+                accent_color: "#dc2626",
                 on_air: false,
                 social: { x: "#", youtube: "#", spotify: "#", apple: "#" }
             };
