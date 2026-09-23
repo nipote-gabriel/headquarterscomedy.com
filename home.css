@@ -94,6 +94,44 @@ footer.footer {
     }
 }
 
+/* Concept Ventures: logo wall under the Projects cards. Tiles are
+   pre-rendered at 600x360 with the logos scaled to the same visual size. */
+.concept-ventures {
+    margin-top: var(--spacing-12);
+}
+
+.concept-ventures-title {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-4);
+}
+
+.concept-ventures-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--spacing-3);
+}
+
+.concept-ventures-grid img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 5 / 3;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+@media (max-width: 640px) {
+    .concept-ventures-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--spacing-2);
+    }
+}
+
 /* Connect and Follow sits above the footer now, not over the hero */
 .home-sections .connect-overlay {
     border-top: 1px solid var(--border-color);
