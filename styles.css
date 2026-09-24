@@ -144,8 +144,7 @@ a:hover {
 
 .brand-icon {
     height: 32px;
-    width: 32px;
-    border-radius: 50%;
+    width: auto;
 }
 
 .brand-title {
