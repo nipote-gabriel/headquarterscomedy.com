@@ -31,9 +31,19 @@ footer.footer {
 /* Hero video shrinks into a rounded card as the page scrolls over it.
    home.js drives --hero-shrink from 0 (full screen) to 1 (card). */
 .hero-fullscreen {
+    /* Start below the fixed nav so it doesn't cover the top of the frame */
+    top: var(--nav-height);
     transform: translateZ(0) scale(calc(1 - var(--hero-shrink, 0) * 0.16));
     border-radius: calc(var(--hero-shrink, 0) * 28px);
     will-change: transform;
+}
+
+/* Show the whole 16:9 frame on every screen instead of cropping it to
+   fill the window; the video's captions and title cards sit near the
+   edges. Any letterbox bars blend into the hero's black background. */
+.hero-bg-video {
+    object-fit: contain;
+    background: #000;
 }
 
 /* Next Show card with the mailing-list signup on top */
