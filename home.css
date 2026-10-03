@@ -104,103 +104,27 @@ footer.footer {
     }
 }
 
-/* Project cards sit under the HQ Universe intro line. Each card is a
-   logo "stage" on top (every logo centred at the same height under a
-   soft spotlight) with the name, blurb and a red link line below. */
+/* Project cards and the logo wall span the full content width below the
+   HQ Universe label/intro (the split column was leaving the left empty).
+   Cards keep the site's standard portfolio-item styling. */
+.hq-universe-full {
+    margin-top: var(--spacing-10);
+}
+
 #hq-universe-grid {
-    margin-top: var(--spacing-8);
-    gap: var(--spacing-5);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--spacing-6);
 }
 
-#hq-universe-grid .portfolio-item {
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    overflow: hidden;
-    background: #0d0d0d;
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-lg);
-    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-}
-
-#hq-universe-grid .portfolio-item:hover {
-    transform: translateY(-4px);
-    border-color: rgba(220, 38, 38, 0.6);
-    box-shadow: 0 18px 40px -18px rgba(220, 38, 38, 0.45), var(--shadow-lg);
-}
-
-#hq-universe-grid .portfolio-logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 168px;
-    margin: 0;
-    background:
-        radial-gradient(120% 90% at 50% 0%, rgba(255, 255, 255, 0.07), transparent 65%),
-        #151515;
-    border-bottom: 1px solid var(--border-color);
-}
-
-#hq-universe-grid .portfolio-logo-img {
-    height: 84px;
-    width: auto;
-    max-width: 80%;
-    object-fit: contain;
-    /* drop-shadow follows each logo's shape (round WorldCorp, rounded badges) */
-    filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.55));
-    transition: transform 0.35s ease;
-}
-
-#hq-universe-grid .portfolio-item:hover .portfolio-logo-img {
-    transform: scale(1.05);
-}
-
-#hq-universe-grid .portfolio-info {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    padding: var(--spacing-6);
-}
-
-#hq-universe-grid .company-name {
-    font-size: 1.3rem;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    margin-bottom: var(--spacing-3);
-}
-
-#hq-universe-grid .company-description {
-    font-size: var(--font-size-sm);
-    line-height: 1.7;
-    margin-bottom: var(--spacing-6);
-}
-
-.project-cta {
-    margin-top: auto;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: var(--font-size-xs);
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--accent-color);
-}
-
-.project-cta span {
-    transition: transform 0.25s ease;
-}
-
-#hq-universe-grid .portfolio-item:hover .project-cta span {
-    transform: translate(3px, -3px);
+@media (max-width: 1100px) {
+    #hq-universe-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 @media (max-width: 640px) {
-    #hq-universe-grid .portfolio-logo {
-        height: 140px;
-    }
-    #hq-universe-grid .portfolio-logo-img {
-        height: 72px;
+    #hq-universe-grid {
+        grid-template-columns: 1fr;
     }
 }
 
