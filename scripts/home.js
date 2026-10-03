@@ -5,6 +5,7 @@
  * - Pauses the hero video once the page has scrolled over it
  * - Shrinks the hero video into a rounded card as you scroll
  * - Shows the welcome popup (newsletter + next show tickets)
+ * - Handles the native newsletter signup forms
  */
 (function () {
     'use strict';
@@ -112,18 +113,7 @@
             showLink.remove();
         }
 
-        const formTarget = document.getElementById('hq-popup-form');
         let lastFocus = null;
-
-        const loadForm = () => {
-            if (!formTarget || formTarget.dataset.loaded) return;
-            formTarget.dataset.loaded = 'true';
-            const script = document.createElement('script');
-            script.async = true;
-            script.src = 'https://subscribe-forms.beehiiv.com/v3/loader.js';
-            script.setAttribute('data-beehiiv-form', '706c65d7-5d79-4d82-8b9e-1068d15b6c2e');
-            formTarget.appendChild(script);
-        };
 
         const open = () => {
             lastFocus = document.activeElement;
@@ -149,23 +139,76 @@
             if (e.key === 'Escape' && !popup.hidden) close();
         });
 
-        // Close a moment after a successful Beehiiv signup
-        window.addEventListener('message', (event) => {
-            if (popup.hidden) return;
-            const d = event.data;
-            const ok = (typeof d === 'string' && /success|subscribe/i.test(d)) ||
-                (d && typeof d === 'object' && ((typeof d.type === 'string' && /success|subscribe/i.test(d.type)) || d.status === 'success' || d.subscribed === true));
-            if (ok) setTimeout(close, 1500);
-        });
+        // Close a moment after a successful signup from the popup form
+        popup.addEventListener('hq:subscribed', () => setTimeout(close, 1800));
 
-        // Start loading the signup form right away (while the popup is still
-        // hidden) so it's ready by the time the popup appears.
-        loadForm();
         setTimeout(open, forceOpen ? 0 : 500);
     }
 
+    // Native newsletter forms (popup + Next Show card). Posts to our own
+    // /api/subscribe, which adds the email in Beehiiv. If that endpoint
+    // isn't set up or fails, open the Beehiiv signup page instead so the
+    // signup isn't lost.
+    function setupSubscribeForms() {
+        const FALLBACK_URL = 'https://headquarterscomedy.beehiiv.com/subscribe';
+        const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        document.querySelectorAll('form.hq-subscribe').forEach((form) => {
+            const input = form.querySelector('input[type="email"]');
+            const button = form.querySelector('button[type="submit"]');
+            const status = form.querySelector('.hq-subscribe-status');
+            const say = (msg, kind) => {
+                status.textContent = msg;
+                form.dataset.state = kind || '';
+            };
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email = input.value.trim();
+                if (!EMAIL_RE.test(email)) {
+                    say('Please enter a valid email address.', 'error');
+                    input.focus();
+                    return;
+                }
+
+                button.disabled = true;
+                say('Subscribing…', 'busy');
+                try {
+                    const r = await fetch('/api/subscribe', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email })
+                    });
+                    if (r.ok) {
+                        say("You're in. Check your inbox.", 'success');
+                        input.value = '';
+                        form.dispatchEvent(new CustomEvent('hq:subscribed', { bubbles: true }));
+                        return;
+                    }
+                    if (r.status === 400) {
+                        say('Please enter a valid email address.', 'error');
+                        return;
+                    }
+                    throw new Error('subscribe failed: ' + r.status);
+                } catch (err) {
+                    // A link rather than window.open: browsers block tabs opened after an await
+                    status.textContent = '';
+                    const a = document.createElement('a');
+                    a.href = FALLBACK_URL + '?email=' + encodeURIComponent(email);
+                    a.target = '_blank';
+                    a.rel = 'noopener';
+                    a.textContent = 'Finish signing up on our newsletter page ↗';
+                    status.appendChild(a);
+                    form.dataset.state = 'fallback';
+                } finally {
+                    button.disabled = false;
+                }
+            });
+        });
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
-        [setupActiveNav, setupMobileMenuLinks, setupHeroPause, setupHeroShrink, setupWelcomePopup].forEach((fn) => {
+        [setupActiveNav, setupMobileMenuLinks, setupHeroPause, setupHeroShrink, setupSubscribeForms, setupWelcomePopup].forEach((fn) => {
             try { fn(); } catch (error) { console.error(error); }
         });
     });

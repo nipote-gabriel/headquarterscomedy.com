@@ -30,8 +30,6 @@
     <link rel="stylesheet" href="home.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://subscribe-forms.beehiiv.com">
-    <link rel="preconnect" href="https://subscribe-forms.beehiiv.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -238,34 +236,12 @@
                                         <h2>Never miss a show.</h2>
                                         <p>Subscribe and be the first to know about our shows before tickets sell out.</p>
                                     </div>
-                                    <div class="newsletter-embed-container" id="beehiiv-embed-target"></div>
-                                    <script>
-                                        (function () {
-                                            var target = document.getElementById('beehiiv-embed-target');
-                                            if (!target) return;
-                                            function load() {
-                                                if (target.dataset.loaded) return;
-                                                target.dataset.loaded = 'true';
-                                                var script = document.createElement('script');
-                                                script.async = true;
-                                                script.fetchPriority = 'high';
-                                                script.src = 'https://subscribe-forms.beehiiv.com/v3/loader.js';
-                                                script.setAttribute('data-beehiiv-form', '706c65d7-5d79-4d82-8b9e-1068d15b6c2e');
-                                                target.appendChild(script);
-                                            }
-                                            if ('IntersectionObserver' in window) {
-                                                var observer = new IntersectionObserver(function (entries) {
-                                                    if (entries[0].isIntersecting) {
-                                                        load();
-                                                        observer.disconnect();
-                                                    }
-                                                }, { rootMargin: '600px' });
-                                                observer.observe(target);
-                                            } else {
-                                                load();
-                                            }
-                                        })();
-                                    </script>
+                                    <form class="hq-subscribe" novalidate>
+                                        <label class="visually-hidden" for="subscribe-email-tickets">Email address</label>
+                                        <input class="hq-subscribe-input" id="subscribe-email-tickets" type="email" name="email" placeholder="name@email.com" autocomplete="email" required>
+                                        <button class="hq-subscribe-btn" type="submit">Subscribe</button>
+                                        <p class="hq-subscribe-status" role="status" aria-live="polite"></p>
+                                    </form>
                                 </div>
                                 <div class="show-card-left">
                                     <div class="show-date-block">
@@ -482,7 +458,12 @@
             <img src="graphic assets/HQ Universe Logos/hq-agency-oval.png" alt="" class="hq-popup-logo" width="144" height="84">
             <h2 class="hq-popup-title" id="hq-popup-title">Subscribe to<br>Headquarters Comedy</h2>
             <p class="hq-popup-text">Never miss a show. Get first dibs on tickets and funny things delivered to your inbox.</p>
-            <div class="hq-popup-form newsletter-embed-container" id="hq-popup-form"></div>
+            <form class="hq-subscribe hq-popup-form" novalidate>
+                <label class="visually-hidden" for="subscribe-email-popup">Email address</label>
+                <input class="hq-subscribe-input" id="subscribe-email-popup" type="email" name="email" placeholder="name@email.com" autocomplete="email" required>
+                <button class="hq-subscribe-btn" type="submit">Subscribe</button>
+                <p class="hq-subscribe-status" role="status" aria-live="polite"></p>
+            </form>
 
             <a class="hq-popup-show" id="hq-popup-show" target="_blank" rel="noopener">
                 <span class="hq-popup-show-date">
