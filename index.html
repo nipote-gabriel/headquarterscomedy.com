@@ -474,6 +474,33 @@
         </div>
     </footer>
 
+    <!-- Welcome popup: newsletter signup + next show tickets.
+         Show details are copied from the Next Show card by home.js. -->
+    <div class="hq-popup" id="hq-popup" role="dialog" aria-modal="true" aria-labelledby="hq-popup-title" hidden>
+        <div class="hq-popup-card">
+            <button class="hq-popup-close" type="button" aria-label="Close">&times;</button>
+            <img src="graphic assets/HQ Universe Logos/hq-agency-oval.png" alt="" class="hq-popup-logo" width="144" height="84">
+            <h2 class="hq-popup-title" id="hq-popup-title">Subscribe to<br>Headquarters Comedy</h2>
+            <p class="hq-popup-text">Never miss a show. Get first dibs on tickets and funny things delivered to your inbox.</p>
+            <div class="hq-popup-form newsletter-embed-container" id="hq-popup-form"></div>
+
+            <a class="hq-popup-show" id="hq-popup-show" href="#tickets" target="_blank" rel="noopener">
+                <span class="hq-popup-show-date">
+                    <span class="hq-popup-show-month" data-show="month"></span>
+                    <span class="hq-popup-show-day" data-show="day"></span>
+                </span>
+                <span class="hq-popup-show-info">
+                    <span class="hq-popup-show-label">Next Show</span>
+                    <span class="hq-popup-show-venue" data-show="venue"></span>
+                    <span class="hq-popup-show-time" data-show="time"></span>
+                </span>
+                <span class="hq-popup-show-cta">Get Tickets <span aria-hidden="true">&rarr;</span></span>
+            </a>
+
+            <button class="hq-popup-skip" type="button">No thanks, I never miss a show.</button>
+        </div>
+    </div>
+
     <script src="scripts/app.js"></script>
     <script src="scripts/home.js"></script>
 </body>
