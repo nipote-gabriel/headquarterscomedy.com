@@ -204,10 +204,11 @@ footer.footer {
     }
 }
 
-/* Concept Ventures: logo wall under the Projects cards. Tiles are
-   pre-rendered at 600x360 with the logos scaled to the same visual size. */
+/* "Backed by the best" logo wall: no tile fills, logos centred in equal
+   cells separated by hairlines (gap shows the grid background through),
+   all logos one muted grey and the same visual weight. */
 .concept-ventures {
-    margin-top: var(--spacing-12);
+    margin-top: var(--spacing-16);
 }
 
 .concept-ventures-title {
@@ -216,28 +217,46 @@ footer.footer {
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--text-secondary);
-    margin-bottom: var(--spacing-4);
+    text-align: center;
+    margin-bottom: var(--spacing-6);
 }
 
 .concept-ventures-grid {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--spacing-3);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--border-color);
+}
+
+.concept-ventures-grid li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 140px;
+    padding: var(--spacing-6) var(--spacing-3);
+    background: var(--background-color);
 }
 
 .concept-ventures-grid img {
     display: block;
-    width: 100%;
+    max-width: 92%;
     height: auto;
-    aspect-ratio: 5 / 3;
-    border-radius: var(--border-radius);
-    border: 1px solid var(--border-color);
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
 }
 
-@media (max-width: 640px) {
+.concept-ventures-grid li:hover img {
+    opacity: 1;
+}
+
+@media (max-width: 900px) {
     .concept-ventures-grid {
-        gap: var(--spacing-2);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .concept-ventures-grid li {
+        min-height: 120px;
     }
 }
 
