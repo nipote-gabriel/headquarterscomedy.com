@@ -126,7 +126,6 @@
         };
 
         const open = () => {
-            loadForm();
             lastFocus = document.activeElement;
             popup.hidden = false;
             document.body.style.overflow = 'hidden';
@@ -159,7 +158,10 @@
             if (ok) setTimeout(close, 1500);
         });
 
-        setTimeout(open, forceOpen ? 0 : 1500);
+        // Start loading the signup form right away (while the popup is still
+        // hidden) so it's ready by the time the popup appears.
+        loadForm();
+        setTimeout(open, forceOpen ? 0 : 500);
     }
 
     document.addEventListener('DOMContentLoaded', () => {
