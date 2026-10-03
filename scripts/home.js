@@ -4,6 +4,7 @@
  * - Closes the mobile menu after tapping a section link
  * - Pauses the hero video once the page has scrolled over it
  * - Shrinks the hero video into a rounded card as you scroll
+ * - Shows the welcome popup (newsletter + next show tickets)
  */
 (function () {
     'use strict';
@@ -80,8 +81,89 @@
         update();
     }
 
+    // Welcome popup: shown shortly after arrival, then not again for a week
+    // once dismissed or subscribed. Show details are copied from the Next
+    // Show card so there's only one place to update them.
+    function setupWelcomePopup() {
+        const popup = document.getElementById('hq-popup');
+        if (!popup) return;
+
+        const KEY = 'hqPopupDismissedAt';
+        const SNOOZE_MS = 7 * 24 * 60 * 60 * 1000;
+        const read = () => { try { return Number(localStorage.getItem(KEY)) || 0; } catch (e) { return 0; } };
+        const write = () => { try { localStorage.setItem(KEY, String(Date.now())); } catch (e) { /* storage blocked */ } };
+
+        const forceOpen = /[?&]popup=1\b/.test(location.search);
+        if (!forceOpen && Date.now() - read() < SNOOZE_MS) return;
+
+        // Fill the next-show strip from the page's Next Show card
+        const card = document.querySelector('.show-card');
+        const showLink = document.getElementById('hq-popup-show');
+        const text = (sel) => (card && card.querySelector(sel) ? card.querySelector(sel).textContent.trim() : '');
+        const ticketA = card && card.querySelector('.show-action a');
+        if (card && ticketA) {
+            const venue = card.querySelector('.show-info h3');
+            popup.querySelector('[data-show="month"]').textContent = text('.show-date-month');
+            popup.querySelector('[data-show="day"]').textContent = text('.show-date-day');
+            popup.querySelector('[data-show="venue"]').textContent = venue ? venue.innerText.replace(/\s*\n\s*/g, ', ') : '';
+            popup.querySelector('[data-show="time"]').textContent = text('.show-venue');
+            showLink.href = ticketA.href;
+        } else if (showLink) {
+            showLink.remove();
+        }
+
+        const formTarget = document.getElementById('hq-popup-form');
+        let lastFocus = null;
+
+        const loadForm = () => {
+            if (!formTarget || formTarget.dataset.loaded) return;
+            formTarget.dataset.loaded = 'true';
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://subscribe-forms.beehiiv.com/v3/loader.js';
+            script.setAttribute('data-beehiiv-form', '706c65d7-5d79-4d82-8b9e-1068d15b6c2e');
+            formTarget.appendChild(script);
+        };
+
+        const open = () => {
+            loadForm();
+            lastFocus = document.activeElement;
+            popup.hidden = false;
+            document.body.style.overflow = 'hidden';
+            requestAnimationFrame(() => popup.classList.add('is-open'));
+            popup.querySelector('.hq-popup-close').focus({ preventScroll: true });
+        };
+
+        const close = () => {
+            write();
+            popup.classList.remove('is-open');
+            document.body.style.overflow = '';
+            setTimeout(() => { popup.hidden = true; }, 300);
+            if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
+        };
+
+        popup.querySelector('.hq-popup-close').addEventListener('click', close);
+        popup.querySelector('.hq-popup-skip').addEventListener('click', close);
+        if (showLink) showLink.addEventListener('click', () => write());
+        popup.addEventListener('click', (e) => { if (e.target === popup) close(); });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !popup.hidden) close();
+        });
+
+        // Close a moment after a successful Beehiiv signup
+        window.addEventListener('message', (event) => {
+            if (popup.hidden) return;
+            const d = event.data;
+            const ok = (typeof d === 'string' && /success|subscribe/i.test(d)) ||
+                (d && typeof d === 'object' && ((typeof d.type === 'string' && /success|subscribe/i.test(d.type)) || d.status === 'success' || d.subscribed === true));
+            if (ok) setTimeout(close, 1500);
+        });
+
+        setTimeout(open, forceOpen ? 0 : 1500);
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
-        [setupActiveNav, setupMobileMenuLinks, setupHeroPause, setupHeroShrink].forEach((fn) => {
+        [setupActiveNav, setupMobileMenuLinks, setupHeroPause, setupHeroShrink, setupWelcomePopup].forEach((fn) => {
             try { fn(); } catch (error) { console.error(error); }
         });
     });
