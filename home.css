@@ -104,6 +104,11 @@ footer.footer {
     }
 }
 
+/* Project cards sit under the HQ Universe intro line */
+#hq-universe-grid {
+    margin-top: var(--spacing-6);
+}
+
 /* Concept Ventures: logo wall under the Projects cards. Tiles are
    pre-rendered at 600x360 with the logos scaled to the same visual size. */
 .concept-ventures {
