@@ -295,7 +295,7 @@ footer.footer {
     align-items: center;
     justify-content: center;
     gap: 2px;
-    background: linear-gradient(160deg, rgba(220, 38, 38, 0.14), rgba(220, 38, 38, 0.04));
+    background: linear-gradient(160deg, rgba(255, 90, 31, 0.14), rgba(255, 90, 31, 0.04));
     border-right: 1px dashed var(--border-color);
     padding: 28px 16px;
 }
@@ -340,8 +340,8 @@ footer.footer {
     text-transform: uppercase;
     letter-spacing: 1.5px;
     color: var(--accent-color);
-    background: rgba(220, 38, 38, 0.12);
-    border: 1px solid rgba(220, 38, 38, 0.3);
+    background: rgba(255, 90, 31, 0.12);
+    border: 1px solid rgba(255, 90, 31, 0.3);
     padding: 4px 10px;
     border-radius: 20px;
     margin-bottom: 12px;
@@ -353,7 +353,7 @@ footer.footer {
     height: 6px;
     border-radius: 50%;
     background: var(--accent-color);
-    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.25);
+    box-shadow: 0 0 0 3px rgba(255, 90, 31, 0.25);
 }
 
 .show-info h3 {
@@ -403,8 +403,8 @@ footer.footer {
     text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--accent-color);
-    background: rgba(220, 38, 38, 0.1);
-    border: 1px solid rgba(220, 38, 38, 0.22);
+    background: rgba(255, 90, 31, 0.1);
+    border: 1px solid rgba(255, 90, 31, 0.22);
     padding: 3px 10px;
     border-radius: 4px;
 }
@@ -424,20 +424,20 @@ footer.footer {
     padding: 14px 30px;
     margin-left: 36px;
     background: var(--accent-color);
-    color: #fff;
+    color: var(--on-accent);
     font-weight: 700;
     font-size: 0.9rem;
     border-radius: var(--border-radius);
     text-decoration: none;
     white-space: nowrap;
-    box-shadow: 0 8px 24px rgba(220, 38, 38, 0.3);
+    box-shadow: 0 8px 24px rgba(255, 90, 31, 0.3);
     transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
 .show-action a:hover {
-    background: #b91c1c;
+    background: var(--accent-hover);
     transform: translateY(-2px);
-    box-shadow: 0 10px 28px rgba(220, 38, 38, 0.45);
+    box-shadow: 0 10px 28px rgba(255, 90, 31, 0.45);
 }
 
 .show-action a svg {
@@ -570,8 +570,8 @@ footer.footer {
     width: 52px;
     height: 52px;
     border-radius: 50%;
-    background: rgba(220, 38, 38, 0.12);
-    border: 1.5px solid rgba(220, 38, 38, 0.35);
+    background: rgba(255, 90, 31, 0.12);
+    border: 1.5px solid rgba(255, 90, 31, 0.35);
     color: var(--accent-color);
     font-size: var(--font-size-xl);
     font-weight: 700;
