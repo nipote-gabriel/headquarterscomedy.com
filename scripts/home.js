@@ -180,7 +180,9 @@
                         body: JSON.stringify({ email })
                     });
                     if (r.ok) {
-                        say("You're in. Check your inbox.", 'success');
+                        const data = await r.json().catch(() => ({}));
+                        const pending = /validating|pending/i.test(data.status || '');
+                        say(pending ? 'Almost there. Check your inbox to confirm.' : "You're in. Check your inbox.", 'success');
                         input.value = '';
                         form.dispatchEvent(new CustomEvent('hq:subscribed', { bubbles: true }));
                         return;

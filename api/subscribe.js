@@ -10,13 +10,25 @@
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 module.exports = async function handler(req, res) {
+    const apiKey = process.env.BEEHIIV_API_KEY;
+    const publicationId = process.env.BEEHIIV_PUBLICATION_ID;
+
+    // Visiting /api/subscribe in a browser shows whether it's set up
+    // (never reveals the values themselves).
+    if (req.method === 'GET') {
+        return res.status(200).json({
+            ok: true,
+            has_api_key: Boolean(apiKey),
+            has_publication_id: Boolean(publicationId),
+            publication_id_looks_right: Boolean(publicationId && /^pub_[0-9a-f-]{36}$/i.test(publicationId.trim()))
+        });
+    }
+
     if (req.method !== 'POST') {
-        res.setHeader('Allow', 'POST');
+        res.setHeader('Allow', 'GET, POST');
         return res.status(405).json({ ok: false, error: 'method_not_allowed' });
     }
 
-    const apiKey = process.env.BEEHIIV_API_KEY;
-    const publicationId = process.env.BEEHIIV_PUBLICATION_ID;
     if (!apiKey || !publicationId) {
         return res.status(503).json({ ok: false, error: 'not_configured' });
     }
@@ -31,10 +43,10 @@ module.exports = async function handler(req, res) {
     }
 
     try {
-        const r = await fetch(`https://api.beehiiv.com/v2/publications/${encodeURIComponent(publicationId)}/subscriptions`, {
+        const r = await fetch(`https://api.beehiiv.com/v2/publications/${encodeURIComponent(publicationId.trim())}/subscriptions`, {
             method: 'POST',
             headers: {
-                'Authorization': `Bearer ${apiKey}`,
+                'Authorization': `Bearer ${apiKey.trim()}`,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
@@ -47,12 +59,24 @@ module.exports = async function handler(req, res) {
             })
         });
 
+        const text = await r.text().catch(() => '');
         if (!r.ok) {
-            const detail = await r.text().catch(() => '');
-            console.error('Beehiiv subscribe failed', r.status, detail.slice(0, 500));
-            return res.status(502).json({ ok: false, error: 'upstream_error' });
+            console.error('Beehiiv subscribe failed', r.status, text.slice(0, 500));
+            // Pass Beehiiv's status and error message through for debugging;
+            // it never contains the API key.
+            let message = '';
+            try {
+                const j = JSON.parse(text);
+                message = (j.errors && j.errors[0] && (j.errors[0].message || j.errors[0].code)) || j.message || '';
+            } catch (e) { /* not JSON */ }
+            return res.status(502).json({ ok: false, error: 'upstream_error', beehiiv_status: r.status, beehiiv_message: String(message).slice(0, 200) });
         }
-        return res.status(200).json({ ok: true });
+
+        // Beehiiv returns the subscription; "validating"/"pending" means it's
+        // waiting on double opt-in (the subscriber must click the email).
+        let status = '';
+        try { status = (JSON.parse(text).data || {}).status || ''; } catch (e) { /* ignore */ }
+        return res.status(200).json({ ok: true, status });
     } catch (err) {
         console.error('Beehiiv subscribe error', err);
         return res.status(502).json({ ok: false, error: 'upstream_error' });
