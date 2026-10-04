@@ -521,13 +521,6 @@ footer.footer {
     }
 }
 
-/* Connect and Follow sits above the footer now, not over the hero */
-.home-sections .connect-overlay {
-    border-top: 1px solid var(--border-color);
-    padding-top: var(--spacing-12);
-    padding-bottom: var(--spacing-12);
-}
-
 /* Footer ends with the big HQ wordmark, edge to edge and flush with the
    bottom of the page (the footer's own bottom padding is dropped). */
 footer.footer {
