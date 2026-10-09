@@ -5,13 +5,14 @@
 // Environment Variables):
 //   BEEHIIV_API_KEY         - Beehiiv → Settings → API → create key
 //   BEEHIIV_PUBLICATION_ID  - same page, looks like "pub_xxxxxxxx-..."
+//                             (BEEHIIV_PUB_ID also works)
 // The key stays on the server; it never reaches the browser.
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 module.exports = async function handler(req, res) {
     const apiKey = process.env.BEEHIIV_API_KEY;
-    const publicationId = process.env.BEEHIIV_PUBLICATION_ID;
+    const publicationId = process.env.BEEHIIV_PUBLICATION_ID || process.env.BEEHIIV_PUB_ID;
 
     // Visiting /api/subscribe in a browser shows whether it's set up
     // (never reveals the values themselves).
