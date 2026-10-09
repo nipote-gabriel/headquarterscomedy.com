@@ -191,7 +191,20 @@
                         say('Please enter a valid email address.', 'error');
                         return;
                     }
-                    throw new Error('subscribe failed: ' + r.status);
+                    // Turn the failure into a short, readable reason for debugging
+                    const data = await r.json().catch(() => ({}));
+                    let reason = 'HTTP ' + r.status;
+                    if (data.error === 'not_configured') {
+                        reason = 'signup not connected to Beehiiv yet (API key / publication ID missing in Vercel)';
+                    } else if (data.error === 'upstream_error') {
+                        reason = 'Beehiiv rejected it' + (data.beehiiv_status ? ' (' + data.beehiiv_status + ')' : '') +
+                            (data.beehiiv_message ? ': ' + data.beehiiv_message : '');
+                    } else if (r.status === 404 || r.status === 405) {
+                        reason = 'signup function not deployed (HTTP ' + r.status + ')';
+                    }
+                    const e = new Error(reason);
+                    e.reason = reason;
+                    throw e;
                 } catch (err) {
                     // A link rather than window.open: browsers block tabs opened after an await
                     status.textContent = '';
@@ -201,6 +214,11 @@
                     a.rel = 'noopener';
                     a.textContent = 'Finish signing up on our newsletter page ↗';
                     status.appendChild(a);
+                    const why = document.createElement('small');
+                    why.className = 'hq-subscribe-why';
+                    why.textContent = 'Why: ' + (err.reason || 'network error, could not reach /api/subscribe');
+                    status.appendChild(why);
+                    console.warn('Newsletter signup fell back to Beehiiv page:', why.textContent);
                     form.dataset.state = 'fallback';
                 } finally {
                     button.disabled = false;
