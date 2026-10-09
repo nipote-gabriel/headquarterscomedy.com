@@ -181,7 +181,7 @@
                     });
                     if (r.ok) {
                         const data = await r.json().catch(() => ({}));
-                        const pending = /validating|pending/i.test(data.status || '');
+                        const pending = /pending/i.test(data.status || '');
                         say(pending ? 'Almost there. Check your inbox to confirm.' : "You're in. Check your inbox.", 'success');
                         input.value = '';
                         form.dispatchEvent(new CustomEvent('hq:subscribed', { bubbles: true }));
