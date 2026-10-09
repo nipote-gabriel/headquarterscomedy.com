@@ -281,6 +281,13 @@ footer.footer {
     color: var(--accent-hover);
 }
 
+.hq-subscribe-why {
+    display: block;
+    margin-top: 2px;
+    font-size: var(--font-size-xs);
+    color: var(--text-secondary);
+}
+
 .hq-subscribe-status a {
     color: var(--accent-color);
     font-weight: 600;
