@@ -53,6 +53,7 @@ module.exports = async function handler(req, res) {
             body: JSON.stringify({
                 email,
                 reactivate_existing: true,
+                double_opt_override: 'off',
                 send_welcome_email: true,
                 utm_source: 'headquarterscomedy.com',
                 utm_medium: 'website',
@@ -73,8 +74,9 @@ module.exports = async function handler(req, res) {
             return res.status(502).json({ ok: false, error: 'upstream_error', beehiiv_status: r.status, beehiiv_message: String(message).slice(0, 200) });
         }
 
-        // Beehiiv returns the subscription; "validating"/"pending" means it's
-        // waiting on double opt-in (the subscriber must click the email).
+        // Beehiiv returns the subscription; "pending" means it's
+        // waiting on double opt-in. "validating" is just Beehiiv checking the
+        // address, which counts as subscribed.
         let status = '';
         try { status = (JSON.parse(text).data || {}).status || ''; } catch (e) { /* ignore */ }
         return res.status(200).json({ ok: true, status });
