@@ -673,6 +673,10 @@ footer.footer {
     letter-spacing: -1px;
 }
 
+.show-date-day.show-date-tbd {
+    font-size: 2.6rem;
+}
+
 .show-date-year {
     font-size: 0.8rem;
     font-weight: 600;
@@ -866,6 +870,7 @@ footer.footer {
     }
 
     .show-date-day { font-size: 2.2rem; }
+    .show-date-day.show-date-tbd { font-size: 1.8rem; }
 
     .show-info {
         padding: 24px 24px 20px;
