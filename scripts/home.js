@@ -43,7 +43,7 @@
 
     function setupHeroPause() {
         const video = document.getElementById('hero-video');
-        const spacer = document.querySelector('.hero-scroll-spacer');
+        const spacer = document.querySelector('.hero-tx');
         if (!video || !spacer || !('IntersectionObserver' in window)) return;
 
         let pausedByScroll = false;
