@@ -150,7 +150,7 @@
     // isn't set up or fails, open the Beehiiv signup page instead so the
     // signup isn't lost.
     function setupSubscribeForms() {
-        const FALLBACK_URL = 'https://headquarterscomedy.beehiiv.com/subscribe';
+        const FALLBACK_URL = 'https://incompetencewetrust.beehiiv.com/subscribe';
         const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         document.querySelectorAll('form.hq-subscribe').forEach((form) => {
