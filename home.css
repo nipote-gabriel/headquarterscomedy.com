@@ -257,7 +257,7 @@ footer.footer {
     display: block;
     width: 100%;
     height: auto;
-    border-radius: 0;
+    border-radius: 12px; /* project logos stay rounded; everything else is square */
 }
 
 @media (max-width: 900px) {
